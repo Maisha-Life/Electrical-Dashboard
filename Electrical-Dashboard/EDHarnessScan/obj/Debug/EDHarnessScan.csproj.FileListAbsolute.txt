@@ -1,0 +1,11 @@
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDHarnessScan\bin\Debug\EDHarnessScan.exe.config
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDHarnessScan\bin\Debug\EDHarnessScan.exe
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDHarnessScan\bin\Debug\EDHarnessScan.pdb
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDHarnessScan\obj\Debug\EDHarnessScan.csprojAssemblyReference.cache
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDHarnessScan\obj\Debug\App.g.cs
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDHarnessScan\obj\Debug\EDHarnessScan_MarkupCompile.cache
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDHarnessScan\obj\Debug\EDHarnessScan.Properties.Resources.resources
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDHarnessScan\obj\Debug\EDHarnessScan.csproj.GenerateResource.cache
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDHarnessScan\obj\Debug\EDHarnessScan.csproj.CoreCompileInputs.cache
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDHarnessScan\obj\Debug\EDHarnessScan.exe
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDHarnessScan\obj\Debug\EDHarnessScan.pdb

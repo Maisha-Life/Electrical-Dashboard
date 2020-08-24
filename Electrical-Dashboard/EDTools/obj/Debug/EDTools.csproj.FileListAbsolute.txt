@@ -1,0 +1,11 @@
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDTools\bin\Debug\EDTools.exe.config
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDTools\bin\Debug\EDTools.exe
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDTools\bin\Debug\EDTools.pdb
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDTools\obj\Debug\EDTools.csprojAssemblyReference.cache
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDTools\obj\Debug\App.g.cs
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDTools\obj\Debug\EDTools_MarkupCompile.cache
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDTools\obj\Debug\EDTools.Properties.Resources.resources
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDTools\obj\Debug\EDTools.csproj.GenerateResource.cache
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDTools\obj\Debug\EDTools.csproj.CoreCompileInputs.cache
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDTools\obj\Debug\EDTools.exe
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDTools\obj\Debug\EDTools.pdb

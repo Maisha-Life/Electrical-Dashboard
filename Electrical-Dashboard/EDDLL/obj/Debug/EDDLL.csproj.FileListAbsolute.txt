@@ -1,0 +1,12 @@
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDDLL\obj\Debug\EDDLL.csproj.CoreCompileInputs.cache
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDDLL\obj\Debug\EDDLL.csprojAssemblyReference.cache
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDDLL\obj\Debug\Resources\Styles\AutoScrollListBoxDictionary.baml
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDDLL\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDDLL\obj\Debug\EDDLL_MarkupCompile.cache
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDDLL\obj\Debug\EDDLL_MarkupCompile.lref
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDDLL\obj\Debug\EDDLL.dll
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDDLL\obj\Debug\EDDLL.pdb
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDDLL\bin\Debug\EDDLL.dll
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDDLL\bin\Debug\EDDLL.pdb
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDDLL\obj\Debug\Resources\Styles\MVVMCustomResources.baml
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDDLL\obj\Debug\EDDLL.g.resources

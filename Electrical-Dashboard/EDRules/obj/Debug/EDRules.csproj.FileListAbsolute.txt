@@ -1,0 +1,11 @@
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDRules\bin\Debug\EDRules.exe.config
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDRules\bin\Debug\EDRules.exe
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDRules\bin\Debug\EDRules.pdb
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDRules\obj\Debug\EDRules.csprojAssemblyReference.cache
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDRules\obj\Debug\App.g.cs
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDRules\obj\Debug\EDRules_MarkupCompile.cache
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDRules\obj\Debug\EDRules.Properties.Resources.resources
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDRules\obj\Debug\EDRules.csproj.GenerateResource.cache
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDRules\obj\Debug\EDRules.csproj.CoreCompileInputs.cache
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDRules\obj\Debug\EDRules.exe
+C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDRules\obj\Debug\EDRules.pdb
