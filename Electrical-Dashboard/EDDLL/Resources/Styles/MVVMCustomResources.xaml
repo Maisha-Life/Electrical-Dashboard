@@ -780,7 +780,7 @@
 
                 <Grid Grid.Row="0" Background="#FF383838">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="35"/>
+                        <ColumnDefinition Width="32"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
