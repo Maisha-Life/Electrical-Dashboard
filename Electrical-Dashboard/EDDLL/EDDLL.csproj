@@ -65,6 +65,7 @@
     <Compile Include="Resources\Styles\CustomWindowStyle\WindowMinimizeCommand.cs" />
     <Compile Include="Resources\Styles\CustomWindowStyle\WindowResizeBehavior.cs" />
     <Compile Include="Utilities\ThreeNOne.cs" />
+    <Compile Include="ViewModels\BaseVM.cs" />
     <Compile Include="ViewModels\Ticket\vmTicket.cs" />
     <Compile Include="Utilities\CatiaLink.cs" />
     <Compile Include="Utilities\ObservableObject.cs" />
