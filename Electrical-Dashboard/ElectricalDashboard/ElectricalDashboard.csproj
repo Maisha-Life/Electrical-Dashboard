@@ -150,10 +150,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\Images\" />
-    <Folder Include="Resources\Styles\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\EDDLL\EDDLL.csproj">
       <Project>{14b85f57-0bc3-42f4-b919-e7805dc45ab1}</Project>
@@ -171,6 +168,16 @@
       <Project>{105de5e7-fc3f-4e7b-abac-5dd0331413c0}</Project>
       <Name>EDTools</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TabIcons\harnessRepositoryIcon.png" />
+    <Resource Include="Resources\Images\TabIcons\harnessScanIcon.png" />
+    <Resource Include="Resources\Images\TabIcons\homeIcon.png" />
+    <Resource Include="Resources\Images\TabIcons\reportsIcon.png" />
+    <Resource Include="Resources\Images\TabIcons\rulesIcon.png" />
+    <Resource Include="Resources\Images\TabIcons\settingsIcon.png" />
+    <Resource Include="Resources\Images\TabIcons\ticketsIcon.png" />
+    <Resource Include="Resources\Images\TabIcons\toolsIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -57,6 +57,7 @@ C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\Electrica
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\bin\Debug\EDTools.pdb
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\bin\Debug\EDTools.exe.config
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\ElectricalDashboard.csprojAssemblyReference.cache
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\MainWindow.baml
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\App.g.cs
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\MainWindow.g.cs
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\MainView.g.cs
@@ -70,7 +71,6 @@ C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\Electrica
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\ElectricalDashboard_MarkupCompile.cache
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\ElectricalDashboard_MarkupCompile.lref
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\App.baml
-C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\MainWindow.baml
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\MainView.baml
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\RoleViews\Home\Home_Admin.baml
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\RoleViews\Home\Home_Assignee.baml
@@ -86,3 +86,4 @@ C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\Electrica
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\ElectricalDashboard.csproj.CopyComplete
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\ElectricalDashboard.exe
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\ElectricalDashboard.pdb
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\GeneratedInternalTypeHelper.g.cs

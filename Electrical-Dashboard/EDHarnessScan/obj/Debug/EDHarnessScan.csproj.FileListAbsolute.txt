@@ -12,16 +12,9 @@ C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDHarnessScan\obj\Debug\EDHarne
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\bin\Debug\EDHarnessScan.exe.config
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\bin\Debug\EDHarnessScan.exe
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\bin\Debug\EDHarnessScan.pdb
-C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\EDHarnessScan.csprojAssemblyReference.cache
-C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\App.g.cs
-C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\EDHarnessScan_MarkupCompile.cache
-C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\EDHarnessScan.Properties.Resources.resources
-C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\EDHarnessScan.csproj.GenerateResource.cache
-C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\EDHarnessScan.csproj.CoreCompileInputs.cache
-C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\EDHarnessScan.exe
-C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\EDHarnessScan.pdb
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\bin\Debug\EDDLL.dll
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\bin\Debug\EDDLL.pdb
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\EDHarnessScan.csprojAssemblyReference.cache
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\Views\GenerateReportView.g.cs
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\Views\HarnessScanView.g.cs
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\Views\HarnessSelectView.g.cs
@@ -36,6 +29,8 @@ C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarness
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\Views\SubViews\HarnessScan\ToolsScannedInformationView.g.cs
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\Views\SubViews\HarnessSelect\HarnessOV.g.cs
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\Views\SubViews\HarnessSelect\ProgramOV.g.cs
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\App.g.cs
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\EDHarnessScan_MarkupCompile.cache
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\EDHarnessScan_MarkupCompile.lref
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\Views\GenerateReportView.baml
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\Views\HarnessScanView.baml
@@ -52,4 +47,9 @@ C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarness
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\Views\SubViews\HarnessSelect\HarnessOV.baml
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\Views\SubViews\HarnessSelect\ProgramOV.baml
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\EDHarnessScan.g.resources
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\EDHarnessScan.Properties.Resources.resources
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\EDHarnessScan.csproj.GenerateResource.cache
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\EDHarnessScan.csproj.CoreCompileInputs.cache
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\EDHarnessScan.csproj.CopyComplete
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\EDHarnessScan.exe
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\EDHarnessScan.pdb

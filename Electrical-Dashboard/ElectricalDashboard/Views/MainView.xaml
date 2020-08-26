@@ -6,7 +6,55 @@
              xmlns:local="clr-namespace:ElectricalDashboard.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <BitmapImage x:Key="homeIcon" UriSource="/Resources\Images\TabIcons\homeIcon.png"/>
+        <BitmapImage x:Key="toolsIcon" UriSource="/Resources\Images\TabIcons\toolsIcon.png"/>
+        <BitmapImage x:Key="rulesIcon" UriSource="/Resources\Images\TabIcons\rulesIcon.png"/>
+        <BitmapImage x:Key="harnessScanIcon" UriSource="/Resources\Images\TabIcons\harnessScanIcon.png"/>
+        <BitmapImage x:Key="harnessRepositoryIcon" UriSource="/Resources\Images\TabIcons\harnessRepositoryIcon.png"/>
+        <BitmapImage x:Key="reportsIcon" UriSource="/Resources\Images\TabIcons\reportsIcon.png"/>
+        <BitmapImage x:Key="ticketsIcon" UriSource="/Resources\Images\TabIcons\ticketsIcon.png"/>
+        <BitmapImage x:Key="settingsIcon" UriSource="/Resources\Images\TabIcons\settingsIcon.png"/>
+
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource customButtonWithContent}"/>
+    </UserControl.Resources>
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="0"/>
+        </Grid.RowDefinitions>
+
+        <TabControl Style="{StaticResource defaultTabControl}" 
+                    TabStripPlacement="Left" 
+                    Background="{StaticResource DefaultBackground}" 
+                    SelectedIndex="{Binding SelectedTabIndex}">
+            <TabControl.Resources>
+                <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource cstmTab}"/>
+            </TabControl.Resources>
+            <TabItem Header="Home" Tag="{StaticResource homeIcon}">
+
+            </TabItem>
+            <TabItem Header="Tools" Tag="{StaticResource toolsIcon}">
+
+            </TabItem>
+            <TabItem Header="Rules" Tag="{StaticResource rulesIcon}">
+
+            </TabItem>
+            <TabItem Header="Harness Scan" Tag="{StaticResource harnessScanIcon}">
+
+            </TabItem>
+            <TabItem Header="Harness Repository" Tag="{StaticResource harnessRepositoryIcon}">
+
+            </TabItem>
+            <TabItem Header="Reports" Tag="{StaticResource reportsIcon}">
+
+            </TabItem>
+            <TabItem Header="Tickets" Tag="{StaticResource ticketsIcon}">
+
+            </TabItem>
+            <TabItem Header="Settings" Tag="{StaticResource settingsIcon}">
+
+            </TabItem>
+        </TabControl>
     </Grid>
 </UserControl>

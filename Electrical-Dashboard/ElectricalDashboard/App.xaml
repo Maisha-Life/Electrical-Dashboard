@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:ElectricalDashboard"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/EDDLL;component/Resources/Styles/MVVMCustomResources.xaml"/>
+                <ResourceDictionary Source="/EDDLL;component/Resources/Styles/AutoScrollListBoxDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

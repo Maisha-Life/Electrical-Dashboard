@@ -85,10 +85,5 @@
   <ItemGroup>
     <Folder Include="Resources\Images\" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\Styles\CustomWindowStyle\Images\close.png" />
-    <Content Include="Resources\Styles\CustomWindowStyle\Images\minimize.png" />
-    <Content Include="Resources\Styles\CustomWindowStyle\Images\restore.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
