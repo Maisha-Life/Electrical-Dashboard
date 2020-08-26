@@ -151,11 +151,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Resources\Images\" />
     <Folder Include="Resources\Styles\" />
-    <Folder Include="Utilities\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EDDLL\EDDLL.csproj">

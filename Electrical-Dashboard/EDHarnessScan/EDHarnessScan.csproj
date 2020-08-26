@@ -59,8 +59,56 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ViewModels\ModelsVM\vmHarness.cs" />
+    <Compile Include="ViewModels\ModelsVM\vmHarnessScannedRule.cs" />
+    <Compile Include="ViewModels\ModelsVM\vmHarnessSelectRule.cs" />
+    <Compile Include="ViewModels\ModelsVM\vmProgram.cs" />
+    <Compile Include="Views\GenerateReportView.xaml.cs">
+      <DependentUpon>GenerateReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HarnessScanView.xaml.cs">
+      <DependentUpon>HarnessScanView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HarnessSelectView.xaml.cs">
+      <DependentUpon>HarnessSelectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\HarnessCV.xaml.cs">
+      <DependentUpon>HarnessCV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\HarnessEV.xaml.cs">
+      <DependentUpon>HarnessEV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\HarnessRuleFix.xaml.cs">
+      <DependentUpon>HarnessRuleFix.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\HarnessRulesFix.xaml.cs">
+      <DependentUpon>HarnessRulesFix.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\ProgramCV.xaml.cs">
+      <DependentUpon>ProgramCV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\ProgramEV.xaml.cs">
+      <DependentUpon>ProgramEV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubViews\HarnessScan\HarnessInformationView.xaml.cs">
+      <DependentUpon>HarnessInformationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubViews\HarnessScan\RulesSelectedView.xaml.cs">
+      <DependentUpon>RulesSelectedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubViews\HarnessScan\ToolsScannedInformationView.xaml.cs">
+      <DependentUpon>ToolsScannedInformationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubViews\HarnessSelect\HarnessOV.xaml.cs">
+      <DependentUpon>HarnessOV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubViews\HarnessSelect\ProgramOV.xaml.cs">
+      <DependentUpon>ProgramOV.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Harness.cs" />
+    <Compile Include="Models\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -86,12 +134,70 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Resources\Images\" />
-    <Folder Include="Resources\Styles\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\" />
+    <ProjectReference Include="..\EDDLL\EDDLL.csproj">
+      <Project>{14B85F57-0BC3-42F4-B919-E7805DC45AB1}</Project>
+      <Name>EDDLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\GenerateReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HarnessScanView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HarnessSelectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\HarnessCV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\HarnessEV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\HarnessRuleFix.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\HarnessRulesFix.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\ProgramCV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\ProgramEV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubViews\HarnessScan\HarnessInformationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubViews\HarnessScan\RulesSelectedView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubViews\HarnessScan\ToolsScannedInformationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubViews\HarnessSelect\HarnessOV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubViews\HarnessSelect\ProgramOV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDTools\obj\Debug\
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Debug\
 EDTools
 none
 false
 DEBUG;TRACE
-C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDTools\App.xaml
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\App.xaml
+5116420130
 
-
-5524001750
-13-1505183044
-
+11-1120766238
+14-1031569599
+Resources\Styles\ToolsCustomResources.xaml;Views\Popups\Tools_Ticket.xaml;Views\SubViews\Tools_GridView.xaml;Views\SubViews\Tools_ListView.xaml;Views\ToolsView.xaml;
 
 False
 

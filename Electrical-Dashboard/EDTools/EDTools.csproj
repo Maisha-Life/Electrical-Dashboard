@@ -59,6 +59,21 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\Tool.cs" />
+    <Compile Include="ViewModels\MainVM.cs" />
+    <Compile Include="ViewModels\vmTool.cs" />
+    <Compile Include="Views\Popups\Tools_Ticket.xaml.cs">
+      <DependentUpon>Tools_Ticket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubViews\Tools_GridView.xaml.cs">
+      <DependentUpon>Tools_GridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubViews\Tools_ListView.xaml.cs">
+      <DependentUpon>Tools_ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ToolsView.xaml.cs">
+      <DependentUpon>ToolsView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -87,11 +102,35 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Resources\Images\" />
-    <Folder Include="Resources\Styles\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Resources\Styles\ToolsCustomResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\Tools_Ticket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubViews\Tools_GridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubViews\Tools_ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ToolsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EDDLL\EDDLL.csproj">
+      <Project>{14B85F57-0BC3-42F4-B919-E7805DC45AB1}</Project>
+      <Name>EDDLL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

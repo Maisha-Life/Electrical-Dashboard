@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDDLL\obj\Debug\
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Debug\
 EDDLL
 none
 false
@@ -12,9 +12,9 @@ DEBUG;TRACE
 
 2-1238373630
 3-316593888
-24-572135170
+23270224197
 16-1979509176
 Resources\Styles\AutoScrollListBoxDictionary.xaml;Resources\Styles\MVVMCustomResources.xaml;
 
-True
+False
 

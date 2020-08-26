@@ -59,8 +59,38 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ViewModels\MainVM.cs" />
+    <Compile Include="ViewModels\ModelsVM\vmMeasurement.cs" />
+    <Compile Include="ViewModels\ModelsVM\vmMethod.cs" />
+    <Compile Include="ViewModels\ModelsVM\vmParameter.cs" />
+    <Compile Include="ViewModels\ModelsVM\vmRule.cs" />
+    <Compile Include="Views\Popups\Rule_Ticket.xaml.cs">
+      <DependentUpon>Rule_Ticket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RulesView.xaml.cs">
+      <DependentUpon>RulesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Rule\Rule_Admin.xaml.cs">
+      <DependentUpon>Rule_Admin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Rule\Rule_General.xaml.cs">
+      <DependentUpon>Rule_General.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Rule\SubViews\EditViewRule_Admin.xaml.cs">
+      <DependentUpon>EditViewRule_Admin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Rule\SubViews\OverviewRule_Admin.xaml.cs">
+      <DependentUpon>OverviewRule_Admin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Rule\SubViews\OverviewRule_General.xaml.cs">
+      <DependentUpon>OverviewRule_General.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Measurement.cs" />
+    <Compile Include="Models\Method.cs" />
+    <Compile Include="Models\Parameter.cs" />
+    <Compile Include="Models\Rule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -87,11 +117,41 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Resources\Images\" />
-    <Folder Include="Resources\Styles\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\" />
+    <ProjectReference Include="..\EDDLL\EDDLL.csproj">
+      <Project>{14B85F57-0BC3-42F4-B919-E7805DC45AB1}</Project>
+      <Name>EDDLL</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\Popups\Rule_Ticket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RulesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Rule\Rule_Admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Rule\Rule_General.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Rule\SubViews\EditViewRule_Admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Rule\SubViews\OverviewRule_Admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Rule\SubViews\OverviewRule_General.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

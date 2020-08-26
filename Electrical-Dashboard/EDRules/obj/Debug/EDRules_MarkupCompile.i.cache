@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDRules\obj\Debug\
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\
 EDRules
 none
 false
 DEBUG;TRACE
-C:\Users\jmill592\Desktop\ED\ElectricalDashboard\EDRules\App.xaml
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDRules\App.xaml
+71101891991
 
-
-5524001750
-13-1505183044
-
+21-602549422
+14-1031569599
+Views\Popups\Rule_Ticket.xaml;Views\RulesView.xaml;Views\Rule\Rule_Admin.xaml;Views\Rule\Rule_General.xaml;Views\Rule\SubViews\EditViewRule_Admin.xaml;Views\Rule\SubViews\OverviewRule_Admin.xaml;Views\Rule\SubViews\OverviewRule_General.xaml;
 
 False
 
