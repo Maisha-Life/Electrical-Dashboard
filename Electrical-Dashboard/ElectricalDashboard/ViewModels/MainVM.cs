@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElectricalDashboard.ViewModels.ViewsVM
+namespace ElectricalDashboard.ViewModels
 {
-    class SettingsVM
+    public class MainVM 
     {
     }
 }

@@ -184,5 +184,8 @@
     <Resource Include="Resources\Images\TabIcons\ticketsIcon.png" />
     <Resource Include="Resources\Images\TabIcons\toolsIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NewFolder1\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
