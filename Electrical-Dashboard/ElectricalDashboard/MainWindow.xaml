@@ -4,7 +4,7 @@
         xmlns:Views="clr-namespace:ElectricalDashboard.Views"
         
         
-        Title="Electrical Dashboard" Height="450" Width="800"
+        Title="Electrical Dashboard" Height="750" Width="1100"
         Style="{StaticResource customWindow}"
         BorderThickness="2,0,2,2"
         WindowStartupLocation="CenterScreen">

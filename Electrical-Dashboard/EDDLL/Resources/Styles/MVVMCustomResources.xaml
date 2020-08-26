@@ -425,9 +425,9 @@
                             <Setter Property="Background" TargetName="grid" Value="#FF7F7F7F"/>
                         </Trigger>
                         <Trigger Property="Selector.IsSelected" Value="True">
+                            <Setter Property="Opacity" Value=".7"/>
                             <Setter Property="Background" TargetName="grid" Value="{StaticResource DefaultBackground}"/>
-                            <Setter Property="Foreground" TargetName="textBlock" Value="{StaticResource DefaultBorder}"/>
-                            <Setter Property="Margin" TargetName="image" Value="5.5,5.5,4.5,4.5"/>
+                            <Setter Property="Margin" TargetName="image" Value="4,4,6,6"/>
                         </Trigger>
                         <Trigger Property="TabStripPlacement" Value="Left"/>
                         <Trigger Property="IsEnabled" Value="false">
