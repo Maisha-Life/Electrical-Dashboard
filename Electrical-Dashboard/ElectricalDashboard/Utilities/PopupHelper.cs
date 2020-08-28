@@ -2,16 +2,14 @@
 using System.Threading;
 using System.Windows.Threading;
 using System.Windows;
+using ElectricalDashboard.Views;
+using ElectricalDashboard.ViewModels.ViewsVM;
 
-using EDS.Views;
-using EDS.ViewModels.ViewsVM;
-using EDS.ViewModels.ModelsVM;
-
-namespace EDS.Utilities
+namespace ElectricalDashboard.Utilities
 {
     internal class PopupHelper
     {
-        public static PopupMainView PopupView { get; set; }
+        public static PopupView PopupView { get; set; }
 
         public static void SetVisibility(bool status)
         {
@@ -90,50 +88,14 @@ namespace EDS.Utilities
 
             switch (tabIndex)
             {
-                case 0:
-                    PopupView.contactEmail.DataContext = context;
-                    PopupView.overlay.Command = App.PopupVM.ClearPopup;
-                    break;
-                case 1:
-                    PopupView.fixAllRuleOV.DataContext = context;
-                    PopupView.overlay.Command = (context as vmHarnessRule).CancelHarnessFixCommand; //  <<---- not sure what these will be 
-                    break;                                                                //      
-                case 2:                                                                   //  
-                    PopupView.fixAllRulesOV.DataContext = context;                        //  
-                    PopupView.overlay.Command = (context as vmHarness).CancelHarnessFixCommand; // <<---- not sure what these will be 
-                    break;
-                case 3:
-                    PopupView.harnessCV.DataContext = context;
-                    PopupView.overlay.Command = (context as vmHarness).CancelHarnessCommand;
-                    break;
-                case 4:
-                    PopupView.harnessEV.DataContext = context;
-                    PopupView.overlay.Command = (context as vmHarness).CancelHarnessCommand;
-                    break;
-                case 5:
-                    PopupView.programCV.DataContext = context;
-                    PopupView.overlay.Command = (context as vmProgram).CancelProgramCommand;
-                    break;
-                case 6:
-                    PopupView.programEV.DataContext = context;
-                    PopupView.overlay.Command = (context as vmProgram).CancelProgramCommand;
-                    break;
-                case 7:
-                    PopupView.ruleCV.DataContext = context;
-                    PopupView.overlay.Command = (context as vmRuleAll).CancelRuleCommand;
-                    break;
-                case 8:
-                    PopupView.ruleEV.DataContext = context;
-                    PopupView.overlay.Command = (context as vmRuleAll).CancelRuleCommand;
-                    break;
-                case 9:
-                    PopupView.ruleOV.DataContext = context;
-                    PopupView.overlay.Command = (context as vmRuleAll).CancelRuleCommand;
-                    break;
-                case 10:
-                    PopupView.rulesOV.DataContext = context;
-                    PopupView.overlay.Command = (context as vmRuleAll).CancelRuleCommand; // need to change this
-                    break;
+                //case 0:
+                //    PopupView.ticketOV.DataContext = context;
+                //    PopupView.overlay.Command = App.PopupVM.ClearPopup;
+                //    break;
+                //case 1:
+                //    PopupView.fixAllRuleOV.DataContext = context;
+                //    PopupView.overlay.Command = (context as vmHarnessRule).CancelHarnessFixCommand; 
+                //    break;                                                                
             }
         }
     }

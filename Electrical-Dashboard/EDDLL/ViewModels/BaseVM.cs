@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 using EDDLL.Utilities;
 
-namespace EDS.ViewModels
+namespace ElectricalDashboard.ViewModels
 {
     public class BaseVM : ObservableObject, IDisposable
     {

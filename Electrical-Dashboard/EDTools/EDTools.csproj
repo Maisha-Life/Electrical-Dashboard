@@ -62,9 +62,6 @@
     <Compile Include="Models\Tool.cs" />
     <Compile Include="ViewModels\MainVM.cs" />
     <Compile Include="ViewModels\vmTool.cs" />
-    <Compile Include="Views\Popups\Tools_Ticket.xaml.cs">
-      <DependentUpon>Tools_Ticket.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\SubViews\Tools_GridView.xaml.cs">
       <DependentUpon>Tools_GridView.xaml</DependentUpon>
     </Compile>
@@ -106,10 +103,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Resources\Styles\ToolsCustomResources.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Popups\Tools_Ticket.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

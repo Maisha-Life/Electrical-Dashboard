@@ -1,6 +1,6 @@
 ﻿using EDDLL.Tickets;
 using EDDLL.Utilities;
-using EDS.ViewModels;
+using ElectricalDashboard.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

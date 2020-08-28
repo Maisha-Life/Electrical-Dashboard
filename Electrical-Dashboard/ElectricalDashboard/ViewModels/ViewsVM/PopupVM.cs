@@ -1,4 +1,4 @@
-﻿using MVVM.Utilities;
+﻿using EDDLL.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace EDS.ViewModels.ViewsVM
+namespace ElectricalDashboard.ViewModels.ViewsVM
 {
     public class PopupVM : BaseVM
     {

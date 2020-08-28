@@ -1,0 +1,15 @@
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\bin\Release\EDDLL.dll
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\bin\Release\EDDLL.pdb
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\Resources\Styles\AutoScrollListBoxDictionary.baml
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\Views\TicketEV.g.cs
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\Views\TicketOV.g.cs
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\EDDLL_MarkupCompile.cache
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\EDDLL_MarkupCompile.lref
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\Resources\Styles\MVVMCustomResources.baml
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\Views\TicketEV.baml
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\Views\TicketOV.baml
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\EDDLL.g.resources
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\EDDLL.csproj.CoreCompileInputs.cache
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\EDDLL.dll
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\EDDLL.pdb

@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 using EDDLL.Utilities;
 
-namespace EDS.ViewModels
+namespace ElectricalDashboard.ViewModels
 {
     public class vmBase : ObservableObject, IDisposable
     {

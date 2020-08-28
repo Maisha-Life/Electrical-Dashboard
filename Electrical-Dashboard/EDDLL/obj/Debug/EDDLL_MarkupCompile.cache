@@ -4,17 +4,17 @@
 library
 C#
 .cs
-C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Debug\
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Debug\
 EDDLL
 none
 false
 DEBUG;TRACE
 
-2-1238373630
+4863001190
 
-251041775248
+28648327790
 16-1979509176
-Resources\Styles\AutoScrollListBoxDictionary.xaml;Resources\Styles\MVVMCustomResources.xaml;
+Resources\Styles\AutoScrollListBoxDictionary.xaml;Resources\Styles\MVVMCustomResources.xaml;Views\TicketEV.xaml;Views\TicketOV.xaml;
 
-True
+False
 

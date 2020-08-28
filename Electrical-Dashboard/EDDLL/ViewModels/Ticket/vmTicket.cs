@@ -1,4 +1,4 @@
-﻿using EDS.ViewModels;
+﻿using ElectricalDashboard.ViewModels;
 using EDDLL.Utilities;
 using System;
 using System.Collections.Generic;

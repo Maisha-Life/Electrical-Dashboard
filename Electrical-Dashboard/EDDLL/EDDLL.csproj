@@ -53,6 +53,7 @@
     <Compile Include="Data\SQL\Grab.cs" />
     <Compile Include="Data\SQL\Remove.cs" />
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\User\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Ticket\Ticket.cs" />
     <Compile Include="Resources\Styles\CustomWindowStyle\ControlDoubleClickBehavior.cs" />
@@ -71,7 +72,14 @@
     <Compile Include="Utilities\ObservableObject.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />
     <Compile Include="Utilities\SingleInstance.cs" />
+    <Compile Include="ViewModels\User\vmUser.cs" />
     <Compile Include="ViewModels\vmBase.cs" />
+    <Compile Include="Views\TicketEV.xaml.cs">
+      <DependentUpon>TicketEV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TicketOV.xaml.cs">
+      <DependentUpon>TicketOV.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Resources\Styles\AutoScrollListBoxDictionary.xaml">
@@ -81,6 +89,14 @@
     <Page Include="Resources\Styles\MVVMCustomResources.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TicketEV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TicketOV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

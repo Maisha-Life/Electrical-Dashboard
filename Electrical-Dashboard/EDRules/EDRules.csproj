@@ -64,9 +64,6 @@
     <Compile Include="ViewModels\ModelsVM\vmMethod.cs" />
     <Compile Include="ViewModels\ModelsVM\vmParameter.cs" />
     <Compile Include="ViewModels\ModelsVM\vmRule.cs" />
-    <Compile Include="Views\Popups\Rule_Ticket.xaml.cs">
-      <DependentUpon>Rule_Ticket.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\RulesView.xaml.cs">
       <DependentUpon>RulesView.xaml</DependentUpon>
     </Compile>
@@ -123,10 +120,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\Popups\Rule_Ticket.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\RulesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
