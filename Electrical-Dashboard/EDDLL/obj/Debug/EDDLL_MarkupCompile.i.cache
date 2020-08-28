@@ -16,5 +16,5 @@ DEBUG;TRACE
 16-1979509176
 Resources\Styles\AutoScrollListBoxDictionary.xaml;Resources\Styles\MVVMCustomResources.xaml;
 
-True
+False
 

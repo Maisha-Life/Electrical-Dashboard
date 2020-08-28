@@ -4,7 +4,7 @@
 winexe
 C#
 .cs
-C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\
+C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\
 ElectricalDashboard
 none
 false
@@ -12,9 +12,9 @@ DEBUG;TRACE
 
 10-239234348
 
-18-1484580585
-17116729520
+20559439725
+171594001389
 App.xaml;MainWindow.xaml;Views\MainView.xaml;Views\RoleViews\Home\Home_Admin.xaml;Views\RoleViews\Home\Home_Assignee.xaml;Views\RoleViews\Home\Home_Assigner.xaml;Views\RoleViews\Home\Home_User.xaml;Views\Tabs\HomeView.xaml;Views\Tabs\SettingsView.xaml;Views\Tabs\TicketsView.xaml;
 
-True
+False
 
