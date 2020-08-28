@@ -54,8 +54,18 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\Tabs\Tickets.xaml.cs">
-      <DependentUpon>Tickets.xaml</DependentUpon>
+    <Compile Include="ViewModels\MainVM.cs" />
+    <Compile Include="ViewModels\ViewsVM\HomeVM.cs" />
+    <Compile Include="ViewModels\ViewsVM\SettingsVM.cs" />
+    <Compile Include="ViewModels\ViewsVM\TicketsVM.cs" />
+    <Compile Include="Views\Tabs\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tabs\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tabs\TicketsView.xaml.cs">
+      <DependentUpon>TicketsView.xaml</DependentUpon>
     </Compile>
     <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -75,12 +85,6 @@
     </Compile>
     <Compile Include="Views\RoleViews\Home\Home_User.xaml.cs">
       <DependentUpon>Home_User.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Tabs\Home.xaml.cs">
-      <DependentUpon>Home.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Tabs\Settings.xaml.cs">
-      <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -114,15 +118,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Tabs\Home.xaml">
+    <Page Include="Views\Tabs\HomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Tabs\Settings.xaml">
+    <Page Include="Views\Tabs\SettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Tabs\Tickets.xaml">
+    <Page Include="Views\Tabs\TicketsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

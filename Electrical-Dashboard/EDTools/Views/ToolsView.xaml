@@ -7,6 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid>
+            <TextBlock Text="Tools" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50"/>
+            <Button Style="{StaticResource customButtonWithContent}">test</Button>
+        </Grid>
     </Grid>
 </UserControl>

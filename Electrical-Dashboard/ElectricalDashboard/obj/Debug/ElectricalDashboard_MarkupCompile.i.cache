@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-10297937319
+10-239234348
 
-151312629899
+18-1484580585
 17116729520
-App.xaml;MainWindow.xaml;Views\MainView.xaml;Views\RoleViews\Home\Home_Admin.xaml;Views\RoleViews\Home\Home_Assignee.xaml;Views\RoleViews\Home\Home_Assigner.xaml;Views\RoleViews\Home\Home_User.xaml;Views\Tabs\Home.xaml;Views\Tabs\Settings.xaml;Views\Tabs\Tickets.xaml;
+App.xaml;MainWindow.xaml;Views\MainView.xaml;Views\RoleViews\Home\Home_Admin.xaml;Views\RoleViews\Home\Home_Assignee.xaml;Views\RoleViews\Home\Home_Assigner.xaml;Views\RoleViews\Home\Home_User.xaml;Views\Tabs\HomeView.xaml;Views\Tabs\SettingsView.xaml;Views\Tabs\TicketsView.xaml;
 
 True
 

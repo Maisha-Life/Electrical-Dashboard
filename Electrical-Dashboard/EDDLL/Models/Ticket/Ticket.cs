@@ -1,10 +1,12 @@
 ﻿using EDS.Models;
 using System;
 using System.Collections.Generic;
+using System.IO.Packaging;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace EDDLL.Tickets
 {
@@ -12,13 +14,25 @@ namespace EDDLL.Tickets
     {
         //new blank
         public static Ticket createTicket() { return new Ticket(); }
+        //new generic ticket
+        public static Ticket createTicket(string tool, string category, string assigner, 
+                                          DateTime dateAssigned) => new Ticket()
+                                          {
+                                              TicketID = -1,
+                                              TicketNumber = -1,
+                                              Tool = tool,
+                                              Category = category,
+                                              Assigner = assigner,
+                                              DateAssigned = dateAssigned
+                                          };
         //new with info
-        public static Ticket createTicket(int ticketNumber, string importanceLevel, string category, string assigner, string assignee, DateTime dateAssigned,
+        public static Ticket createTicket(int ticketNumber, string importanceLevel, string tool, string category, string assigner, string assignee, DateTime dateAssigned,
                                           DateTime dateDue, string description, string status) => new Ticket()
                                           {
                                               TicketID = -1,
                                               TicketNumber = ticketNumber,
                                               ImportanceLevel = importanceLevel,
+                                              Tool = tool,
                                               Category = category,
                                               Assigner = assigner,
                                               Assignee = assignee,
@@ -28,12 +42,13 @@ namespace EDDLL.Tickets
                                               Status = status
                                           };
         //from database
-        public static Ticket createTicket(int ticketID, int ticketNumber, string importanceLevel, string category, string assigner, string assignee, 
+        public static Ticket createTicket(int ticketID, int ticketNumber, string importanceLevel, string tool, string category, string assigner, string assignee, 
                                           DateTime dateAssigned, DateTime dateDue, string description, string status) => new Ticket()
                                           {
                                               TicketID = ticketID,
                                               TicketNumber = ticketNumber,
                                               ImportanceLevel = importanceLevel,
+                                              Tool = tool,
                                               Category = category,
                                               Assigner = assigner,
                                               Assignee = assignee,
@@ -49,7 +64,8 @@ namespace EDDLL.Tickets
 
         public int TicketNumber { get; set; }
         public string ImportanceLevel { get; set; }
-        
+
+        public string Tool { get; set; }
         public string Category { get; set; }
         public string Assigner { get; set; }
         public string Assignee { get; set; }

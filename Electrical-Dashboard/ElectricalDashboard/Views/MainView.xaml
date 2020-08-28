@@ -1,6 +1,10 @@
 ﻿<UserControl x:Class="ElectricalDashboard.Views.MainView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             
+             xmlns:ElectricalDashboardViews="clr-namespace:ElectricalDashboard.Views.Tabs"
+             xmlns:ToolsViews="clr-namespace:EDTools.Views;assembly=EDTools"
+             
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ElectricalDashboard.Views"
@@ -32,10 +36,10 @@
                 <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource cstmTab}"/>
             </TabControl.Resources>
             <TabItem Header="Home" Tag="{StaticResource homeIcon}">
-
+                <ElectricalDashboardViews:HomeView/>
             </TabItem>
             <TabItem Header="Tools" Tag="{StaticResource toolsIcon}">
-
+                <ToolsViews:ToolsView/>
             </TabItem>
             <TabItem Header="Rules" Tag="{StaticResource rulesIcon}">
 
@@ -50,10 +54,10 @@
 
             </TabItem>
             <TabItem Header="Tickets" Tag="{StaticResource ticketsIcon}">
-
+                <ElectricalDashboardViews:TicketsView/>
             </TabItem>
             <TabItem Header="Settings" Tag="{StaticResource settingsIcon}">
-
+                <ElectricalDashboardViews:SettingsView/>
             </TabItem>
         </TabControl>
     </Grid>

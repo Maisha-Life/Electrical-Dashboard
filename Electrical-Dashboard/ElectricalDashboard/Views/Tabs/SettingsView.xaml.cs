@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace ElectricalDashboard.Views.Tabs
 {
     /// <summary>
-    /// Interaction logic for Tickets.xaml
+    /// Interaction logic for SettingsView.xaml
     /// </summary>
-    public partial class Tickets : UserControl
+    public partial class SettingsView : UserControl
     {
-        public Tickets()
+        public SettingsView()
         {
             InitializeComponent();
         }

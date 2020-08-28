@@ -14,6 +14,13 @@ namespace EDDLL.Tickets
     {
         public readonly Ticket _ticket;
 
+        public vmTicket() { }
+        //type, if new (true) then all fields are available, if based off of a tool then (false) and some fields will be filled in by default
+        public vmTicket(Ticket ticket, bool type)
+        {
+            ticket = _ticket ?? throw new ArgumentNullException("ticket");
+        }
+
         #region Data Binds
 
         private int _TicketNumber;
@@ -63,6 +70,39 @@ namespace EDDLL.Tickets
 
                 _ticket.ImportanceLevel = value;
                 this.RaisePropertyChangedEvent("ImportanceLevel");
+            }
+        }
+
+        private ThreeNOne _ToolProp;
+        public ThreeNOne ToolProp
+        {
+            get
+            {
+                if (_ToolProp == null)
+                    _ToolProp = new ThreeNOne(_ticket.Tool);
+
+                return _ToolProp;
+            }
+            set
+            {
+                if (_ToolProp != value)
+                {
+                    _ToolProp = value;
+                    _ticket.Tool = _ToolProp.Changed;
+                    this.RaisePropertyChangedEvent("ToolProp");
+                }
+            }
+        }
+        public string Tool
+        {
+            get { return ToolProp.Changed; }
+            set
+            {
+                if (this._ToolProp.Changed != value)
+                    this._ToolProp.Changed = value;
+
+                _ticket.Tool = value;
+                this.RaisePropertyChangedEvent("Tool");
             }
         }
 
@@ -342,6 +382,21 @@ namespace EDDLL.Tickets
             }
         }
         private void editCommand()
+        {
+
+        }
+
+        private RelayCommand _RemoveCommand;
+        public ICommand RemoveCommand
+        {
+            get
+            {
+                if (_RemoveCommand == null) _RemoveCommand = new RelayCommand(param => removeCommand(), param => { return (true); });
+
+                return _RemoveCommand;
+            }
+        }
+        private void removeCommand()
         {
 
         }

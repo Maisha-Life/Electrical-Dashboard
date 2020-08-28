@@ -22,6 +22,8 @@ namespace ElectricalDashboard.Views
     {
         public MainView()
         {
+            DataContext = App.MainVM;
+
             InitializeComponent();
         }
     }
