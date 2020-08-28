@@ -64,9 +64,6 @@ C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\Ele
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\RoleViews\Home\Home_Assignee.g.cs
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\RoleViews\Home\Home_Assigner.g.cs
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\RoleViews\Home\Home_User.g.cs
-C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\Tabs\Home.g.cs
-C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\Tabs\Settings.g.cs
-C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\Tabs\Tickets.g.cs
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\ElectricalDashboard_MarkupCompile.cache
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\ElectricalDashboard_MarkupCompile.lref
@@ -77,9 +74,6 @@ C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\Ele
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\RoleViews\Home\Home_Assignee.baml
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\RoleViews\Home\Home_Assigner.baml
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\RoleViews\Home\Home_User.baml
-C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\Tabs\Home.baml
-C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\Tabs\Settings.baml
-C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\Tabs\Tickets.baml
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\ElectricalDashboard.g.resources
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\ElectricalDashboard.Properties.Resources.resources
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\ElectricalDashboard.csproj.GenerateResource.cache
@@ -134,3 +128,11 @@ C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\Electrica
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\ElectricalDashboard.csproj.CopyComplete
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\ElectricalDashboard.exe
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\ElectricalDashboard.pdb
+C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\PopupView.g.cs
+C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\Tabs\HomeView.g.cs
+C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\Tabs\SettingsView.g.cs
+C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\Tabs\TicketsView.g.cs
+C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\PopupView.baml
+C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\Tabs\HomeView.baml
+C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\Tabs\SettingsView.baml
+C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Debug\Views\Tabs\TicketsView.baml

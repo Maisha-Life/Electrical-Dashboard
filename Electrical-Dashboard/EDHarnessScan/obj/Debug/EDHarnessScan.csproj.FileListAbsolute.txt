@@ -14,7 +14,6 @@ C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDH
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\bin\Debug\EDHarnessScan.pdb
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\bin\Debug\EDDLL.dll
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\bin\Debug\EDDLL.pdb
-C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\EDHarnessScan.csprojAssemblyReference.cache
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\Views\GenerateReportView.g.cs
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\Views\HarnessScanView.g.cs
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\Views\HarnessSelectView.g.cs

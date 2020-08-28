@@ -74,6 +74,9 @@
     <Compile Include="Utilities\SingleInstance.cs" />
     <Compile Include="ViewModels\User\vmUser.cs" />
     <Compile Include="ViewModels\vmBase.cs" />
+    <Compile Include="Views\TicketCV.xaml.cs">
+      <DependentUpon>TicketCV.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TicketEV.xaml.cs">
       <DependentUpon>TicketEV.xaml</DependentUpon>
     </Compile>
@@ -89,6 +92,10 @@
     <Page Include="Resources\Styles\MVVMCustomResources.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TicketCV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TicketEV.xaml">
       <SubType>Designer</SubType>

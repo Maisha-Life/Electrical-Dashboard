@@ -14,8 +14,6 @@ C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDR
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\bin\Debug\EDRules.pdb
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\bin\Debug\EDDLL.dll
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\bin\Debug\EDDLL.pdb
-C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\EDRules.csprojAssemblyReference.cache
-C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\Views\Popups\Rule_Ticket.g.cs
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\Views\RulesView.g.cs
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\Views\Rule\Rule_Admin.g.cs
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\Views\Rule\Rule_General.g.cs
@@ -25,7 +23,6 @@ C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDR
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\App.g.cs
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\EDRules_MarkupCompile.cache
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\EDRules_MarkupCompile.lref
-C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\Views\Popups\Rule_Ticket.baml
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\Views\RulesView.baml
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\Views\Rule\Rule_Admin.baml
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\Views\Rule\Rule_General.baml

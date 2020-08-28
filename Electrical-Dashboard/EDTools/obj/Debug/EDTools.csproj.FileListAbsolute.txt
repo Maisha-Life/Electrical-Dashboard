@@ -15,7 +15,6 @@ C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDT
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDTools\bin\Debug\EDDLL.dll
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDTools\bin\Debug\EDDLL.pdb
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Debug\EDTools.csprojAssemblyReference.cache
-C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Debug\Views\Popups\Tools_Ticket.g.cs
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Debug\Views\SubViews\Tools_GridView.g.cs
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Debug\Views\SubViews\Tools_ListView.g.cs
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Debug\Views\ToolsView.g.cs
@@ -23,7 +22,6 @@ C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDT
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Debug\EDTools_MarkupCompile.cache
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Debug\EDTools_MarkupCompile.lref
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Debug\Resources\Styles\ToolsCustomResources.baml
-C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Debug\Views\Popups\Tools_Ticket.baml
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Debug\Views\SubViews\Tools_GridView.baml
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Debug\Views\SubViews\Tools_ListView.baml
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Debug\Views\ToolsView.baml
