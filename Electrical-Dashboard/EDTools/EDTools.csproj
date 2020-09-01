@@ -60,7 +60,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\Tool.cs" />
-    <Compile Include="ViewModels\MainVM.cs" />
+    <Compile Include="ViewModels\ToolsVM.cs" />
     <Compile Include="ViewModels\vmTool.cs" />
     <Compile Include="Views\SubViews\Tools_GridView.xaml.cs">
       <DependentUpon>Tools_GridView.xaml</DependentUpon>
@@ -98,7 +98,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Images\active.png" />
+    <Resource Include="Resources\Images\running.png" />
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Resources\Styles\ToolsCustomResources.xaml">
       <SubType>Designer</SubType>
@@ -125,6 +128,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\toolLarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\gridView.png" />
+    <Resource Include="Resources\Images\listView.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

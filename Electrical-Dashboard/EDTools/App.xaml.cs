@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EDTools.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,7 @@ namespace EDTools
     /// </summary>
     public partial class App : Application
     {
+        private static ToolsVM _ToolsVM;
+        public static ToolsVM ToolsVM { get { return _ToolsVM ?? (_ToolsVM = new ToolsVM()); } }
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EDTools.ViewModels
+namespace ElectricalDashboard.Resources.Styles
 {
-    class MainVM
+    class Class1
     {
     }
 }

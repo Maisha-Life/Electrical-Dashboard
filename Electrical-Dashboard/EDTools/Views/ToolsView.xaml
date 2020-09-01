@@ -4,10 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EDTools.Views"
-             xmlns:customControls="clr-namespace:EDDLL.Views;assembly=EDDLL"
              
+             xmlns:customControls="clr-namespace:EDDLL.Views;assembly=EDDLL"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="1000">
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="55"/>
@@ -18,6 +20,7 @@
                 <Image Source="/EDTools;component/Resources/Images/toolLarge.png" Height="32" Margin="0,0,5,0"/>
                 <TextBlock Text="Tools" VerticalAlignment="Center" FontSize="22" Margin="5,0,0,0"/>
             </DockPanel>
+            
             <customControls:SearchControl/>
 
             <Button DockPanel.Dock="Right" Command="{Binding TicketCreateCommand}">
@@ -26,6 +29,16 @@
                     <TextBlock Text="Create Ticket" VerticalAlignment="Center" FontSize="17" Margin="5,0" Foreground="Black" FontWeight="Thin"/>
                 </WrapPanel>
             </Button>
+            
+            <WrapPanel DockPanel.Dock="Right" VerticalAlignment="Center" Margin="25,0">
+                <Button Height="32" ToolTip="Show tools as list" Command="{Binding ListViewCommand}">
+                    <Image Source="/EDTools;component/Resources/Images/listView.png" />
+                </Button>
+                <Button Height="32" ToolTip="Show tools as grid" Command="{Binding GridViewCommand}">
+                    <Image Source="/EDTools;component/Resources/Images/gridView.png" />
+                </Button>
+            </WrapPanel>
+            
         </DockPanel>
 
         <Grid Grid.Row="1">
@@ -49,9 +62,9 @@
                             <TextBlock Text="Developing:" FontWeight="Thin" FontSize="12" Margin="0,10"/>
                         </StackPanel>
                         <StackPanel Grid.Column="1">
-                            <TextBlock Text="{Binding TicketsAll.Count}" FontSize="12" Margin="0,10"/>
-                            <TextBlock Text="{Binding TicketsAssigned.Count}"   FontSize="12"/>
-                            <TextBlock Text="{Binding TicketsCreated.Count}"   FontSize="12" Margin="0,10"/>
+                            <TextBlock Text="{Binding ToolsCount}" FontSize="12" Margin="0,10"/>
+                            <TextBlock Text="{Binding ToolsCompletedCount}" FontSize="12"/>
+                            <TextBlock Text="{Binding ToolsDevelopingCount}" FontSize="12" Margin="0,10"/>
                         </StackPanel>
                     </Grid>
                 </StackPanel>
@@ -60,69 +73,48 @@
             <Rectangle Grid.Column="1" Fill="{StaticResource DefaultBorder}" Margin="0,0,0,5"/>
 
             <StackPanel Grid.Column="2" Margin="15,0">
-                <WrapPanel>
-                    <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/ticketAssigned.png" Height="28" Margin="0,0,5,0"/>
-                    <TextBlock Text="Assigned Tickets:" FontSize="20" FontWeight="Thin"/>
-                </WrapPanel>
-                <Grid>
-                    <ItemsControl ItemsSource="{Binding TicketsAssigned}">
-
-                    </ItemsControl>
-                    <TextBlock Margin="10,25,10,0" HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s) assigned, once you have ticket(s) assigned it will appear here -">
-                        <TextBlock.Style>
-                            <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding TicketsAssigned.Count}" Value="0">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
-                </Grid>
-                <WrapPanel Margin="0,25,0,0">
-                    <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/ticketCreated.png" Height="28" Margin="0,0,5,0"/>
-                    <TextBlock Text="Created Tickets:" FontSize="20" FontWeight="Thin"/>
-                </WrapPanel>
-                <Grid Margin="0,0,0,25">
-                    <ItemsControl ItemsSource="{Binding TicketsCreated}">
-
-                    </ItemsControl>
-                    <TextBlock Margin="10,25,10,0" HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s) created, once you have created a ticket(s) it will appear here -">
-                        <TextBlock.Style>
-                            <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding TicketsCreated.Count}" Value="0">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
-                </Grid>
-                <WrapPanel>
-                    <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/tickets.png" Height="28" Margin="0,0,5,0"/>
-                    <TextBlock Text="Tickets:" FontSize="20" FontWeight="Thin"/>
-                </WrapPanel>
-                <Grid>
-                    <ItemsControl ItemsSource="{Binding TicketsAll}">
-
-                    </ItemsControl>
-                    <TextBlock Margin="10,25,10,0" HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s), once ticket(s) have been made they will appear here -">
-                        <TextBlock.Style>
-                            <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding TicketsAll.Count}" Value="0">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
-                </Grid>
+                <TabControl Style="{StaticResource scrollTabControl}" Grid.Row="1" SelectedIndex="{Binding TabIndex}" Margin="5,10,5,5" Background="White">
+                    <TabItem>
+                        <StackPanel>
+                            <WrapPanel>
+                                <Image Source="/EDTools;component/Resources/Images/listView.png" Height="28" Margin="0,0,5,0"/>
+                                <TextBlock Text="Tools (list view):" FontSize="20" FontWeight="Thin"/>
+                            </WrapPanel>
+                            <ScrollViewer VerticalScrollBarVisibility="Auto" >
+                                <ScrollViewer.Resources>
+                                    <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">12</sys:Double>
+                                    <Style TargetType="{x:Type ScrollBar}">
+                                        <Setter Property="Template" Value="{StaticResource VerticalScrollBar}" />
+                                    </Style>
+                                </ScrollViewer.Resources>
+                                <ItemsControl ItemsSource="{Binding ToolsList}" ItemTemplate="{StaticResource toolGridItem}" ScrollViewer.CanContentScroll="True" >
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                </ItemsControl>
+                            </ScrollViewer>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem>
+                        <StackPanel>
+                            <WrapPanel>
+                                <Image Source="/EDTools;component/Resources/Images/gridView.png" Height="28" Margin="0,0,5,0"/>
+                                <TextBlock Text="Tools (grid view):" FontSize="20" FontWeight="Thin"/>
+                            </WrapPanel>
+                            <ScrollViewer VerticalScrollBarVisibility="Auto" >
+                                <ScrollViewer.Resources>
+                                    <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">12</sys:Double>
+                                    <Style TargetType="{x:Type ScrollBar}">
+                                        <Setter Property="Template" Value="{StaticResource VerticalScrollBar}" />
+                                    </Style>
+                                </ScrollViewer.Resources>
+                                <ItemsControl ItemsSource="{Binding ToolsList}" ItemTemplate="{StaticResource toolListItem}" ScrollViewer.CanContentScroll="True" />
+                            </ScrollViewer>
+                        </StackPanel>
+                    </TabItem>
+                </TabControl>
             </StackPanel>
         </Grid>
     </Grid>

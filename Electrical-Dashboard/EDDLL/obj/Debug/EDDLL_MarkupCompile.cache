@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Debug\
+C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Debug\
 EDDLL
 none
 false
@@ -12,7 +12,7 @@ DEBUG;TRACE
 
 6-634856374
 
-302119371944
+311516673432
 16-1979509176
 Resources\Styles\AutoScrollListBoxDictionary.xaml;Resources\Styles\MVVMCustomResources.xaml;Views\TicketCV.xaml;Views\TicketEV.xaml;Views\TicketOV.xaml;Views\_CustomControls\SearchControl.xaml;
 

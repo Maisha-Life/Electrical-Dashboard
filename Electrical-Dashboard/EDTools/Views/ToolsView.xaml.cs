@@ -22,6 +22,7 @@ namespace EDTools.Views
     {
         public ToolsView()
         {
+            DataContext = App.ToolsVM;
             InitializeComponent();
         }
     }
