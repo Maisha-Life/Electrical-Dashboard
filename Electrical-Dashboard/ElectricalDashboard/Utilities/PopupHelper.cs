@@ -3,7 +3,8 @@ using System.Threading;
 using System.Windows.Threading;
 using System.Windows;
 using ElectricalDashboard.Views;
-using ElectricalDashboard.ViewModels.ViewsVM;
+using ElectricalDashboard.ViewModels;
+using EDDLL;
 
 namespace ElectricalDashboard.Utilities
 {
@@ -88,14 +89,18 @@ namespace ElectricalDashboard.Utilities
 
             switch (tabIndex)
             {
-                //case 0:
-                //    PopupView.ticketOV.DataContext = context;
-                //    PopupView.overlay.Command = App.PopupVM.ClearPopup;
-                //    break;
-                //case 1:
-                //    PopupView.fixAllRuleOV.DataContext = context;
-                //    PopupView.overlay.Command = (context as vmHarnessRule).CancelHarnessFixCommand; 
-                //    break;                                                                
+                case 0:
+                    PopupView.ticketCV.DataContext = context;
+                    PopupView.overlay.Command = App.PopupVM.ClearPopup;
+                    break;
+                case 1:
+                    PopupView.ticketEV.DataContext = context;
+                    PopupView.overlay.Command = App.PopupVM.ClearPopup;
+                    break;
+                case 2:
+                    PopupView.ticketOV.DataContext = context;
+                    PopupView.overlay.Command = App.PopupVM.ClearPopup;
+                    break;
             }
         }
     }

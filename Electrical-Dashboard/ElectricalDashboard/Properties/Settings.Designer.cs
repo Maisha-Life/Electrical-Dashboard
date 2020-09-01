@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ElectricalDashboard.Properties
+namespace EDDLL.Properties
 {
 
 

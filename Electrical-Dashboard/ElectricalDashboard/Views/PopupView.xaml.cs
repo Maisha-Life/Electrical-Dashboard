@@ -1,6 +1,7 @@
-﻿using ElectricalDashboard.ViewModels.ViewsVM;
+﻿using System.Windows.Controls;
+
 using ElectricalDashboard.Utilities;
-using System.Windows.Controls;
+using ElectricalDashboard.ViewModels;
 
 namespace ElectricalDashboard.Views
 {

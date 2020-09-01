@@ -56,15 +56,15 @@
   <ItemGroup>
     <Compile Include="Utilities\PopupHelper.cs" />
     <Compile Include="ViewModels\MainVM.cs" />
-    <Compile Include="ViewModels\ViewsVM\PopupVM.cs" />
     <Compile Include="ViewModels\ViewsVM\HomeVM.cs" />
+    <Compile Include="ViewModels\ViewsVM\PopupVM.cs" />
     <Compile Include="ViewModels\ViewsVM\SettingsVM.cs" />
     <Compile Include="ViewModels\ViewsVM\TicketsVM.cs" />
-    <Compile Include="Views\PopupView.xaml.cs">
-      <DependentUpon>PopupView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Tabs\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PopupView.xaml.cs">
+      <DependentUpon>PopupView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Tabs\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
@@ -107,10 +107,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PopupView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\RoleViews\Home\Home_Admin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -130,6 +126,10 @@
     <Page Include="Views\Tabs\HomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PopupView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Tabs\SettingsView.xaml">
       <SubType>Designer</SubType>
@@ -197,6 +197,13 @@
     <Resource Include="Resources\Images\TabIcons\ticketsIcon.png" />
     <Resource Include="Resources\Images\TabIcons\toolsIcon.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Images\TicketIcons\ticket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TicketIcons\ticketAssigned.png" />
+    <Resource Include="Resources\Images\TicketIcons\ticketCreated.png" />
+    <Resource Include="Resources\Images\TicketIcons\tickets.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,12 +5,19 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              
              xmlns:EDDLLPopup="clr-namespace:EDDLL.Views;assembly=EDDLL"
-             xmlns:local="clr-namespace:ElectricalDashboard.Views"
+             xmlns:local="clr-namespace:EDDLL.Views"
              
              mc:Ignorable="d" d:DesignWidth="800">
     <UserControl.Resources>
-        <Style TargetType="{x:Type TextBlock}">
-            <Setter Property="Height" Value="20"/>
+        <Style TargetType="{x:Type ComboBox}">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="FontWeight" Value="Thin"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="IsEditable" Value="True"/>
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Height" Value="25"/>
             <Setter Property="FontSize" Value="11"/>
             <Setter Property="FontWeight" Value="Thin"/>
             <Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
@@ -34,6 +41,9 @@
                     Style="{StaticResource scrollTabControl}"
                     SelectedIndex="{Binding SelectedPopupIndex}"
                     Visibility="{Binding PopupVisibility}">
+            <TabItem>
+                <EDDLLPopup:TicketCV x:Name="ticketCV" Width="500" />
+            </TabItem>
             <TabItem>
                 <EDDLLPopup:TicketEV x:Name="ticketEV"/>
             </TabItem>

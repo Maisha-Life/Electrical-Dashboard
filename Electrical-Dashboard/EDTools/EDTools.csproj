@@ -121,7 +121,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EDDLL\EDDLL.csproj">
-      <Project>{14B85F57-0BC3-42F4-B919-E7805DC45AB1}</Project>
+      <Project>{14b85f57-0bc3-42f4-b919-e7805dc45ab1}</Project>
       <Name>EDDLL</Name>
     </ProjectReference>
   </ItemGroup>

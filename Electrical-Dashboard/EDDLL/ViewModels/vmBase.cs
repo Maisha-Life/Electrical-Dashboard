@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 using EDDLL.Utilities;
 
-namespace ElectricalDashboard.ViewModels
+namespace EDDLL.ViewModels
 {
     public class vmBase : ObservableObject, IDisposable
     {
@@ -16,6 +16,8 @@ namespace ElectricalDashboard.ViewModels
         #endregion // Constructor
 
         #region Properties       
+
+        public bool PopupActive { get; set; }
 
         private bool _EditBool;
         public bool EditBool

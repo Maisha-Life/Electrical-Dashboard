@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Text.RegularExpressions;
 
-namespace ElectricalDashboard.Models
+namespace EDDLL.Models
 {
     public class BaseModel : IDataErrorInfo
     {

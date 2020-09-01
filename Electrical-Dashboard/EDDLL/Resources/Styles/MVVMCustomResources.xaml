@@ -5,8 +5,8 @@
     xmlns:Utilities="clr-namespace:EDDLL.Utilities">
     <!-- Resource dictionary entries should be defined here. -->
 
-    <SolidColorBrush x:Key="GoodColor" Color="#ff78E072"/>
-    <SolidColorBrush x:Key="LightGoodColor" Color="#2978E072"/>
+    <SolidColorBrush x:Key="GoodColor" Color="#ff1ABC9C"/>
+    <SolidColorBrush x:Key="LightGoodColor" Color="#291ABC9C"/>
 
     <SolidColorBrush x:Key="WarningColor" Color="#FFE0B700"/>
     <SolidColorBrush x:Key="LightWarningColor" Color="#29E0B700"/>

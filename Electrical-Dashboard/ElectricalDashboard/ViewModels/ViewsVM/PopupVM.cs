@@ -1,13 +1,10 @@
 ﻿using EDDLL.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using EDDLL.ViewModels;
+using ElectricalDashboard.Utilities;
 using System.Windows;
 using System.Windows.Input;
 
-namespace ElectricalDashboard.ViewModels.ViewsVM
+namespace ElectricalDashboard.ViewModels
 {
     public class PopupVM : BaseVM
     {
@@ -67,10 +64,9 @@ namespace ElectricalDashboard.ViewModels.ViewsVM
                 return _ClearPopup;
             }
         }
-        private void clearPopup()
+        public void clearPopup()
         {
-            OverlayBool = false;
-            PopupVisibility = Visibility.Hidden;
+            PopupHelper.SetVisibility(false);
         }
 
         #endregion

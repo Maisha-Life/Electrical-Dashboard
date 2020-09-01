@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EDDLL.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="600">
     <Border BorderThickness="2" BorderBrush="{StaticResource DefaultBorder}" >
         <Grid  Margin="5">
             <Grid.RowDefinitions>
@@ -15,10 +15,10 @@
             </Grid.RowDefinitions>
 
             <DockPanel LastChildFill="False">
-                <Image Source="/EDS;component/Resources/Images/ProgramsImages/harness.png" Height="22" Margin="0,0,5,0"/>
-                <TextBlock Text="Create Harness " VerticalAlignment="Center" FontSize="17" Margin="0,0,20,0" Foreground="Black" FontWeight="Thin"/>
-                <Button DockPanel.Dock="Right" Command="{Binding CancelHarnessCommand}">
-                    <Image Source="/EDS;component/Resources/Images/Header/close.png" />
+                <Image Source="/EDDLL;component/Resources/TicketIcons/ticket.png" Height="22" Margin="0,0,5,0"/>
+                <TextBlock Text="Create Ticket " VerticalAlignment="Center" FontSize="17" Margin="0,0,20,0" Foreground="Black" FontWeight="Thin"/>
+                <Button DockPanel.Dock="Right" Command="{Binding CancelCreateCommand}">
+                    <Image Source="/EDDLL;component/Resources/close.png" />
                 </Button>
             </DockPanel>
 
@@ -26,28 +26,43 @@
                 <StackPanel Margin="2">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1.5*"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <StackPanel>
-                            <TextBlock Text="Harness Name"/>
-                            <TextBox x:Name="harnessNameTB" Text="{Binding HarnessDesc, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
-                            <ContentPresenter Content="{Binding ElementName=harnessNameTB, Path=(Validation.Errors).CurrentItem}" Height="13" />
+                            <TextBlock Text="Assignee"/>
+                            <ComboBox x:Name="assigneeCB" SelectedItem="{Binding Tool, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>
+                            <ContentPresenter Content="{Binding ElementName=assigneeCB, Path=(Validation.Errors).CurrentItem}" Height="13" />
+                            <TextBlock Text="Tool"/>
+                            <ComboBox x:Name="toolCB" SelectedItem="{Binding Tool, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ContentPresenter Content="{Binding ElementName=toolCB, Path=(Validation.Errors).CurrentItem}" Height="13" />
+                            <TextBlock Text="Category"/>
+                            <ComboBox x:Name="categoryCB" SelectedItem="{Binding Category, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ContentPresenter Content="{Binding ElementName=categoryCB, Path=(Validation.Errors).CurrentItem}" Height="13" />
                         </StackPanel>
                         <StackPanel Grid.Column="1" Margin="5,0,0,0">
-                            <TextBlock Text="Revision"/>
-                            <TextBox x:Name="revisionTB" Text="{Binding Revision, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
-                            <ContentPresenter Content="{Binding ElementName=revisionTB, Path=(Validation.Errors).CurrentItem}" Height="13" />
+                            <TextBlock Text="Priority"/>
+                            <ComboBox x:Name="priorityCB" SelectedItem="{Binding ImportanceLevel, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ContentPresenter Content="{Binding ElementName=priorityCB, Path=(Validation.Errors).CurrentItem}" Height="13" />
+                            <TextBlock Text="Date Created"/>
+                            <DatePicker x:Name="dateCreated" SelectedDate="{Binding DateCreated, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>
+                            <ContentPresenter Content="{Binding ElementName=dateCreated, Path=(Validation.Errors).CurrentItem}" Height="13" />
+                            <TextBlock Text="Date Due"/>
+                            <DatePicker x:Name="dateDueDP" SelectedDate="{Binding DateDue, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ContentPresenter Content="{Binding ElementName=dateDueDP, Path=(Validation.Errors).CurrentItem}" Height="13" />
                         </StackPanel>
                     </Grid>
-                    <TextBlock Text="Assigned To"/>
-                    <TextBox x:Name="ownerNameTB" Text="{Binding Owner, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap"/>
+                    <WrapPanel>
+                        <TextBlock Text="Ticket Description"/>
+                        <TextBlock Text="&#9;(please add any extra information related to the ticket)" FontStyle="Italic"/>
+                    </WrapPanel>                    
+                    <TextBox x:Name="ownerNameTB" Text="{Binding Owner, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" MinHeight="150"/>
                     <ContentPresenter Content="{Binding ElementName=ownerNameTB, Path=(Validation.Errors).CurrentItem}" Height="13" />
                 </StackPanel>
             </GroupBox>
 
             <DockPanel Grid.Row="2" LastChildFill="False" >
-                <Button Content="Cancel" Command="{Binding CancelHarnessCommand}" DockPanel.Dock="Right" Margin="5,0" Opacity=".7"/>
+                <Button Content="Cancel" Command="{Binding CancelCreateCommand}" DockPanel.Dock="Right" Margin="5,0" Opacity=".7"/>
                 <Button Content="Add" Command="{Binding AddHarnessCommand}" DockPanel.Dock="Right" Margin="5,0"/>
             </DockPanel>
         </Grid>

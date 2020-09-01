@@ -1,12 +1,8 @@
 ﻿using EDDLL.Tickets;
 using EDDLL.Utilities;
-using ElectricalDashboard.ViewModels;
-using System;
-using System.Collections.Generic;
+using EDDLL.ViewModels;
+using ElectricalDashboard.Utilities;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace ElectricalDashboard.ViewModels.ViewsVM
@@ -17,44 +13,58 @@ namespace ElectricalDashboard.ViewModels.ViewsVM
 
         #region Data Binds
 
-        private ObservableCollection<vmTicket> _AssignedTickets;
-        public ObservableCollection<vmTicket> AssignedTickets
+        private ObservableCollection<vmTicket> _TicketsAssigned;
+        public ObservableCollection<vmTicket> TicketsAssigned
         {
-            get { return _AssignedTickets ?? (_AssignedTickets = new ObservableCollection<vmTicket>()); }
+            get { return _TicketsAssigned ?? (_TicketsAssigned = new ObservableCollection<vmTicket>()); }
             set
             {
-                if (this._AssignedTickets != value)
+                if (this._TicketsAssigned != value)
                 {
-                    this._AssignedTickets = value;
-                    this.RaisePropertyChangedEvent("AssignedTickets");
+                    this._TicketsAssigned = value;
+                    this.RaisePropertyChangedEvent("TicketsAssigned");
                 }
             }
         }
 
-        private ObservableCollection<vmTicket> _CreatedTickets;
-        public ObservableCollection<vmTicket> CreatedTickets
+        private ObservableCollection<vmTicket> _TicketsCreated;
+        public ObservableCollection<vmTicket> TicketsCreated
         {
-            get { return _CreatedTickets ?? (_CreatedTickets = new ObservableCollection<vmTicket>()); }
+            get { return _TicketsCreated ?? (_TicketsCreated = new ObservableCollection<vmTicket>()); }
             set
             {
-                if (this._CreatedTickets != value)
+                if (this._TicketsCreated != value)
                 {
-                    this._CreatedTickets = value;
-                    this.RaisePropertyChangedEvent("CreatedTickets");
+                    this._TicketsCreated = value;
+                    this.RaisePropertyChangedEvent("TicketsCreated");
                 }
             }
         }
 
-        private ObservableCollection<vmTicket> _AllTickets;
-        public ObservableCollection<vmTicket> AllTickets
+        private ObservableCollection<vmTicket> _TicketsAll;
+        public ObservableCollection<vmTicket> TicketsAll
         {
-            get { return _AllTickets; }
+            get { return _TicketsAll ?? (_TicketsAll = new ObservableCollection<vmTicket>()); }
             set
             {
-                if (this._AllTickets != value)
+                if (this._TicketsAll != value)
                 {
-                    this._AllTickets = value;
-                    this.RaisePropertyChangedEvent("AllTickets");
+                    this._TicketsAll = value;
+                    this.RaisePropertyChangedEvent("TicketsAll");
+                }
+            }
+        }
+
+        private int _TicketsCompleteCount;
+        public int TicketsCompleteCount
+        {
+            get { return _TicketsCompleteCount; }
+            set
+            {
+                if (this._TicketsCompleteCount != value)
+                {
+                    this._TicketsCompleteCount = value;
+                    this.RaisePropertyChangedEvent("TicketsCompleteCount");
                 }
             }
         }
@@ -63,19 +73,29 @@ namespace ElectricalDashboard.ViewModels.ViewsVM
 
         #region Commands
 
-        private RelayCommand _CreateTicket;
-        public ICommand CreateTicket
+        private RelayCommand _TicketCreateCommand;
+        public ICommand TicketCreateCommand
         {
             get
             {
-                if (_CreateTicket == null) _CreateTicket = new RelayCommand(param => createTicket(), param => { return (true); });
+                if (_TicketCreateCommand == null) _TicketCreateCommand = new RelayCommand(param => ticketCreate(), param => { return (true); });
 
-                return _CreateTicket;
+                return _TicketCreateCommand;
             }
         }
-        private void createTicket()
+        private void ticketCreate()
         {
+            vmTicket newTicket = new vmTicket(Ticket.createTicket(), true);
 
+            newTicket.PopupActive = true;
+
+            //while (newTicket.PopupActive)
+            //{
+                PopupHelper.TabIndex(0, newTicket);
+                PopupHelper.SetVisibility(true);
+            //}
+
+            //PopupHelper.SetVisibility(false);
         }
 
         #endregion

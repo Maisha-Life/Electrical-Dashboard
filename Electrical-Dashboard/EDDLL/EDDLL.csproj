@@ -107,7 +107,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\Images\" />
+    <Resource Include="Resources\TicketIcons\ticket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\close.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

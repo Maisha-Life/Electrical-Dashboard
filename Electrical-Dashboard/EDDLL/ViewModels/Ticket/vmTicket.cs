@@ -1,4 +1,4 @@
-﻿using ElectricalDashboard.ViewModels;
+﻿using EDDLL.ViewModels;
 using EDDLL.Utilities;
 using System;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ namespace EDDLL.Tickets
         //type, if new (true) then all fields are available, if based off of a tool then (false) and some fields will be filled in by default
         public vmTicket(Ticket ticket, bool type)
         {
-            ticket = _ticket ?? throw new ArgumentNullException("ticket");
+            _ticket = ticket ?? throw new ArgumentNullException("ticket");
         }
 
         #region Data Binds
@@ -341,6 +341,37 @@ namespace EDDLL.Tickets
 
         #region Commands
 
+        private RelayCommand _CreateCommand;
+        public ICommand CreateCommand
+        {
+            get
+            {
+                if (_CreateCommand == null) _CreateCommand = new RelayCommand(param => createCommand(), param => { return (true); });
+
+                return _CreateCommand;
+            }
+        }
+        private void createCommand()
+        {
+
+        }
+
+        private RelayCommand _CancelCreateCommand;
+        public ICommand CancelCreateCommand
+        {
+            get
+            {
+                if (_CancelCreateCommand == null) _CancelCreateCommand = new RelayCommand(param => cancelCreateCommand(), param => { return (true); });
+
+                return _CancelCreateCommand;
+            }
+        }
+        private void cancelCreateCommand()
+        {
+            PopupActive = false;
+            this.Dispose();
+        }
+
         private RelayCommand _SaveCommand;
         public ICommand SaveCommand
         {
@@ -353,6 +384,7 @@ namespace EDDLL.Tickets
         }
         private void saveCommand()
         {
+            save();
 
         }
 
@@ -368,7 +400,7 @@ namespace EDDLL.Tickets
         }
         private void cancelCommand()
         {
-
+            cancel();
         }
 
         private RelayCommand _EditCommand;
@@ -398,7 +430,7 @@ namespace EDDLL.Tickets
         }
         private void removeCommand()
         {
-
+            
         }
 
         #endregion
