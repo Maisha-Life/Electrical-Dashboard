@@ -83,6 +83,9 @@
     <Compile Include="Views\TicketOV.xaml.cs">
       <DependentUpon>TicketOV.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\_CustomControls\SearchControl.xaml.cs">
+      <DependentUpon>SearchControl.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Resources\Styles\AutoScrollListBoxDictionary.xaml">
@@ -105,12 +108,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\_CustomControls\SearchControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\TicketIcons\ticket.png" />
+    <Resource Include="Resources\Images\TicketIcons\ticket.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\close.png" />
+    <Resource Include="Resources\Images\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Images\search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
