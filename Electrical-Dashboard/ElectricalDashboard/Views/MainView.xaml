@@ -3,8 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              
              xmlns:ElectricalDashboardViews="clr-namespace:ElectricalDashboard.Views.Tabs"
-             xmlns:ToolsViews="clr-namespace:EDTools.Views;assembly=EDTools"
              
+             xmlns:ToolsViews="clr-namespace:EDTools.Views;assembly=EDTools"
+             xmlns:RuleViews="clr-namespace:EDRules.Views;assembly=EDRules"
+             xmlns:HarnessViews="clr-namespace:EDHarnessScan.Views;assembly=EDHarnessScan"
+                          
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ElectricalDashboard.Views"
@@ -42,16 +45,16 @@
                 <ToolsViews:ToolsView/>
             </TabItem>
             <TabItem Header="Rules" Tag="{StaticResource rulesIcon}">
-
+                <RuleViews:RulesView/>
             </TabItem>
             <TabItem Header="Harness Scan" Tag="{StaticResource harnessScanIcon}">
-
+                <HarnessViews:HarnessScanView/>
             </TabItem>
             <TabItem Header="Harness Repository" Tag="{StaticResource harnessRepositoryIcon}">
-
+                <HarnessViews:HarnessSelectView/>
             </TabItem>
             <TabItem Header="Reports" Tag="{StaticResource reportsIcon}">
-
+                <HarnessViews:GenerateReportView/>
             </TabItem>
             <TabItem Header="Tickets" Tag="{StaticResource ticketsIcon}">
                 <ElectricalDashboardViews:TicketsView/>

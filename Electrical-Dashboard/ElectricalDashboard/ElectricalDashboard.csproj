@@ -198,12 +198,16 @@
     <Resource Include="Resources\Images\TabIcons\toolsIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\TicketIcons\ticket.png" />
+    <Resource Include="Resources\Images\TicketIcons\ticketAssigned.png" />
+    <Resource Include="Resources\Images\TicketIcons\tickets.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\TicketIcons\ticketAssigned.png" />
+    <Resource Include="Resources\Images\TicketIcons\createTicket.png" />
     <Resource Include="Resources\Images\TicketIcons\ticketCreated.png" />
-    <Resource Include="Resources\Images\TicketIcons\tickets.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SettingIcons\settingsLarge.png" />
+    <Resource Include="Resources\Images\TicketIcons\ticketLarge.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

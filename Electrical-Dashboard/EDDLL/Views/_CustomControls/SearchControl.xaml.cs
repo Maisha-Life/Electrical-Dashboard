@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EDS.Views
+namespace EDDLL.Views
 {
     /// <summary>
     /// Interaction logic for SearchControl.xaml

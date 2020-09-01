@@ -2,6 +2,7 @@
 using EDDLL.Utilities;
 using EDDLL.ViewModels;
 using ElectricalDashboard.Utilities;
+using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
@@ -85,7 +86,7 @@ namespace ElectricalDashboard.ViewModels.ViewsVM
         }
         private void ticketCreate()
         {
-            vmTicket newTicket = new vmTicket(Ticket.createTicket(), true);
+            vmTicket newTicket = new vmTicket(Ticket.createTicket("","",Environment.UserName, DateTime.Today, DateTime.Today), true);
 
             newTicket.PopupActive = true;
 

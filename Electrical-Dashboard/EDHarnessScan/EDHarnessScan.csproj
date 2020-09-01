@@ -134,7 +134,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Images\harnessRepositoryLarge.png" />
+    <Resource Include="Resources\Images\harnessScanLarge.png" />
+    <Resource Include="Resources\Images\reportsLarge.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EDDLL\EDDLL.csproj">
       <Project>{14B85F57-0BC3-42F4-B919-E7805DC45AB1}</Project>

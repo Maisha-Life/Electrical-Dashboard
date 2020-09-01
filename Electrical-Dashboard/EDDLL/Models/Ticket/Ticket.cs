@@ -16,14 +16,15 @@ namespace EDDLL.Tickets
         public static Ticket createTicket() { return new Ticket(); }
         //new generic ticket
         public static Ticket createTicket(string tool, string category, string assigner, 
-                                          DateTime dateAssigned) => new Ticket()
+                                          DateTime dateAssigned, DateTime dateDue) => new Ticket()
                                           {
                                               TicketID = -1,
                                               TicketNumber = -1,
                                               Tool = tool,
                                               Category = category,
                                               Assigner = assigner,
-                                              DateAssigned = dateAssigned
+                                              DateAssigned = dateAssigned,
+                                              DateDue = dateDue
                                           };
         //new with info
         public static Ticket createTicket(int ticketNumber, string importanceLevel, string tool, string category, string assigner, string assignee, DateTime dateAssigned,

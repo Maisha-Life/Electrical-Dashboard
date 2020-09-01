@@ -114,13 +114,16 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\TicketIcons\ticket.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\Images\close.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Images\search.png" />
+    <Resource Include="Resources\Images\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TicketIcons\tickets.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TicketIcons\assignTicket.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

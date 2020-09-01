@@ -98,9 +98,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Include="Resources\Styles\ToolsCustomResources.xaml">
       <SubType>Designer</SubType>
@@ -124,6 +122,9 @@
       <Project>{14b85f57-0bc3-42f4-b919-e7805dc45ab1}</Project>
       <Name>EDDLL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\toolLarge.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

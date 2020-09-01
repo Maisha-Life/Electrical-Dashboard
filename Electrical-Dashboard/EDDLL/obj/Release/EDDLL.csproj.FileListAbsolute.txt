@@ -35,3 +35,5 @@ C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\EDDLL.pdb
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\Views\_CustomControls\SearchControl.g.cs
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\Views\_CustomControls\SearchControl.baml
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\Views\_CustomControls\SearchControl.g.cs
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\Views\_CustomControls\SearchControl.baml

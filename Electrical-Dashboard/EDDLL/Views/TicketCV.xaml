@@ -15,10 +15,10 @@
             </Grid.RowDefinitions>
 
             <DockPanel LastChildFill="False">
-                <Image Source="/EDDLL;component/Resources/TicketIcons/ticket.png" Height="22" Margin="0,0,5,0"/>
+                <Image Source="/EDDLL;component/Resources/Images/TicketIcons/assignTicket.png" Height="22" Margin="0,0,5,0"/>
                 <TextBlock Text="Create Ticket " VerticalAlignment="Center" FontSize="17" Margin="0,0,20,0" Foreground="Black" FontWeight="Thin"/>
                 <Button DockPanel.Dock="Right" Command="{Binding CancelCreateCommand}">
-                    <Image Source="/EDDLL;component/Resources/close.png" />
+                    <Image Source="/EDDLL;component/Resources/Images/close.png" />
                 </Button>
             </DockPanel>
 
@@ -31,7 +31,7 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel>
                             <TextBlock Text="Assignee"/>
-                            <ComboBox x:Name="assigneeCB" SelectedItem="{Binding Tool, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>
+                            <ComboBox x:Name="assigneeCB" SelectedItem="{Binding Assignee, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>
                             <ContentPresenter Content="{Binding ElementName=assigneeCB, Path=(Validation.Errors).CurrentItem}" Height="13" />
                             <TextBlock Text="Tool"/>
                             <ComboBox x:Name="toolCB" SelectedItem="{Binding Tool, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
@@ -45,10 +45,14 @@
                             <ComboBox x:Name="priorityCB" SelectedItem="{Binding ImportanceLevel, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
                             <ContentPresenter Content="{Binding ElementName=priorityCB, Path=(Validation.Errors).CurrentItem}" Height="13" />
                             <TextBlock Text="Date Created"/>
-                            <DatePicker x:Name="dateCreated" SelectedDate="{Binding DateCreated, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>
+                            <DatePicker x:Name="dateCreated" 
+                                        SelectedDate="{Binding DateAssigned, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+                                        IsEnabled="False"/>
                             <ContentPresenter Content="{Binding ElementName=dateCreated, Path=(Validation.Errors).CurrentItem}" Height="13" />
                             <TextBlock Text="Date Due"/>
-                            <DatePicker x:Name="dateDueDP" SelectedDate="{Binding DateDue, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DatePicker x:Name="dateDueDP" 
+                                        DisplayDateStart="2020-8-31"
+                                        SelectedDate="{Binding DateDue, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
                             <ContentPresenter Content="{Binding ElementName=dateDueDP, Path=(Validation.Errors).CurrentItem}" Height="13" />
                         </StackPanel>
                     </Grid>
