@@ -1,5 +1,7 @@
-﻿using EDDLL.Utilities;
+﻿using EDDLL.Tickets;
+using EDDLL.Utilities;
 using EDDLL.ViewModels;
+using EDTools.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,17 +20,33 @@ namespace EDTools.ViewModels
         {
             //foreach (vmTool tool in App.ProgramsVM.EDSData.tools)
             //    _ToolsList.Add(tool);
-
-            ToolsCount = 0;
             ToolsCompletedCount = 0;
             ToolsDevelopingCount = 0;
+
+            for (int i = 0; i < 10; i++)
+            {
+                if (i < 5)
+                    _ToolsList.Add(new vmTool(i + "name", i.ToString(), i.ToString(), "exe", @"\EDTools;component\Resources\Images\fillerImage.png", "a test description", "complete", null));
+                else
+                    _ToolsList.Add(new vmTool(i + "name", i.ToString(), i.ToString(), "exe", @"\EDTools;component\Resources\Images\fillerImage.png", "a test description", "developing", null));
+            }
+
+            foreach (vmTool tool in _ToolsList)
+            {
+                if (tool.Status == "complete")
+                    ToolsCompletedCount += 1;
+                else
+                    ToolsDevelopingCount += 1;
+            }
+
+            ToolsCount = _ToolsList.Count;
 
             initializeToolsCollection();
         }
 
         #region Data Binds      
 
-        private readonly ObservableCollection<vmTool> _ToolsList = new ObservableCollection<vmTool>();
+        public readonly ObservableCollection<vmTool> _ToolsList = new ObservableCollection<vmTool>();
         public ICollectionView ToolsList { get; set; }
 
         private string _SearchString = "";
@@ -160,6 +178,30 @@ namespace EDTools.ViewModels
             TabIndex = 0;
         }
 
+        private RelayCommand _TicketCreateCommand;
+        public ICommand TicketCreateCommand
+        {
+            get
+            {
+                if (_TicketCreateCommand == null) _TicketCreateCommand = new RelayCommand(param => ticketCreate(), param => { return (true); });
+
+                return _TicketCreateCommand;
+            }
+        }
+        private void ticketCreate()
+        {
+            vmTicket newTicket = new vmTicket(Ticket.createTicket("", "", Environment.UserName, DateTime.Today, DateTime.Today), true);
+
+            newTicket.PopupActive = true;
+
+            //while (newTicket.PopupActive)
+            //{
+            PopupHelper.TabIndex(0, newTicket);
+            PopupHelper.SetVisibility(true);
+            //}
+
+            //PopupHelper.SetVisibility(false);
+        }
         #endregion
     }
 }

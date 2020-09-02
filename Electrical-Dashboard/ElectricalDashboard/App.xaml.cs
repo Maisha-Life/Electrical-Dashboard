@@ -23,8 +23,14 @@ namespace ElectricalDashboard
         private static TicketsVM _TicketsVM;
         public static TicketsVM TicketsVM { get { return _TicketsVM ?? (_TicketsVM = new TicketsVM()); } }
 
+        private static EDDLL.Tickets.TicketsVM _TicketsRootVM;
+        public static EDDLL.Tickets.TicketsVM TicketsRootVM { get { return _TicketsRootVM ?? (_TicketsRootVM = new EDDLL.Tickets.TicketsVM()); } }
+
         private static PopupVM _PopupVM;
         public static PopupVM PopupVM { get { return _PopupVM ?? (_PopupVM = new PopupVM()); } }
+
+        private static HomeVM _HomeVM;
+        public static HomeVM HomeVM { get { return _HomeVM ?? (_HomeVM = new HomeVM ()); } }
 
         [STAThread]
         public static void Main()

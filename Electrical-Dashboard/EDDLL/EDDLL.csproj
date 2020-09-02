@@ -84,6 +84,7 @@
     <Compile Include="Views\TicketOV.xaml.cs">
       <DependentUpon>TicketOV.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\_Converters\WidthConverter.cs" />
     <Compile Include="Views\_CustomControls\SearchControl.xaml.cs">
       <DependentUpon>SearchControl.xaml</DependentUpon>
     </Compile>

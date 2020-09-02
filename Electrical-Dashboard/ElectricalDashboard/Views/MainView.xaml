@@ -42,7 +42,7 @@
                 <ElectricalDashboardViews:HomeView/>
             </TabItem>
             <TabItem Header="Tools" Tag="{StaticResource toolsIcon}">
-                <ToolsViews:ToolsView/>
+                <ToolsViews:MainView/>
             </TabItem>
             <TabItem Header="Rules" Tag="{StaticResource rulesIcon}">
                 <RuleViews:RulesView/>

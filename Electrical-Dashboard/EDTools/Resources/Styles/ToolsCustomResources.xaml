@@ -1,7 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     
+                    xmlns:Converters="clr-namespace:EDDLL.Views._Converters;assembly=EDDLL"
                     xmlns:ViewModels="clr-namespace:EDTools.ViewModels">
+
+    <Converters:WidthConverter x:Key="widthConvert"/>
     
     <DataTemplate x:Key="toolGridItem" DataType="{x:Type ViewModels:vmTool}">
         <DataTemplate.Resources>
@@ -15,7 +18,7 @@
             </Storyboard>
         </DataTemplate.Resources>
 
-        <Border x:Name="grid" Background="White" Margin="5">
+        <Border x:Name="grid" Background="White" Margin="5" CornerRadius="10">
             <Border.InputBindings>
                 <MouseBinding Gesture="LeftDoubleClick" Command="{Binding Execute}" />
             </Border.InputBindings>
@@ -28,7 +31,7 @@
                         <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
                     </Style>
                     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource customButtonWithContent}">
-                        <Setter Property="Margin" Value="2"/>
+                        <Setter Property="Margin" Value="5,0"/>
                     </Style>
                 </Grid.Resources>
                 <Grid.RowDefinitions>
@@ -42,16 +45,95 @@
 
                 <WrapPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,3">
                     <Button Command="{Binding Execute}" ToolTip="Run Tool">
-                        <Image Source="/EDS;component/Resources/Images/ToolsImages/Options/go.png"/>
+                        <Image Source="/EDTools;component/Resources/Images/Options/toolStart.png"/>
                     </Button>
-                    <Button ToolTip="Tool Information">
-                        <Image Source="/EDS;component/Resources/Images/ToolsImages/Options/info.png"/>
+                    <Button ToolTip="Tool Method">
+                        <Image Source="/EDTools;component/Resources/Images/Options/toolMethod.png"/>
                     </Button>
-                    <Button ToolTip="Message Author">
-                        <Image Source="/EDS;component/Resources/Images/ToolsImages/Options/message.png"/>
+                    <Button ToolTip="Submit Ticket">
+                        <Image Source="/EDTools;component/Resources/Images/Options/toolTicket.png"/>
                     </Button>
-                    <Button ToolTip="Email Author">
-                        <Image Source="/EDS;component/Resources/Images/ToolsImages/Options/email.png"/>
+                </WrapPanel>
+
+                <Grid Grid.RowSpan="3" Visibility="{Binding RunningVisibility}">
+                    <Border CornerRadius="13.5"  Background="#4C4F4F4F"  Margin="5,3" />
+
+                    <Rectangle VerticalAlignment="Center" HorizontalAlignment="Center" 
+                               Height="125" Width="125" Fill="White" RadiusX="65" RadiusY="65" Opacity=".9"/>
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Image Source="/EDTools;component/Resources/Images/Status/running.png" 
+                               Height="90" Width="90" />
+                    </StackPanel>
+
+                    <Button Margin="10,25" Command="{Binding CloseTool}" ToolTip="Close Tool"
+                            VerticalAlignment="Top" HorizontalAlignment="Right" >
+                        <Image Source="/EDDLL;component/Resources/Images/close.png" Height="20" Width="20"/>
+                    </Button>
+                </Grid>
+            </Grid>
+        </Border>
+
+        <DataTemplate.Triggers>
+            <EventTrigger RoutedEvent="Mouse.MouseLeave" SourceName="grid">
+                <BeginStoryboard x:Name="mouseLeave_BeginStoryboard" Storyboard="{StaticResource mouseLeave}"/>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Mouse.MouseEnter" SourceName="grid">
+                <BeginStoryboard Storyboard="{StaticResource mouseEnter}"/>
+            </EventTrigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                <Setter Property="Background" Value="#1978E072" TargetName="grid"/>
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                <Setter Property="Background" Value="white" TargetName="grid"/>
+            </Trigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <DataTemplate x:Key="toolGridItemScalable" DataType="{x:Type ViewModels:vmTool}">
+        <DataTemplate.Resources>
+            <Storyboard x:Key="mouseEnter">
+                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid" >
+                    <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#5078E072"/>
+                </ColorAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="mouseLeave">
+                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid" FillBehavior="Stop"/>
+            </Storyboard>
+        </DataTemplate.Resources>
+        <Border x:Name="grid" Background="White" Margin="7.5,5" CornerRadius="10" MinWidth="200" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}, Path=ActualWidth, Converter={StaticResource widthConvert}, ConverterParameter=3}">
+            <Border.InputBindings>
+                <MouseBinding Gesture="LeftDoubleClick" Command="{Binding Execute}" />
+            </Border.InputBindings>
+            <Grid Margin="0,2" VerticalAlignment="Center" ToolTip="{Binding Description}">
+                <Grid.Resources>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="FontWeight" Value="Thin"/>
+                        <Setter Property="Margin" Value="5,0"/>
+                        <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+                    </Style>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource customButtonWithContent}">
+                        <Setter Property="Margin" Value="5,0"/>
+                    </Style>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="125"/>
+                    <RowDefinition Height="35"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="{Binding Name}" Foreground="Black" FontWeight="Thin" FontSize="20" Margin="5,0,0,0" HorizontalAlignment="Center"/>
+                <Image Source="{Binding ImageSource}" Margin="4" Grid.Row="1"/>
+
+                <WrapPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,3">
+                    <Button Command="{Binding Execute}" ToolTip="Run Tool">
+                        <Image Source="/EDTools;component/Resources/Images/Options/toolStart.png"/>
+                    </Button>
+                    <Button ToolTip="Tool Method">
+                        <Image Source="/EDTools;component/Resources/Images/Options/toolMethod.png"/>
+                    </Button>
+                    <Button ToolTip="Submit Ticket">
+                        <Image Source="/EDTools;component/Resources/Images/Options/toolTicket.png"/>
                     </Button>
                 </WrapPanel>
 
@@ -101,7 +183,7 @@
             </Storyboard>
         </DataTemplate.Resources>
 
-        <Border x:Name="grid" Margin="0,5">
+        <Border x:Name="grid" Margin="0,5" CornerRadius="10">
             <Border.InputBindings>
                 <MouseBinding Gesture="LeftDoubleClick" Command="{Binding Execute}" />
             </Border.InputBindings>
@@ -121,9 +203,9 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="35"/>
                     <ColumnDefinition Width="150"/>
-                    <ColumnDefinition Width="350"/>
-                    <ColumnDefinition Width="100"/>
                     <ColumnDefinition />
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="150"/>
                 </Grid.ColumnDefinitions>
 
                 <Image Source="{Binding ImageSource}" Margin="4"/>
@@ -137,18 +219,17 @@
                             <Setter Property="Margin" Value="4"/>
                         </Style>
                     </WrapPanel.Resources>
-                    <Button Command="{Binding Execute}" ToolTip="Run Tool" IsEnabled="True">
-                        <Image Source="/EDS;component/Resources/Images/ToolsImages/Options/go.png"/>
-                    </Button>
-                    <Button ToolTip="Tool Information">
-                        <Image Source="/EDS;component/Resources/Images/ToolsImages/Options/info.png"/>
-                    </Button>
-                    <Button ToolTip="Message Author">
-                        <Image Source="/EDS;component/Resources/Images/ToolsImages/Options/message.png"/>
-                    </Button>
-                    <Button ToolTip="Email Author" Margin="0,0,5,0">
-                        <Image Source="/EDS;component/Resources/Images/ToolsImages/Options/email.png"/>
-                    </Button>
+                    <WrapPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,3">
+                        <Button Command="{Binding Execute}" ToolTip="Run Tool">
+                            <Image Source="/EDTools;component/Resources/Images/Options/toolStart.png"/>
+                        </Button>
+                        <Button ToolTip="Tool Method">
+                            <Image Source="/EDTools;component/Resources/Images/Options/toolMethod.png"/>
+                        </Button>
+                        <Button ToolTip="Submit Ticket">
+                            <Image Source="/EDTools;component/Resources/Images/Options/toolTicket.png"/>
+                        </Button>
+                    </WrapPanel>
                 </WrapPanel>
 
                 <Grid Grid.ColumnSpan="6" Visibility="{Binding RunningVisibility}">

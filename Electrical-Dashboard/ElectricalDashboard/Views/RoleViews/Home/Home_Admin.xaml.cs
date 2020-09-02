@@ -21,8 +21,10 @@ namespace ElectricalDashboard.Views.RoleViews.Home
     public partial class Home_Admin : UserControl
     {
         public Home_Admin()
-        {
+        {            
             InitializeComponent();
+
+            ticketsOverview.DataContext = App.TicketsVM;
         }
     }
 }

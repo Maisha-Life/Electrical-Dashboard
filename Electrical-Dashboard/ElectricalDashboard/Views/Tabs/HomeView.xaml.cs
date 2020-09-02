@@ -24,6 +24,8 @@ namespace ElectricalDashboard.Views.Tabs
     {
         public HomeView()
         {
+            DataContext = App.HomeVM;
+
             InitializeComponent();
 
             startClock();

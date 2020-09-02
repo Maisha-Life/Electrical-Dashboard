@@ -3,39 +3,112 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             
+             xmlns:customControls="clr-namespace:EDDLL.Views;assembly=EDDLL"             
              xmlns:local="clr-namespace:ElectricalDashboard.Views.RoleViews.Home"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+
+             
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="200"/>
-        </Grid.ColumnDefinitions>
-        <Grid Background="LightGray">
-            <StackPanel Margin="10">
-                <DockPanel Height="35">
-                    <Image Source="/Resources/Images/TabIcons/ticketsIcon.png" Margin="0,2,10,2"/>
-                    <TextBlock Text="Assigned Tickets" FontWeight="Thin" FontSize="25" Foreground="White"/>                    
-                </DockPanel>
-                
-                <DockPanel Height="35">
-                    <Image Source="/Resources/Images/TabIcons/ticketsIcon.png" Margin="0,2,10,2"/>
-                    <TextBlock Text="Tickets Assigned" FontWeight="Thin" FontSize="25" Foreground="White"/>
-                </DockPanel>
-                
-                <DockPanel Height="35">
-                    <Image Source="/Resources/Images/TabIcons/toolsIcon.png" Margin="0,2,10,2"/>
-                    <TextBlock Text="Tools" FontWeight="Thin" FontSize="25" Foreground="White"/>
-                </DockPanel>
-                
-                <DockPanel Height="35">
-                    <Image Source="/Resources/Images/TabIcons/harnessScanIcon.png" Margin="0,2,10,2"/>
-                    <TextBlock Text="Quick Links" FontWeight="Thin" FontSize="25" Foreground="White"/>
-                </DockPanel>                
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>                
+                <ColumnDefinition />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel>
+            <StackPanel x:Name="ticketsOverview" Margin="15">
+                <WrapPanel>
+                    <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/ticketAssigned.png" Height="28" Margin="0,0,5,0"/>
+                    <TextBlock Text="Assigned Tickets:" FontSize="20" FontWeight="Thin"/>
+                </WrapPanel>
+                <Grid>
+                    <ItemsControl ItemsSource="{Binding TicketsAssigned}">
+
+                    </ItemsControl>
+                    <TextBlock Margin="10,25,10,0" HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s) assigned, once you have ticket(s) assigned it will appear here -">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TicketsAssigned.Count}" Value="0">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+                <WrapPanel Margin="0,25,0,0">
+                    <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/ticketCreated.png" Height="28" Margin="0,0,5,0"/>
+                    <TextBlock Text="Created Tickets:" FontSize="20" FontWeight="Thin"/>
+                </WrapPanel>
+                <Grid Margin="0,0,0,25">
+                    <ItemsControl ItemsSource="{Binding TicketsCreated}">
+
+                    </ItemsControl>
+                    <TextBlock Margin="10,25,10,0" HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s) created, once you have created a ticket(s) it will appear here -">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TicketsCreated.Count}" Value="0">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>               
             </StackPanel>
-        </Grid>
-        <Grid Grid.Column="1" Background="LightPink">
-            
+
+                <StackPanel x:Name="toolsOverview" Margin="15">
+                    <WrapPanel Margin="0,0,0,15">
+                        <Image Source="/EDTools;component/Resources/Images/toolLarge.png" Height="28" Margin="0,0,5,0"/>
+                        <TextBlock Text="Top Tools:" FontSize="20" FontWeight="Thin"/>
+                    </WrapPanel>
+                    <ItemsControl ItemsSource="{Binding TopToolsList}" 
+                                  ItemTemplate="{StaticResource toolGridItemScalable}" >
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>                    
+            </StackPanel>
+            <Rectangle Grid.Column="1" Fill="{StaticResource DefaultBorder}" Margin="0,0,0,5"/>
+
+            <Grid Grid.Column="2">
+                <StackPanel Margin="15">
+                    <TextBlock Text="Ticket Info" FontSize="15" Margin="0,0,0,10"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Text="Total Tickets:" FontWeight="Thin" FontSize="12" Margin="0,10"/>
+                            <TextBlock Text="Assigned:" FontWeight="Thin" FontSize="12"/>
+                            <TextBlock Text="Created:" FontWeight="Thin" FontSize="12" Margin="0,10"/>
+                            <TextBlock Text="Completed:" FontWeight="Thin" FontSize="12"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <TextBlock Text="{Binding TicketsAll.Count}" FontSize="12" Margin="0,10"/>
+                            <TextBlock Text="{Binding TicketsAssigned.Count}"   FontSize="12"/>
+                            <TextBlock Text="{Binding TicketsCreated.Count}"   FontSize="12" Margin="0,10"/>
+                            <TextBlock Text="{Binding TicketsCompleteCount}"  FontSize="12"/>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Grid>            
         </Grid>
     </Grid>
 </UserControl>

@@ -16,5 +16,9 @@ namespace EDTools
     {
         private static ToolsVM _ToolsVM;
         public static ToolsVM ToolsVM { get { return _ToolsVM ?? (_ToolsVM = new ToolsVM()); } }
+
+        private static PopupVM _PopupVM;
+        public static PopupVM PopupVM { get { return _PopupVM ?? (_PopupVM = new PopupVM()); } }
+
     }
 }

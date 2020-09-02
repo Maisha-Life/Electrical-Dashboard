@@ -95,3 +95,4 @@ C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarness
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\EDHarnessScan.csproj.CopyComplete
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\EDHarnessScan.exe
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\EDHarnessScan.pdb
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\EDHarnessScan.csprojAssemblyReference.cache

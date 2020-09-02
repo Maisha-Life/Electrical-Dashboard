@@ -14,7 +14,7 @@ namespace EDTools.ViewModels
 {
     public class vmTool : vmBase
     {
-        public vmTool(string name, string shortname, string path, string type, string imagesource, string description, List<string> processes)
+        public vmTool(string name, string shortname, string path, string type, string imagesource, string description, string status, List<string> processes)
         {
             Name = name;
             ShortName = shortname;
@@ -22,6 +22,7 @@ namespace EDTools.ViewModels
             Type = type;
             ImageSource = imagesource;
             Description = description;
+            Status = status;
             processNames = processes;
 
             RunningVisibility = Visibility.Collapsed;
@@ -132,6 +133,8 @@ namespace EDTools.ViewModels
                 }
             }
         }
+
+        public string Status { get; set; }
 
         private bool _IsRunning;
         public bool IsRunning

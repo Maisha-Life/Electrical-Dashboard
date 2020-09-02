@@ -15,8 +15,8 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <DockPanel Background="{StaticResource DefaultBorder}" LastChildFill="False">
-            <TextBlock Text="{Binding UserName,StringFormat='Welcome, \{0}'}" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="White"/>
-            <TextBlock x:Name="clock" VerticalAlignment="Center" Foreground="White" DockPanel.Dock="Right" Margin="0,0,10,0"/>
+            <TextBlock Text="{Binding UserName,StringFormat='Welcome, \{0}'}" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="White" FontSize="17" FontWeight="Thin"/>
+            <TextBlock x:Name="clock" VerticalAlignment="Center" Foreground="White" FontSize="17" FontWeight="Thin" DockPanel.Dock="Right" Margin="0,0,10,0"/>
         </DockPanel>
 
         <Grid Grid.Row="1">
