@@ -45,7 +45,6 @@ namespace ElectricalDashboard.ViewModels
             }
         }
 
-
         #endregion
 
         #region Commands

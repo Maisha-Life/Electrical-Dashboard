@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EDRules.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,7 @@ namespace EDRules
     /// </summary>
     public partial class App : Application
     {
+        private static RulesVM _RulesVM;
+        public static RulesVM RulesVM { get { return _RulesVM ?? (_RulesVM = new RulesVM()); } }
     }
 }

@@ -59,11 +59,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ViewModels\MainVM.cs" />
     <Compile Include="ViewModels\ModelsVM\vmMeasurement.cs" />
     <Compile Include="ViewModels\ModelsVM\vmMethod.cs" />
     <Compile Include="ViewModels\ModelsVM\vmParameter.cs" />
     <Compile Include="ViewModels\ModelsVM\vmRule.cs" />
+    <Compile Include="ViewModels\RulesVM.cs" />
     <Compile Include="Views\RulesView.xaml.cs">
       <DependentUpon>RulesView.xaml</DependentUpon>
     </Compile>
@@ -147,6 +147,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\ruleLarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MainView\mood.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\goodStatus.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

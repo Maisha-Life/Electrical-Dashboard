@@ -68,6 +68,7 @@
     <Compile Include="Utilities\ThreeNOne.cs" />
     <Compile Include="Utilities\WindowHelper.cs" />
     <Compile Include="ViewModels\BaseVM.cs" />
+    <Compile Include="ViewModels\Ticket\TicketsVM.cs" />
     <Compile Include="ViewModels\Ticket\vmTicket.cs" />
     <Compile Include="Utilities\CatiaLink.cs" />
     <Compile Include="Utilities\ObservableObject.cs" />
@@ -126,6 +127,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\TicketIcons\assignTicket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Status\goodStatus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Status\errorStatus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Status\neutralStatus.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

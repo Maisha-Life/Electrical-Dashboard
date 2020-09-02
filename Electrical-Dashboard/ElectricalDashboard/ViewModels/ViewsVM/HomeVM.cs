@@ -18,6 +18,9 @@ namespace ElectricalDashboard.ViewModels.ViewsVM
                 if (i < 3)
                     TopToolsList.Add(new vmTool(i + " - name", i.ToString(), i.ToString(), "exe", @"\EDTools;component\Resources\Images\fillerImage.png", "a test description", "complete", null));
             }
+
+            UserName = Environment.UserName;
+
         }
 
         #region Data Binds
@@ -32,6 +35,20 @@ namespace ElectricalDashboard.ViewModels.ViewsVM
                 {
                     this._TopToolsList = value;
                     this.RaisePropertyChangedEvent("TopToolsList");
+                }
+            }
+        }
+
+        private string _UserName;
+        public string UserName
+        {
+            get { return _UserName; }
+            set
+            {
+                if (this._UserName != value)
+                {
+                    this._UserName = value;
+                    this.RaisePropertyChangedEvent("UserName");
                 }
             }
         }
