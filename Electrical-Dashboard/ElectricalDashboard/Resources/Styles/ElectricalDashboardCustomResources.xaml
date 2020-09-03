@@ -1,0 +1,108 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    
+                    xmlns:Converters="clr-namespace:EDDLL.Views._Converters;assembly=EDDLL"
+                    xmlns:ViewModels="clr-namespace:ElectricalDashboard.ViewModels.ModelsVM">
+
+    <Converters:WidthConverter x:Key="widthConvert"/>
+
+    <DataTemplate x:Key="ruleListItem" DataType="{x:Type ViewModels:vmElectricalDashboardTicket}">
+        <DataTemplate.Resources>
+            <Storyboard x:Key="mouseEnter">
+                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid" >
+                    <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#5078E072"/>
+                </ColorAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="mouseLeave">
+                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid" FillBehavior="Stop"/>
+            </Storyboard>
+        </DataTemplate.Resources>
+        <DockPanel x:Name="grid" Margin="1" Background="White" LastChildFill="False">
+            <Grid Height="auto" Margin="2" DockPanel.Dock="Top">
+                <Grid.Resources>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource customButtonWithContent}">
+                        <Setter Property="Height" Value="32"/>
+                    </Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="FontSize" Value="11"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="Foreground" Value="Black"/>
+                        <Setter Property="FontWeight" Value="Thin"/>
+                        <Setter Property="Margin" Value="5,0,0,0"/>
+                        <Setter Property="TextWrapping" Value="Wrap"/>
+                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                    </Style>
+                    <Style TargetType="{x:Type TextBox}">
+                        <Setter Property="FontSize" Value="11"/>
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="35"/>
+                    <ColumnDefinition Width="125"/>
+                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition Width="175"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="125"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Height="25" >
+                    <Image.Resources>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="/Resources/Images/Rulez/goodStatus.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Id_Status}" Value="1">
+                                    <Setter Property="Source" Value="/Resources/Images/Rulez/warningStatus.png"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Id_Status}" Value="2">
+                                    <Setter Property="Source" Value="/Resources/Images/Rulez/errorStatus.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Resources>
+                </Image>
+                <TextBlock Grid.Column="1" Text="{Binding DesignRuleProp.Saved}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="2" Text="{Binding LegacyIDDescProp.Saved}" FontSize="12" />
+                <TextBlock Grid.Column="3" Text="{Binding RuleNameProp.Saved}" />
+                <TextBlock Grid.Column="4" Text="{Binding RuleDescProp.Saved}" MaxHeight="55" TextTrimming="CharacterEllipsis">
+                    <TextBlock.ToolTip>
+                        <ToolTip MaxWidth="350" >
+                            <TextBlock TextWrapping="Wrap" Text="{Binding RuleDescProp.Saved}" Margin="5"/>
+                        </ToolTip>
+                    </TextBlock.ToolTip>
+                </TextBlock>               
+
+                <WrapPanel Grid.Column="7" VerticalAlignment="Center" Margin="25,0">
+                    <WrapPanel.Resources>
+                        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource customButtonWithContent}">
+                            <Setter Property="Height" Value="28"/>
+                            <Setter Property="Margin" Value="5,0,0,0"/>
+                        </Style>
+                    </WrapPanel.Resources>
+                    <Button Command="{Binding EditRuleCommand}" ToolTip="Edit Rule">
+                        <Image Source="/EDS;component/Resources/Images/Rulez/editRule.png" />
+                    </Button>
+                    <Button Command="{Binding RemoveRuleCommand}" ToolTip="Remove Rule">
+                        <Image Source="/EDS;component/Resources/Images/Rulez/removeRule.png" />
+                    </Button>
+                </WrapPanel>
+            </Grid>
+        </DockPanel>
+        <DataTemplate.Triggers>
+            <EventTrigger RoutedEvent="Mouse.MouseLeave" SourceName="grid">
+                <BeginStoryboard x:Name="mouseLeave_BeginStoryboard" Storyboard="{StaticResource mouseLeave}"/>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Mouse.MouseEnter" SourceName="grid">
+                <BeginStoryboard Storyboard="{StaticResource mouseEnter}"/>
+            </EventTrigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                <Setter Property="Background" Value="#1978E072" TargetName="grid"/>
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                <Setter Property="Background" Value="white" TargetName="grid"/>
+            </Trigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+</ResourceDictionary>
