@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-11-319694074
+151906041269
 
-22151977941
+27-560929397
 17116729520
-App.xaml;MainWindow.xaml;Views\MainView.xaml;Views\RoleViews\Home\Home_Admin.xaml;Views\RoleViews\Home\Home_Assignee.xaml;Views\RoleViews\Home\Home_Assigner.xaml;Views\RoleViews\Home\Home_User.xaml;Views\Tabs\HomeView.xaml;Views\PopupView.xaml;Views\Tabs\SettingsView.xaml;Views\Tabs\TicketsView.xaml;
+App.xaml;MainWindow.xaml;Views\MainView.xaml;Views\RoleViews\Home\Home_Admin.xaml;Views\RoleViews\Home\Home_Assignee.xaml;Views\RoleViews\Home\Home_Assigner.xaml;Views\RoleViews\Home\Home_User.xaml;Views\Tabs\HomeView.xaml;Views\PopupView.xaml;Views\Tabs\SettingsView.xaml;Views\Tabs\TicketsView.xaml;Views\Tickets\TicketStatsView.xaml;Views\TicketViews\TicketCV.xaml;Views\TicketViews\TicketEV.xaml;Views\TicketViews\TicketOV.xaml;
 
-True
+False
 

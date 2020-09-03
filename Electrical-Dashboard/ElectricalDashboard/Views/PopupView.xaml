@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              
              xmlns:EDDLLPopup="clr-namespace:EDDLL.Views;assembly=EDDLL"
+             xmlns:ElectricalDashboardPopup="clr-namespace:ElectricalDashboard.Views.TicketViews"
              xmlns:local="clr-namespace:EDDLL.Views"
              
              mc:Ignorable="d" d:DesignWidth="800">
@@ -42,13 +43,13 @@
                     SelectedIndex="{Binding SelectedPopupIndex}"
                     Visibility="{Binding PopupVisibility}">
             <TabItem>
-                <EDDLLPopup:TicketCV x:Name="ticketCV" Width="500" />
+                <ElectricalDashboardPopup:TicketCV x:Name="ticketCV" Width="500" />
             </TabItem>
             <TabItem>
-                <EDDLLPopup:TicketEV x:Name="ticketEV"/>
+                <ElectricalDashboardPopup:TicketEV x:Name="ticketEV"/>
             </TabItem>
             <TabItem>
-                <EDDLLPopup:TicketOV x:Name="ticketOV"/>
+                <ElectricalDashboardPopup:TicketOV x:Name="ticketOV"/>
             </TabItem>
         </TabControl>
     </Grid>

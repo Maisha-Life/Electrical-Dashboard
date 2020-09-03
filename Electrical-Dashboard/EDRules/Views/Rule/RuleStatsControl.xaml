@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="EDRules.Views.Rule.RuleStatsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EDRules.Views.Rule"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="350"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="2,0,0,0">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Image}" >
+                    <Setter Property="Height" Value="16"/>
+                    <Setter Property="Margin" Value="3,0,0,0"/>
+                </Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Foreground" Value="Black"/>
+                </Style>
+            </StackPanel.Resources>
+
+            <StackPanel x:Name="StatusKey">
+                <TextBlock Text=" Rule Information" FontSize="15" Margin="0,0,5,10"/>
+                <WrapPanel>
+                    <Image Source="/EDDLL;component/Resources/Images/Status/goodStatus.png" />
+                    <TextBlock Text=" - Good " FontWeight="Thin" FontSize="13" VerticalAlignment="Center"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <Image Source="/EDDLL;component/Resources/Images/Status/neutralStatus.png" />
+                    <TextBlock FontWeight="Thin" FontSize="13" VerticalAlignment="Center">
+                            <Run Text=" - Warning"/>
+                    </TextBlock>
+                </WrapPanel>
+                <WrapPanel>
+                    <Image Source="/EDDLL;component/Resources/Images/Status/errorStatus.png" />
+                    <TextBlock FontWeight="Thin" FontSize="13" VerticalAlignment="Center">
+                            <Run Text=" - Error"/>
+                    </TextBlock>
+                </WrapPanel>
+            </StackPanel>
+            <StackPanel x:Name="ItemsCharts">
+                <TextBlock Text=" Severity" FontSize="15" Margin="0,35,5,10"/>
+                <!--<Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Background="{StaticResource DefaultBorder}"/>-->
+                <TextBlock Margin="5,0,5,5">
+                        <Run Text="Total Rules Count Items: " FontWeight="Thin" FontSize="13"/>
+                        <Run Text="{Binding TotalRuleCount}" FontWeight="Bold"/>
+                </TextBlock>
+                <Grid>
+                    <Grid.Resources>
+                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource statText}"/>
+                        <Style TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource statProgBar}">
+                            <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=Value}"/>
+                            <Setter Property="Maximum" Value="{Binding TotalRuleCount}"/>
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Margin="5,5,0,5">
+                        <TextBlock Text="Errors:"/>
+                        <TextBlock Text="Warnings:" Margin="0,1"/>
+                        <TextBlock Text="Good:"/>
+
+                        <TextBlock Text="Questions:" Margin="0,15,0,0"/>
+                        <TextBlock Text="Constraints:" Margin="0,1,0,0"/>
+                        <TextBlock Text="Checks:" Margin="0,1"/>
+                        <TextBlock Text="Repairs:"/>
+
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Margin="0,6">
+                        <ProgressBar Value="{Binding TotalErrorCount}" Background="#66E07272" Foreground="{StaticResource ErrorColor}"/>
+                        <ProgressBar Value="{Binding TotalWarningCount}" Background="#66E0B700" Foreground="{StaticResource WarningColor}" Margin="0,5"/>
+                        <ProgressBar Value="{Binding TotalGoodCount}" Background="#6678E072" Foreground="{StaticResource GoodColor}"/>
+
+                        <ProgressBar Value="{Binding TotalAnswerCount}" Maximum="{Binding TotalQuestionCount}" 
+                                         Background="#664A4A4A" Foreground="{StaticResource DefaultBorder}" Margin="0,20,0,0"/>
+                        <ProgressBar Value="{Binding TotalErrorCount}" Background="#664A4A4A" Foreground="{StaticResource DefaultBorder}" Margin="0,5,0,0"/>
+                        <ProgressBar Value="{Binding TotalErrorCount}" Background="#664A4A4A" Foreground="{StaticResource DefaultBorder}" Margin="0,5"/>
+                        <ProgressBar Value="{Binding TotalErrorCount}" Background="#664A4A4A" Foreground="{StaticResource DefaultBorder}"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

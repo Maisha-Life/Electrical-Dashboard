@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="EDTools.Views.SubViews.ToolStatsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EDTools.Views.SubViews"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel Margin="5,0,0,0">
+            <TextBlock Text="Tool Information" FontSize="15" Margin="0,0,0,10"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Text="Total Tools:" FontWeight="Thin" FontSize="12" Margin="0,10"/>
+                    <TextBlock Text="Completed:" FontWeight="Thin" FontSize="12"/>
+                    <TextBlock Text="Developing:" FontWeight="Thin" FontSize="12" Margin="0,10"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="{Binding ToolsCount}" FontSize="12" Margin="0,10"/>
+                    <TextBlock Text="{Binding ToolsCompletedCount}" FontSize="12"/>
+                    <TextBlock Text="{Binding ToolsDevelopingCount}" FontSize="12" Margin="0,10"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

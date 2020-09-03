@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="EDRules.Views.PopupView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             
+             xmlns:EDDLLPopup="clr-namespace:EDDLL.Views;assembly=EDDLL"
+             xmlns:local="clr-namespace:EDRules.Views"
+             
+             mc:Ignorable="d" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type ComboBox}">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="FontWeight" Value="Thin"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="IsEditable" Value="True"/>
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="FontWeight" Value="Thin"/>
+            <Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Margin" Value="0,2"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+        <Style TargetType="{x:Type GroupBox}">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="{StaticResource DefaultBorder}"/>
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource customButtonWithContent}"/>
+    </UserControl.Resources>
+    <Grid>
+        <ToggleButton x:Name="overlay" Style="{StaticResource overlayToggle}" Command="{Binding ClearPopup}" IsChecked="{Binding OverlayBool}"/>
+        <TabControl VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,35"
+                    Style="{StaticResource scrollTabControl}"
+                    SelectedIndex="{Binding SelectedPopupIndex}"
+                    Visibility="{Binding PopupVisibility}">
+            <TabItem>
+                <StackPanel Name="ticketCV" Width="500" />
+            </TabItem>
+            <TabItem>
+                <StackPanel x:Name="ticketEV"/>
+            </TabItem>
+            <TabItem>
+                <StackPanel x:Name="ticketOV"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

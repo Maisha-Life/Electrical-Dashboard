@@ -16,5 +16,8 @@ namespace EDRules
     {
         private static RulesVM _RulesVM;
         public static RulesVM RulesVM { get { return _RulesVM ?? (_RulesVM = new RulesVM()); } }
+
+        private static PopupVM _PopupVM;
+        public static PopupVM PopupVM { get { return _PopupVM ?? (_PopupVM = new PopupVM()); } }
     }
 }

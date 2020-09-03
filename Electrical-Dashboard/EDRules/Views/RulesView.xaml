@@ -7,6 +7,7 @@
              
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:customControls="clr-namespace:EDDLL.Views;assembly=EDDLL"
+             xmlns:ruleViews="clr-namespace:EDRules.Views.Rule"
              
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -37,88 +38,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="350"/>
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <StackPanel Margin="2,0,0,0">
-                    <StackPanel.Resources>
-                        <Style TargetType="{x:Type Image}" >
-                            <Setter Property="Height" Value="16"/>
-                            <Setter Property="Margin" Value="3,0,0,0"/>
-                        </Style>
-                        <Style TargetType="{x:Type TextBlock}">
-                            <Setter Property="Foreground" Value="Black"/>
-                        </Style>
-                    </StackPanel.Resources>
-
-                    <StackPanel x:Name="StatusKey">
-                        <TextBlock Text=" Status Key" FontSize="15" Margin="0,0,5,10"/>
-                        <WrapPanel>
-                            <Image Source="/EDDLL;component/Resources/Images/Status/goodStatus.png" />
-                            <TextBlock Text=" - Good " FontWeight="Thin" FontSize="13" VerticalAlignment="Center"/>
-                        </WrapPanel>
-                        <WrapPanel>
-                            <Image Source="/EDDLL;component/Resources/Images/Status/neutralStatus.png" />
-                            <TextBlock FontWeight="Thin" FontSize="13" VerticalAlignment="Center">
-                            <Run Text=" - Warning"/>
-                            </TextBlock>
-                        </WrapPanel>
-                        <WrapPanel>
-                            <Image Source="/EDDLL;component/Resources/Images/Status/errorStatus.png" />
-                            <TextBlock FontWeight="Thin" FontSize="13" VerticalAlignment="Center">
-                            <Run Text=" - Error"/>
-                            </TextBlock>
-                        </WrapPanel>
-                    </StackPanel>
-                    <StackPanel x:Name="ItemsCharts">
-                        <TextBlock Text=" Severity" FontSize="15" Margin="0,35,5,10"/>
-                        <!--<Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Background="{StaticResource DefaultBorder}"/>-->
-                        <TextBlock Margin="5,0,5,5">
-                        <Run Text="Total Rules Count Items: " FontWeight="Thin" FontSize="13"/>
-                        <Run Text="{Binding totalCount}" FontWeight="Bold"/>
-                        </TextBlock>
-                        <Grid>
-                            <Grid.Resources>
-                                <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource statText}"/>
-                                <Style TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource statProgBar}">
-                                    <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=Value}"/>
-                                    <Setter Property="Maximum" Value="{Binding totalCount}"/>
-                                </Style>
-                            </Grid.Resources>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="75"/>
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-
-                            <StackPanel Margin="5,5,0,5">
-                                <TextBlock Text="Errors:"/>
-                                <TextBlock Text="Warnings:" Margin="0,1"/>
-                                <TextBlock Text="Good:"/>
-
-                                <TextBlock Text="Questions:" Margin="0,15,0,0"/>
-                                <TextBlock Text="Constraints:" Margin="0,1,0,0"/>
-                                <TextBlock Text="Checks:" Margin="0,1"/>
-                                <TextBlock Text="Repairs:"/>
-
-                            </StackPanel>
-
-                            <StackPanel Grid.Column="1" Margin="0,6">
-                                <ProgressBar Value="{Binding errorCount}" Background="#66E07272" Foreground="{StaticResource ErrorColor}"/>
-                                <ProgressBar Value="{Binding warningCount}" Background="#66E0B700" Foreground="{StaticResource WarningColor}" Margin="0,5"/>
-                                <ProgressBar Value="{Binding goodCount}" Background="#6678E072" Foreground="{StaticResource GoodColor}"/>
-
-                                <ProgressBar Value="{Binding questionAnswerCount}" Maximum="{Binding questionCount}" 
-                                         Background="#664A4A4A" Foreground="{StaticResource DefaultBorder}" Margin="0,20,0,0"/>
-                                <ProgressBar Value="{Binding errorCount}" Background="#664A4A4A" Foreground="{StaticResource DefaultBorder}" Margin="0,5,0,0"/>
-                                <ProgressBar Value="{Binding errorCount}" Background="#664A4A4A" Foreground="{StaticResource DefaultBorder}" Margin="0,5"/>
-                                <ProgressBar Value="{Binding errorCount}" Background="#664A4A4A" Foreground="{StaticResource DefaultBorder}"/>
-                            </StackPanel>
-                        </Grid>
-                    </StackPanel>
-                </StackPanel>
-            </Grid>
+            <ruleViews:RuleStatsControl/>
 
             <Rectangle Grid.Column="1" Fill="{StaticResource DefaultBorder}" Margin="0,0,0,5"/>
 
@@ -187,7 +107,7 @@
                         <TextBlock Text="Assigned Rule Tickets:" FontSize="20" FontWeight="Thin"/>
                     </WrapPanel>
                     <Grid>
-                        <ItemsControl ItemsSource="{Binding TicketsAssigned}">
+                        <ItemsControl ItemsSource="{Binding AssignedRuleTickets}">
 
                         </ItemsControl>
                         <TextBlock Margin="10,25,10,0" HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s) assigned, once you have ticket(s) assigned it will appear here -">
@@ -195,7 +115,7 @@
                                 <Style TargetType="{x:Type TextBlock}">
                                     <Setter Property="Visibility" Value="Collapsed"/>
                                     <Style.Triggers>
-                                        <DataTrigger Binding="{Binding TicketsAssigned.Count}" Value="0">
+                                        <DataTrigger Binding="{Binding AssignedRuleTickets.Count}" Value="0">
                                             <Setter Property="Visibility" Value="Visible"/>
                                         </DataTrigger>
                                     </Style.Triggers>
@@ -208,7 +128,7 @@
                         <TextBlock Text="Created Rule Tickets:" FontSize="20" FontWeight="Thin"/>
                     </WrapPanel>
                     <Grid Margin="0,0,0,25">
-                        <ItemsControl ItemsSource="{Binding TicketsCreated}">
+                        <ItemsControl ItemsSource="{Binding CreatedRuleTickets}">
 
                         </ItemsControl>
                         <TextBlock Margin="10,25,10,0" HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s) created, once you have created a ticket(s) it will appear here -">
@@ -216,7 +136,7 @@
                                 <Style TargetType="{x:Type TextBlock}">
                                     <Setter Property="Visibility" Value="Collapsed"/>
                                     <Style.Triggers>
-                                        <DataTrigger Binding="{Binding TicketsCreated.Count}" Value="0">
+                                        <DataTrigger Binding="{Binding CreatedRuleTickets.Count}" Value="0">
                                             <Setter Property="Visibility" Value="Visible"/>
                                         </DataTrigger>
                                     </Style.Triggers>

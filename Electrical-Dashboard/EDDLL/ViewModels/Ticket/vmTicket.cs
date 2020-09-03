@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Xml.Linq;
+using System.Collections.ObjectModel;
 
 namespace EDDLL.Tickets
 {
@@ -337,101 +338,23 @@ namespace EDDLL.Tickets
             }
         }
 
+        private ObservableCollection<string> _TicketNotes;
+        public ObservableCollection<string> TicketNotes
+        {
+            get { return _TicketNotes; }
+            set
+            {
+                if (this._TicketNotes != value)
+                {
+                    this._TicketNotes = value;
+                    this.RaisePropertyChangedEvent("TicketNotes");
+                }
+            }
+        }
+
         #endregion
 
         #region Commands
-
-        private RelayCommand _CreateCommand;
-        public ICommand CreateCommand
-        {
-            get
-            {
-                if (_CreateCommand == null) _CreateCommand = new RelayCommand(param => createCommand(), param => { return (true); });
-
-                return _CreateCommand;
-            }
-        }
-        private void createCommand()
-        {
-
-        }
-
-        private RelayCommand _CancelCreateCommand;
-        public ICommand CancelCreateCommand
-        {
-            get
-            {
-                if (_CancelCreateCommand == null) _CancelCreateCommand = new RelayCommand(param => cancelCreateCommand(), param => { return (true); });
-
-                return _CancelCreateCommand;
-            }
-        }
-        private void cancelCreateCommand()
-        {
-            PopupActive = false;
-            this.Dispose();
-        }
-
-        private RelayCommand _SaveCommand;
-        public ICommand SaveCommand
-        {
-            get
-            {
-                if (_SaveCommand == null) _SaveCommand = new RelayCommand(param => saveCommand(), param => { return (true); });
-
-                return _SaveCommand;
-            }
-        }
-        private void saveCommand()
-        {
-            save();
-
-        }
-
-        private RelayCommand _CancelCommand;
-        public ICommand CancelCommand
-        {
-            get
-            {
-                if (_CancelCommand == null) _CancelCommand = new RelayCommand(param => cancelCommand(), param => { return (true); });
-
-                return _CancelCommand;
-            }
-        }
-        private void cancelCommand()
-        {
-            cancel();
-        }
-
-        private RelayCommand _EditCommand;
-        public ICommand EditCommand
-        {
-            get
-            {
-                if (_EditCommand == null) _EditCommand = new RelayCommand(param => editCommand(), param => { return (true); });
-
-                return _EditCommand;
-            }
-        }
-        private void editCommand()
-        {
-
-        }
-
-        private RelayCommand _RemoveCommand;
-        public ICommand RemoveCommand
-        {
-            get
-            {
-                if (_RemoveCommand == null) _RemoveCommand = new RelayCommand(param => removeCommand(), param => { return (true); });
-
-                return _RemoveCommand;
-            }
-        }
-        private void removeCommand()
-        {
-            
-        }
 
         #endregion
 

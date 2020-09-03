@@ -2,7 +2,9 @@
 using EDDLL.Utilities;
 using EDDLL.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows.Documents;
 using System.Windows.Input;
 
 namespace EDDLL.Tickets
@@ -68,6 +70,12 @@ namespace EDDLL.Tickets
                 }
             }
         }
+
+        public List<string> UserList { get; set; }
+        public List<string> CategoryList { get; set; }
+        public List<string> ToolList { get; set; }
+        public List<string> PriorityList { get; set; }
+        public List<string> StatusList { get; set; }
 
         #endregion
     }

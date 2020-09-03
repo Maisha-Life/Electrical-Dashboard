@@ -45,7 +45,7 @@
                 <ToolsViews:MainView/>
             </TabItem>
             <TabItem Header="Rules" Tag="{StaticResource rulesIcon}">
-                <RuleViews:RulesView/>
+                <RuleViews:MainView/>
             </TabItem>
             <TabItem Header="Harness Scan" Tag="{StaticResource harnessScanIcon}">
                 <HarnessViews:HarnessScanView/>

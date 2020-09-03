@@ -52,3 +52,10 @@ C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDR
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Release\EDRules.csproj.CopyComplete
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Release\EDRules.exe
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Release\EDRules.pdb
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Release\Views\MainView.g.cs
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Release\Views\PopupView.g.cs
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Release\Views\Rule\RuleStatsControl.g.cs
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Release\Views\MainView.baml
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Release\Views\PopupView.baml
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Release\Views\Rule\RuleStatsControl.baml

@@ -61,6 +61,9 @@
     </Compile>
     <Compile Include="Models\Tool.cs" />
     <Compile Include="Utilities\PopupHelper.cs" />
+    <Compile Include="ViewModels\ModelsVM\vmEDToolsTicket.xaml.cs">
+      <DependentUpon>vmEDToolsTicket.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\ViewsVM\ToolsVM.cs" />
     <Compile Include="ViewModels\ViewsVM\PopupVM.cs" />
     <Compile Include="ViewModels\vmTool.cs" />
@@ -72,6 +75,9 @@
     </Compile>
     <Compile Include="Views\PopupView.xaml.cs">
       <DependentUpon>PopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubViews\ToolStatsControl.xaml.cs">
+      <DependentUpon>ToolStatsControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SubViews\Tools_GridView.xaml.cs">
       <DependentUpon>Tools_GridView.xaml</DependentUpon>
@@ -118,6 +124,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ViewModels\ModelsVM\vmEDToolsTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -129,6 +139,10 @@
     <Page Include="Views\PopupView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SubViews\ToolStatsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SubViews\Tools_GridView.xaml">
       <SubType>Designer</SubType>

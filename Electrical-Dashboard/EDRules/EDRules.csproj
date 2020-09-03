@@ -59,13 +59,24 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Utilities\PopupHelper.cs" />
     <Compile Include="ViewModels\ModelsVM\vmMeasurement.cs" />
     <Compile Include="ViewModels\ModelsVM\vmMethod.cs" />
     <Compile Include="ViewModels\ModelsVM\vmParameter.cs" />
     <Compile Include="ViewModels\ModelsVM\vmRule.cs" />
-    <Compile Include="ViewModels\RulesVM.cs" />
+    <Compile Include="ViewModels\ViewsVM\PopupVM.cs" />
+    <Compile Include="ViewModels\ViewsVM\RulesVM.cs" />
+    <Compile Include="Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PopupView.xaml.cs">
+      <DependentUpon>PopupView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RulesView.xaml.cs">
       <DependentUpon>RulesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Rule\RuleStatsControl.xaml.cs">
+      <DependentUpon>RuleStatsControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Rule\Rule_Admin.xaml.cs">
       <DependentUpon>Rule_Admin.xaml</DependentUpon>
@@ -120,7 +131,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\MainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PopupView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\RulesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Rule\RuleStatsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -150,9 +173,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\MainView\mood.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Views\goodStatus.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

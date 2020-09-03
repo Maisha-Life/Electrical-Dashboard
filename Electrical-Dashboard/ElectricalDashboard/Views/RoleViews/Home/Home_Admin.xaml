@@ -7,7 +7,10 @@
              xmlns:customControls="clr-namespace:EDDLL.Views;assembly=EDDLL"             
              xmlns:local="clr-namespace:ElectricalDashboard.Views.RoleViews.Home"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
-
+             
+             xmlns:ticketViews="clr-namespace:ElectricalDashboard.Views.Tickets"
+             xmlns:toolStats="clr-namespace:EDTools.Views.SubViews;assembly=EDTools"
+             xmlns:ruleStats="clr-namespace:EDRules.Views.Rule;assembly=EDRules"
              
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -88,25 +91,9 @@
 
             <Grid Grid.Column="2">
                 <StackPanel Margin="15">
-                    <TextBlock Text="Ticket Info" FontSize="15" Margin="0,0,0,10"/>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="75"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <StackPanel>
-                            <TextBlock Text="Total Tickets:" FontWeight="Thin" FontSize="12" Margin="0,10"/>
-                            <TextBlock Text="Assigned:" FontWeight="Thin" FontSize="12"/>
-                            <TextBlock Text="Created:" FontWeight="Thin" FontSize="12" Margin="0,10"/>
-                            <TextBlock Text="Completed:" FontWeight="Thin" FontSize="12"/>
-                        </StackPanel>
-                        <StackPanel Grid.Column="1">
-                            <TextBlock Text="{Binding TicketsAll.Count}" FontSize="12" Margin="0,10"/>
-                            <TextBlock Text="{Binding TicketsAssigned.Count}"   FontSize="12"/>
-                            <TextBlock Text="{Binding TicketsCreated.Count}"   FontSize="12" Margin="0,10"/>
-                            <TextBlock Text="{Binding TicketsCompleteCount}"  FontSize="12"/>
-                        </StackPanel>
-                    </Grid>
+                    <ticketViews:TicketStatsView x:Name="ticketStats"/>
+                    <toolStats:ToolStatsControl x:Name="toolStats" Margin="0,15"/>
+                    <ruleStats:RuleStatsControl x:Name="ruleStats"/>
                 </StackPanel>
             </Grid>            
         </Grid>

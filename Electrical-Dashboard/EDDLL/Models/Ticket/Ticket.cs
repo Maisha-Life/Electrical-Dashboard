@@ -24,7 +24,8 @@ namespace EDDLL.Tickets
                                               Category = category,
                                               Assigner = assigner,
                                               DateAssigned = dateAssigned,
-                                              DateDue = dateDue
+                                              DateDue = dateDue,
+                                              Description = "testing this field"
                                           };
         //new with info
         public static Ticket createTicket(int ticketNumber, string importanceLevel, string tool, string category, string assigner, string assignee, DateTime dateAssigned,

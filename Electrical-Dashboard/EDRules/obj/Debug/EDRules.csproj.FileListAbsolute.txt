@@ -36,7 +36,6 @@ C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDRules\o
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\EDRules.csproj.CopyComplete
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\EDRules.exe
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\EDRules.pdb
-C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\EDRules.csprojAssemblyReference.cache
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\bin\Debug\EDRules.exe.config
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\bin\Debug\EDRules.exe
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\bin\Debug\EDRules.pdb
@@ -64,3 +63,10 @@ C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDR
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\EDRules.csproj.CopyComplete
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\EDRules.exe
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\EDRules.pdb
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\Views\MainView.g.cs
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\Views\PopupView.g.cs
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\Views\MainView.baml
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\Views\PopupView.baml
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\Views\Rule\RuleStatsControl.g.cs
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDRules\obj\Debug\Views\Rule\RuleStatsControl.baml

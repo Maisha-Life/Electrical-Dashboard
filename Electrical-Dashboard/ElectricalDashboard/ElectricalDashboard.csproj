@@ -57,6 +57,7 @@
     <Compile Include="Resources\Styles\Class1.cs" />
     <Compile Include="Utilities\PopupHelper.cs" />
     <Compile Include="ViewModels\MainVM.cs" />
+    <Compile Include="ViewModels\ModelsVM\vmElectricalDashboardTicket.cs" />
     <Compile Include="ViewModels\ViewsVM\HomeVM.cs" />
     <Compile Include="ViewModels\ViewsVM\PopupVM.cs" />
     <Compile Include="ViewModels\ViewsVM\SettingsVM.cs" />
@@ -72,6 +73,18 @@
     </Compile>
     <Compile Include="Views\Tabs\TicketsView.xaml.cs">
       <DependentUpon>TicketsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tickets\TicketStatsView.xaml.cs">
+      <DependentUpon>TicketStatsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TicketViews\TicketCV.xaml.cs">
+      <DependentUpon>TicketCV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TicketViews\TicketEV.xaml.cs">
+      <DependentUpon>TicketEV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TicketViews\TicketOV.xaml.cs">
+      <DependentUpon>TicketOV.xaml</DependentUpon>
     </Compile>
     <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -139,6 +152,22 @@
     <Page Include="Views\Tabs\TicketsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tickets\TicketStatsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TicketViews\TicketCV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TicketViews\TicketEV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TicketViews\TicketOV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

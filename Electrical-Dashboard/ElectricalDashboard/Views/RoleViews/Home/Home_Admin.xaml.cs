@@ -25,6 +25,10 @@ namespace ElectricalDashboard.Views.RoleViews.Home
             InitializeComponent();
 
             ticketsOverview.DataContext = App.TicketsVM;
+
+            ticketStats.DataContext = App.TicketsVM;
+            toolStats.DataContext = EDTools.App.ToolsVM;
+            ruleStats.DataContext = EDRules.App.RulesVM;
         }
     }
 }

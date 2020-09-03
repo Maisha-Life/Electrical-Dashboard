@@ -22,6 +22,8 @@ namespace EDRules.Views
     {
         public RulesView()
         {
+            DataContext = App.RulesVM;
+
             InitializeComponent();
         }
 
