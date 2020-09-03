@@ -11,7 +11,28 @@ namespace EDDLL.Tickets
 {
     public class TicketsVM : BaseVM    
     {
-        public TicketsVM() { }
+        public TicketsVM() 
+        {
+            UserList = new List<string>();
+            ToolList = new List<string>();
+            CategoryList = new List<string>();
+            PriorityList = new List<string>();
+
+            UserList.Add("jmill592");
+            UserList.Add("ayu12");
+
+            ToolList.Add("IPS");
+            ToolList.Add("Catia");
+            ToolList.Add("WGO");
+
+            CategoryList.Add("Add Feature");
+            CategoryList.Add("Remove Feature");
+            CategoryList.Add("Edit Feature");
+
+            PriorityList.Add("Low");
+            PriorityList.Add("Normal");
+            PriorityList.Add("High");;
+        }
 
         #region Data Binds
 
@@ -72,8 +93,8 @@ namespace EDDLL.Tickets
         }
 
         public List<string> UserList { get; set; }
-        public List<string> CategoryList { get; set; }
         public List<string> ToolList { get; set; }
+        public List<string> CategoryList { get; set; }
         public List<string> PriorityList { get; set; }
         public List<string> StatusList { get; set; }
 

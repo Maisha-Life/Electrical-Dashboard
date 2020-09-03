@@ -28,6 +28,9 @@ namespace ElectricalDashboard.ViewModels.ModelsVM
         private void createCommand()
         {
             PopupHelper.SetVisibility(false);
+
+            save();
+
             App.TicketsVM.TicketsAll.Add(this);
             App.TicketsVM.TicketsCreated.Add(this);
         }
@@ -79,34 +82,32 @@ namespace ElectricalDashboard.ViewModels.ModelsVM
             cancel();
         }
 
-        private RelayCommand _EditCommand;
-        public ICommand EditCommand
-        {
-            get
-            {
-                if (_EditCommand == null) _EditCommand = new RelayCommand(param => editCommand(), param => { return (true); });
-
-                return _EditCommand;
-            }
-        }
-        private void editCommand()
+        public override void editCommand()
         {
 
         }
 
-        private RelayCommand _RemoveCommand;
-        public ICommand RemoveCommand
+        public override void removeCommand()
         {
-            get
-            {
-                if (_RemoveCommand == null) _RemoveCommand = new RelayCommand(param => removeCommand(), param => { return (true); });
 
-                return _RemoveCommand;
-            }
         }
-        private void removeCommand()
-        {
 
+        #endregion
+
+        #region Methods
+
+        public override void save()
+        {
+            TicketNumber = App.TicketsVM.TicketsAll.Count();
+
+            ImportanceLevelProp.Save();
+            ToolProp.Save();
+            CategoryProp.Save();
+            AssignerProp.Save();
+            AssigneeProp.Save();
+            DateAssignedProp.Save();
+            DateDueProp.Save();
+            DescriptionProp.Save();
         }
 
         #endregion

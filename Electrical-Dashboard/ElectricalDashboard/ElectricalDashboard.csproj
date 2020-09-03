@@ -54,7 +54,6 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Resources\Styles\Class1.cs" />
     <Compile Include="Utilities\PopupHelper.cs" />
     <Compile Include="ViewModels\MainVM.cs" />
     <Compile Include="ViewModels\ModelsVM\vmElectricalDashboardTicket.cs" />
@@ -238,6 +237,9 @@
   <ItemGroup>
     <Resource Include="Resources\Images\SettingIcons\settingsLarge.png" />
     <Resource Include="Resources\Images\TicketIcons\ticketLarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Styles\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -86,6 +86,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Resources\Styles\EDDLLCustomResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Resources\Styles\MVVMCustomResources.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -108,13 +112,11 @@
     <Resource Include="Resources\Images\TicketIcons\assignTicket.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\Status\goodStatus.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\Images\Status\errorStatus.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\Status\neutralStatus.png" />
+    <Resource Include="Resources\Images\Status\goodStatus.png" />
+    <Resource Include="Resources\Images\Status\warningStatus.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

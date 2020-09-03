@@ -23,6 +23,12 @@ namespace ElectricalDashboard.Views.TicketViews
         public TicketCV()
         {
             InitializeComponent();
+
+            toolCB.ItemsSource = App.TicketsVM.ToolList;
+            categoryCB.ItemsSource = App.TicketsVM.CategoryList;
+
+            assigneeCB.ItemsSource = App.TicketsVM.UserList;
+            priorityCB.ItemsSource = App.TicketsVM.PriorityList;
         }
     }
 }

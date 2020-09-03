@@ -48,7 +48,7 @@
                     <TextBlock Text="Assigned Tickets:" FontSize="20" FontWeight="Thin"/>
                 </WrapPanel>
                 <Grid Margin="10,25,10,25">
-                    <ItemsControl ItemsSource="{Binding TicketsAssigned}">
+                    <ItemsControl ItemsSource="{Binding TicketsAssigned}" ItemTemplate="{StaticResource ticketListItem}">
                         
                     </ItemsControl>
                     <TextBlock HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s) assigned, once you have ticket(s) assigned it will appear here -">
@@ -69,7 +69,7 @@
                     <TextBlock Text="Created Tickets:" FontSize="20" FontWeight="Thin"/>
                 </WrapPanel>
                 <Grid Margin="10,25,10,25">
-                    <ItemsControl ItemsSource="{Binding TicketsCreated}">
+                    <ItemsControl ItemsSource="{Binding TicketsCreated}" ItemTemplate="{StaticResource ticketListItem}">
 
                     </ItemsControl>
                     <TextBlock HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s) created, once you have created a ticket(s) it will appear here -">
@@ -90,7 +90,7 @@
                     <TextBlock Text="Tickets:" FontSize="20" FontWeight="Thin"/>
                 </WrapPanel>
                 <Grid Margin="10,25,10,25">
-                    <ItemsControl ItemsSource="{Binding TicketsAll}">
+                    <ItemsControl ItemsSource="{Binding TicketsAll}" ItemTemplate="{StaticResource ticketListItem}">
 
                     </ItemsControl>
                     <TextBlock HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s), once ticket(s) have been made they will appear here -">

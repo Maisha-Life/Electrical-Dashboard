@@ -356,11 +356,35 @@ namespace EDDLL.Tickets
 
         #region Commands
 
+        private RelayCommand _EditCommand;
+        public ICommand EditCommand
+        {
+            get
+            {
+                if (_EditCommand == null) _EditCommand = new RelayCommand(param => editCommand(), param => { return (true); });
+
+                return _EditCommand;
+            }
+        }
+        public virtual void editCommand() { }
+
+        private RelayCommand _RemoveCommand;
+        public ICommand RemoveCommand
+        {
+            get
+            {
+                if (_RemoveCommand == null) _RemoveCommand = new RelayCommand(param => removeCommand(), param => { return (true); });
+
+                return _RemoveCommand;
+            }
+        }
+        public virtual void removeCommand() { }
+
         #endregion
 
         #region Methods
 
-        public void save() { }
+        public virtual void save() { }
         public void cancel() { }
         public void remove() { }
         public void revert() { }

@@ -31,7 +31,7 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel>
                             <TextBlock Text="Assignee"/>
-                            <ComboBox x:Name="assigneeCB" SelectedItem="{Binding Assignee, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>
+                            <ComboBox x:Name="assigneeCB" SelectedItem="{Binding Assignee, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" IsEnabled="True"/>
                             <ContentPresenter Content="{Binding ElementName=assigneeCB, Path=(Validation.Errors).CurrentItem}" Height="13" />
                             <TextBlock Text="Tool"/>
                             <ComboBox x:Name="toolCB" SelectedItem="{Binding Tool, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>

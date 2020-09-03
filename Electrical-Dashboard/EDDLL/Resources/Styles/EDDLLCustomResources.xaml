@@ -2,11 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     
                     xmlns:Converters="clr-namespace:EDDLL.Views._Converters;assembly=EDDLL"
-                    xmlns:ViewModels="clr-namespace:ElectricalDashboard.ViewModels.ModelsVM">
+                    xmlns:ViewModels="clr-namespace:EDDLL.Tickets">
 
-    <Converters:WidthConverter x:Key="widthConvert"/>
-
-    <DataTemplate x:Key="ruleListItem" DataType="{x:Type ViewModels:vmElectricalDashboardTicket}">
+    <DataTemplate x:Key="ticketListItem" DataType="{x:Type ViewModels:vmTicket}">
         <DataTemplate.Resources>
             <Storyboard x:Key="mouseEnter">
                 <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid" >
@@ -17,7 +15,7 @@
                 <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid" FillBehavior="Stop"/>
             </Storyboard>
         </DataTemplate.Resources>
-        <DockPanel x:Name="grid" Margin="1" Background="White" LastChildFill="False">
+        <Border x:Name="grid" Margin="1" Background="White" CornerRadius="5">
             <Grid Height="auto" Margin="2" DockPanel.Dock="Top">
                 <Grid.Resources>
                     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource customButtonWithContent}">
@@ -38,57 +36,47 @@
                 </Grid.Resources>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="35"/>
-                    <ColumnDefinition Width="125"/>
+                    <ColumnDefinition Width="50"/>
                     <ColumnDefinition Width="75"/>
-                    <ColumnDefinition Width="175"/>
+                    <ColumnDefinition Width="100"/>
                     <ColumnDefinition />
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
                     <ColumnDefinition Width="120"/>
                     <ColumnDefinition Width="130"/>
                     <ColumnDefinition Width="125"/>
                 </Grid.ColumnDefinitions>
 
-                <Image Height="25" >
-                    <Image.Resources>
-                        <Style TargetType="{x:Type Image}">
-                            <Setter Property="Source" Value="/Resources/Images/Rulez/goodStatus.png"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding Id_Status}" Value="1">
-                                    <Setter Property="Source" Value="/Resources/Images/Rulez/warningStatus.png"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding Id_Status}" Value="2">
-                                    <Setter Property="Source" Value="/Resources/Images/Rulez/errorStatus.png"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Image.Resources>
+                <Image Height="25" Source="/EDDLL;component/Resources/Images/Status/goodStatus.png">
                 </Image>
-                <TextBlock Grid.Column="1" Text="{Binding DesignRuleProp.Saved}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>
-                <TextBlock Grid.Column="2" Text="{Binding LegacyIDDescProp.Saved}" FontSize="12" />
-                <TextBlock Grid.Column="3" Text="{Binding RuleNameProp.Saved}" />
-                <TextBlock Grid.Column="4" Text="{Binding RuleDescProp.Saved}" MaxHeight="55" TextTrimming="CharacterEllipsis">
+                <TextBlock Grid.Column="1" Text="{Binding TicketNumber}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="2" Text="{Binding ToolProp.Saved}" FontSize="12" />
+                <TextBlock Grid.Column="3" Text="{Binding CategoryProp.Saved}" />
+                <TextBlock Grid.Column="4" Text="{Binding DescriptionProp.Saved}" MaxHeight="55" TextTrimming="CharacterEllipsis">
                     <TextBlock.ToolTip>
                         <ToolTip MaxWidth="350" >
-                            <TextBlock TextWrapping="Wrap" Text="{Binding RuleDescProp.Saved}" Margin="5"/>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding DescriptionProp.Saved}" Margin="5"/>
                         </ToolTip>
                     </TextBlock.ToolTip>
-                </TextBlock>               
-
-                <WrapPanel Grid.Column="7" VerticalAlignment="Center" Margin="25,0">
+                </TextBlock>
+                <TextBlock Grid.Column="5" Text="{Binding Assigner}" />
+                <TextBlock Grid.Column="6" Text="{Binding Assignee}" />
+                <TextBlock Grid.Column="7" Text="{Binding DateAssignedProp.Saved}" />
+                <TextBlock Grid.Column="8" Text="{Binding DateDueProp.Saved}" />
+                <WrapPanel Grid.Column="9" VerticalAlignment="Center" Margin="20,0">
                     <WrapPanel.Resources>
                         <Style TargetType="{x:Type Button}" BasedOn="{StaticResource customButtonWithContent}">
                             <Setter Property="Height" Value="28"/>
                             <Setter Property="Margin" Value="5,0,0,0"/>
                         </Style>
                     </WrapPanel.Resources>
-                    <Button Command="{Binding EditRuleCommand}" ToolTip="Edit Rule">
-                        <Image Source="/EDS;component/Resources/Images/Rulez/editRule.png" />
+                    <Button Command="{Binding EditCommand}" ToolTip="Edit Ticket" Content="edit">
                     </Button>
-                    <Button Command="{Binding RemoveRuleCommand}" ToolTip="Remove Rule">
-                        <Image Source="/EDS;component/Resources/Images/Rulez/removeRule.png" />
+                    <Button Command="{Binding RemoveCommand}" ToolTip="Remove Ticket" Content="remove">
                     </Button>
                 </WrapPanel>
             </Grid>
-        </DockPanel>
+        </Border>
         <DataTemplate.Triggers>
             <EventTrigger RoutedEvent="Mouse.MouseLeave" SourceName="grid">
                 <BeginStoryboard x:Name="mouseLeave_BeginStoryboard" Storyboard="{StaticResource mouseLeave}"/>

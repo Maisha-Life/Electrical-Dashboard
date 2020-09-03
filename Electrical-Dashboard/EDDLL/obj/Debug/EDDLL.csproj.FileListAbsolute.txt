@@ -42,3 +42,4 @@ C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDD
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Debug\EDDLL.csproj.CoreCompileInputs.cache
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Debug\EDDLL.dll
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Debug\EDDLL.pdb
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Debug\Resources\Styles\EDDLLCustomResources.baml
