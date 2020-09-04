@@ -2,6 +2,7 @@
 using EDDLL.Utilities;
 using EDDLL.ViewModels;
 using EDTools.Utilities;
+using EDTools.ViewModels.ModelsVM;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -106,7 +107,6 @@ namespace EDTools.ViewModels
             }
         }
 
-
         private int _ToolsDevelopingCount;
         public int ToolsDevelopingCount
         {
@@ -121,6 +121,19 @@ namespace EDTools.ViewModels
             }
         }
 
+        private ObservableCollection<vmTicket> _ToolCreatedTickets;
+        public ObservableCollection<vmTicket> ToolCreatedTickets
+        {
+            get { return _ToolCreatedTickets ?? (_ToolCreatedTickets = new ObservableCollection<vmTicket>()); }
+            set
+            {
+                if (this._ToolCreatedTickets != value)
+                {
+                    this._ToolCreatedTickets = value;
+                    this.RaisePropertyChangedEvent("ToolCreatedTickets");
+                }
+            }
+        }
 
         #endregion
 
@@ -190,17 +203,10 @@ namespace EDTools.ViewModels
         }
         private void ticketCreate()
         {
-            vmTicket newTicket = new vmTicket(Ticket.createTicket("", "", Environment.UserName, DateTime.Today, DateTime.Today), true);
+            vmEDToolsTicket ticket = new vmEDToolsTicket(Ticket.createTicket("", "", Environment.UserName, DateTime.Today, DateTime.Today), true);
 
-            newTicket.PopupActive = true;
-
-            //while (newTicket.PopupActive)
-            //{
-            PopupHelper.TabIndex(0, newTicket);
+            PopupHelper.TabIndex(0, ticket);
             PopupHelper.SetVisibility(true);
-            //}
-
-            //PopupHelper.SetVisibility(false);
         }
         #endregion
     }

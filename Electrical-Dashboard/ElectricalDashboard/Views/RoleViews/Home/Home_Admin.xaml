@@ -11,6 +11,7 @@
              xmlns:ticketViews="clr-namespace:ElectricalDashboard.Views.Tickets"
              xmlns:toolStats="clr-namespace:EDTools.Views.SubViews;assembly=EDTools"
              xmlns:ruleStats="clr-namespace:EDRules.Views.Rule;assembly=EDRules"
+             xmlns:staticCreatedTickets="clr-namespace:EDDLL.Tickets;assembly=EDDLL"
              
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -32,16 +33,16 @@
                     <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/ticketAssigned.png" Height="28" Margin="0,0,5,0"/>
                     <TextBlock Text="Assigned Tickets:" FontSize="20" FontWeight="Thin"/>
                 </WrapPanel>
-                <Grid>
-                    <ItemsControl ItemsSource="{Binding TicketsAssigned}">
+              <Grid Margin="10,15,10,15">
+                        <ItemsControl ItemsSource="{Binding Path=(staticCreatedTickets:TicketsVM.TicketsAssigned)}" ItemTemplate="{StaticResource ticketListItem}">
 
                     </ItemsControl>
-                    <TextBlock Margin="10,25,10,0" HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s) assigned, once you have ticket(s) assigned it will appear here -">
+                    <TextBlock HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s) assigned, once you have ticket(s) assigned it will appear here -">
                         <TextBlock.Style>
                             <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="Visibility" Value="Collapsed"/>
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding TicketsAssigned.Count}" Value="0">
+                                        <DataTrigger Binding="{Binding Path=(staticCreatedTickets:TicketsVM.TicketsAssigned).Count}" Value="0">
                                         <Setter Property="Visibility" Value="Visible"/>
                                     </DataTrigger>
                                 </Style.Triggers>
@@ -53,16 +54,16 @@
                     <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/ticketCreated.png" Height="28" Margin="0,0,5,0"/>
                     <TextBlock Text="Created Tickets:" FontSize="20" FontWeight="Thin"/>
                 </WrapPanel>
-                <Grid Margin="0,0,0,25">
-                    <ItemsControl ItemsSource="{Binding TicketsCreated}">
+                    <Grid Margin="10,15,10,15">
+                        <ItemsControl ItemsSource="{Binding Path=(staticCreatedTickets:TicketsVM.TicketsCreated)}" ItemTemplate="{StaticResource ticketListItem}">
 
-                    </ItemsControl>
-                    <TextBlock Margin="10,25,10,0" HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s) created, once you have created a ticket(s) it will appear here -">
+                        </ItemsControl>
+                        <TextBlock HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s) created, once you have created a ticket(s) it will appear here -">
                         <TextBlock.Style>
                             <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="Visibility" Value="Collapsed"/>
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding TicketsCreated.Count}" Value="0">
+                                        <DataTrigger Binding="{Binding Path=(staticCreatedTickets:TicketsVM.TicketsCreated).Count}" Value="0">
                                         <Setter Property="Visibility" Value="Visible"/>
                                     </DataTrigger>
                                 </Style.Triggers>

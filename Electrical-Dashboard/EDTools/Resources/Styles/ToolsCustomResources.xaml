@@ -50,7 +50,7 @@
                     <Button ToolTip="Tool Method">
                         <Image Source="/EDTools;component/Resources/Images/Options/toolMethod.png"/>
                     </Button>
-                    <Button ToolTip="Submit Ticket">
+                    <Button ToolTip="Create Ticket" Command="{Binding CreateToolSpecificTicketCommand}">
                         <Image Source="/EDTools;component/Resources/Images/Options/toolTicket.png"/>
                     </Button>
                 </WrapPanel>
@@ -132,7 +132,7 @@
                     <Button ToolTip="Tool Method">
                         <Image Source="/EDTools;component/Resources/Images/Options/toolMethod.png"/>
                     </Button>
-                    <Button ToolTip="Submit Ticket">
+                    <Button ToolTip="Create Ticket" Command="{Binding CreateToolSpecificTicketCommand}">
                         <Image Source="/EDTools;component/Resources/Images/Options/toolTicket.png"/>
                     </Button>
                 </WrapPanel>
@@ -226,7 +226,7 @@
                         <Button ToolTip="Tool Method">
                             <Image Source="/EDTools;component/Resources/Images/Options/toolMethod.png"/>
                         </Button>
-                        <Button ToolTip="Submit Ticket">
+                        <Button ToolTip="Create Ticket" Command="{Binding CreateToolSpecificTicketCommand}">
                             <Image Source="/EDTools;component/Resources/Images/Options/toolTicket.png"/>
                         </Button>
                     </WrapPanel>

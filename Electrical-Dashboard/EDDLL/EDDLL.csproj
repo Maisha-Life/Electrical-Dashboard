@@ -118,5 +118,9 @@
     <Resource Include="Resources\Images\Status\goodStatus.png" />
     <Resource Include="Resources\Images\Status\warningStatus.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TicketIcons\edit.png" />
+    <Resource Include="Resources\Images\TicketIcons\removeTicket.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

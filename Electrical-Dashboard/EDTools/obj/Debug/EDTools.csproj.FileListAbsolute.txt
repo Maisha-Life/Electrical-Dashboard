@@ -73,5 +73,3 @@ C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDT
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Debug\EDTools.pdb
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Debug\Views\SubViews\ToolStatsControl.g.cs
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Debug\Views\SubViews\ToolStatsControl.baml
-C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Debug\ViewModels\ModelsVM\vmEDToolsTicket.g.cs
-C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Debug\ViewModels\ModelsVM\vmEDToolsTicket.baml

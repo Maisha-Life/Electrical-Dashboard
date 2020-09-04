@@ -15,7 +15,8 @@
                 <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid" FillBehavior="Stop"/>
             </Storyboard>
         </DataTemplate.Resources>
-        <Border x:Name="grid" Margin="1" Background="White" CornerRadius="5">
+        
+        <Border x:Name="grid" Margin="1,3" Background="White" CornerRadius="5">
             <Grid Height="auto" Margin="2" DockPanel.Dock="Top">
                 <Grid.Resources>
                     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource customButtonWithContent}">
@@ -61,18 +62,20 @@
                 </TextBlock>
                 <TextBlock Grid.Column="5" Text="{Binding Assigner}" />
                 <TextBlock Grid.Column="6" Text="{Binding Assignee}" />
-                <TextBlock Grid.Column="7" Text="{Binding DateAssignedProp.Saved}" />
-                <TextBlock Grid.Column="8" Text="{Binding DateDueProp.Saved}" />
-                <WrapPanel Grid.Column="9" VerticalAlignment="Center" Margin="20,0">
+                <TextBlock Grid.Column="7" Text="{Binding DateAssignedProp.Saved,StringFormat=d}" />
+                <TextBlock Grid.Column="8" Text="{Binding DateDueProp.Saved,StringFormat=d}" />
+                <WrapPanel Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5,0">
                     <WrapPanel.Resources>
                         <Style TargetType="{x:Type Button}" BasedOn="{StaticResource customButtonWithContent}">
-                            <Setter Property="Height" Value="28"/>
+                            <Setter Property="Height" Value="32"/>
                             <Setter Property="Margin" Value="5,0,0,0"/>
                         </Style>
                     </WrapPanel.Resources>
-                    <Button Command="{Binding EditCommand}" ToolTip="Edit Ticket" Content="edit">
+                    <Button Command="{Binding EditCommand}" ToolTip="Edit Ticket">
+                        <Image Height="25" Source="/EDDLL;component/Resources/Images/TicketIcons/edit.png"/>
                     </Button>
-                    <Button Command="{Binding RemoveCommand}" ToolTip="Remove Ticket" Content="remove">
+                    <Button Command="{Binding RemoveCommand}" ToolTip="Remove Ticket">
+                        <Image Height="25" Source="/EDDLL;component/Resources/Images/TicketIcons/removeTicket.png"/>
                     </Button>
                 </WrapPanel>
             </Grid>

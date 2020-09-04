@@ -87,7 +87,7 @@ namespace EDDLL.Tickets
             get
             {
                 if (base.ValidatedProperties == null)
-                    base.ValidatedProperties = new string[] { "Category", "Assigner", "Assignee", "DateAssigned", "DateDue", "Description" };
+                    base.ValidatedProperties = new string[] { "Tool", "Category", "Assigner", "Assignee", "DateAssigned", "DateDue", "Description" };
                 return base.ValidatedProperties;
             }
             set
@@ -103,7 +103,9 @@ namespace EDDLL.Tickets
 
             string error = null;
 
-            if (propertyName == "Category")
+            if (propertyName == "Tool")
+                error = this.ValidateTool();
+            else if (propertyName == "Category")
                 error = this.ValidateCategory();
             else if (propertyName == "Assigner") 
                 error = this.ValidateAssigner();
@@ -119,6 +121,12 @@ namespace EDDLL.Tickets
             return error;
         }
 
+        string ValidateTool()
+        {
+            if (IsStringMissing(this.Tool))
+                return "valid tool required";
+            return null;
+        }
         string ValidateCategory()
         {
             if (IsStringMissing(this.Category))
@@ -139,13 +147,13 @@ namespace EDDLL.Tickets
         }
         string ValidateDateAssigned()
         {
-            if (IsDateValid(this.DateAssigned))
+            if (!IsDateValid(this.DateAssigned))
                 return "valid date required";
             return null;
         }
         string ValidateDateDue()
         {
-            if (IsDateValid(this.DateDue))
+            if (!IsDateValid(this.DateDue))
                 return "valid date required";
             return null;
         }

@@ -1,18 +1,13 @@
 ﻿using EDDLL.Tickets;
 using EDDLL.Utilities;
-using ElectricalDashboard.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using EDTools.Utilities;
 using System.Windows.Input;
 
-namespace ElectricalDashboard.ViewModels.ModelsVM
+namespace EDTools.ViewModels.ModelsVM
 {
-    public class vmElectricalDashboardTicket : vmTicket
+    public class vmEDToolsTicket : vmTicket
     {
-        public vmElectricalDashboardTicket(Ticket ticket, bool type) : base(ticket, type) { }
+        public vmEDToolsTicket(Ticket ticket, bool type) : base(ticket, type) { }
 
         #region Commands
 
@@ -33,9 +28,6 @@ namespace ElectricalDashboard.ViewModels.ModelsVM
             save();
 
             EDDLL.Tickets.TicketsVM.TicketsCreated.Add(this);
-
-            App.TicketsVM.TicketsAll.Add(this);
-            App.TicketsVM.TicketsCreated.Add(this);
         }
 
         private RelayCommand _CancelCreateCommand;
@@ -102,7 +94,7 @@ namespace ElectricalDashboard.ViewModels.ModelsVM
 
         public override void save()
         {
-            TicketNumber = App.TicketsVM.TicketsAll.Count();
+            TicketNumber = 0001;
 
             ImportanceLevelProp.Save();
             ToolProp.Save();

@@ -23,6 +23,12 @@ namespace EDTools.Views.Popups
         public ToolTicket()
         {
             InitializeComponent();
+
+            toolCB.ItemsSource = EDDLL.Tickets.TicketsVM.ToolList;
+            categoryCB.ItemsSource = EDDLL.Tickets.TicketsVM.CategoryList;
+
+            assigneeCB.ItemsSource = EDDLL.Tickets.TicketsVM.UserList;
+            priorityCB.ItemsSource = EDDLL.Tickets.TicketsVM.PriorityList;
         }
     }
 }

@@ -99,7 +99,7 @@ namespace EDDLL.Tickets
             get { return ToolProp.Changed; }
             set
             {
-                if (this._ToolProp.Changed != value)
+              if (this._ToolProp.Changed != value)
                     this._ToolProp.Changed = value;
 
                 _ticket.Tool = value;
@@ -212,7 +212,7 @@ namespace EDDLL.Tickets
             get
             {
                 if (_DateAssignedProp == null)
-                    _DateAssignedProp = new ThreeNOne(_ticket.DateAssigned.ToString());
+                    _DateAssignedProp = new ThreeNOne(_ticket.DateAssigned.ToShortDateString());
 
                 return _DateAssignedProp;
             }
@@ -245,7 +245,7 @@ namespace EDDLL.Tickets
             get
             {
                 if (_DateDueProp == null)
-                    _DateDueProp = new ThreeNOne(_ticket.DateDue.ToString());
+                    _DateDueProp = new ThreeNOne(_ticket.DateDue.ToShortDateString());
 
                 return _DateDueProp;
             }

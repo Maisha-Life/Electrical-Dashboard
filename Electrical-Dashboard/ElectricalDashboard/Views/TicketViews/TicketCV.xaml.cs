@@ -24,11 +24,11 @@ namespace ElectricalDashboard.Views.TicketViews
         {
             InitializeComponent();
 
-            toolCB.ItemsSource = App.TicketsVM.ToolList;
-            categoryCB.ItemsSource = App.TicketsVM.CategoryList;
+            toolCB.ItemsSource = EDDLL.Tickets.TicketsVM.ToolList;
+            categoryCB.ItemsSource = EDDLL.Tickets.TicketsVM.CategoryList;
 
-            assigneeCB.ItemsSource = App.TicketsVM.UserList;
-            priorityCB.ItemsSource = App.TicketsVM.PriorityList;
+            assigneeCB.ItemsSource = EDDLL.Tickets.TicketsVM.UserList;
+            priorityCB.ItemsSource = EDDLL.Tickets.TicketsVM.PriorityList;
         }
     }
 }

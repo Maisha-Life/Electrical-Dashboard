@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-
+using EDTools.ViewModels.ModelsVM;
+using EDTools.Utilities;
+using EDDLL.Tickets;
 
 namespace EDTools.ViewModels
 {
@@ -226,6 +228,24 @@ namespace EDTools.ViewModels
         private void bringToFront()
         {
             WindowHelper.BringProcessToFront(p);
+        }
+
+        private RelayCommand _CreateToolSpecificTicketCommand;
+        public ICommand CreateToolSpecificTicketCommand
+        {
+            get
+            {
+                if (_CreateToolSpecificTicketCommand == null) _CreateToolSpecificTicketCommand = new RelayCommand(param => createToolSpecificTicket(), param => { return (true); });
+
+                return _CreateToolSpecificTicketCommand;
+            }
+        }
+        private void createToolSpecificTicket()
+        {
+            vmEDToolsTicket ticket = new vmEDToolsTicket(Ticket.createTicket(ShortName, "", Environment.UserName, DateTime.Today, DateTime.Today), true);
+
+            PopupHelper.TabIndex(0, ticket);
+            PopupHelper.SetVisibility(true);
         }
 
         #endregion

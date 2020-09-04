@@ -31,18 +31,18 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel>
                             <TextBlock Text="Assignee"/>
-                            <ComboBox x:Name="assigneeCB" SelectedItem="{Binding Assignee, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" IsEnabled="True"/>
+                            <ComboBox x:Name="assigneeCB" Text="{Binding Assignee, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
                             <ContentPresenter Content="{Binding ElementName=assigneeCB, Path=(Validation.Errors).CurrentItem}" Height="13" />
                             <TextBlock Text="Tool"/>
-                            <ComboBox x:Name="toolCB" SelectedItem="{Binding Tool, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
-                            <ContentPresenter Content="{Binding ElementName=toolCB, Path=(Validation.Errors).CurrentItem}" Height="13" />
+                            <ComboBox x:Name="toolCB" Text="{Binding Tool, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ContentPresenter Content="{Binding ElementName=toolCB, Path=(Validation.Errors).CurrentItem}" Height="13"/>
                             <TextBlock Text="Category"/>
-                            <ComboBox x:Name="categoryCB" SelectedItem="{Binding Category, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ComboBox x:Name="categoryCB" Text="{Binding Category, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
                             <ContentPresenter Content="{Binding ElementName=categoryCB, Path=(Validation.Errors).CurrentItem}" Height="13" />
                         </StackPanel>
                         <StackPanel Grid.Column="1" Margin="5,0,0,0">
                             <TextBlock Text="Priority"/>
-                            <ComboBox x:Name="priorityCB" SelectedItem="{Binding ImportanceLevel, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ComboBox x:Name="priorityCB" Text="{Binding ImportanceLevel, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
                             <ContentPresenter Content="{Binding ElementName=priorityCB, Path=(Validation.Errors).CurrentItem}" Height="13" />
                             <TextBlock Text="Date Created"/>
                             <DatePicker x:Name="dateCreated" 
