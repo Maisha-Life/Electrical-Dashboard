@@ -9,7 +9,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using EDDLL.Tickets;
+using EDDLL.Views;
+using EDHarnessScan.Views;
+using EDRules.Views;
+using EDRules.Views.Rule;
+using EDTools.Views;
+using EDTools.Views.SubViews;
+using ElectricalDashboard.Views;
 using ElectricalDashboard.Views.RoleViews.Home;
+using ElectricalDashboard.Views.Tabs;
+using ElectricalDashboard.Views.Tickets;
 using System;
 using System.Diagnostics;
 using System.Windows;

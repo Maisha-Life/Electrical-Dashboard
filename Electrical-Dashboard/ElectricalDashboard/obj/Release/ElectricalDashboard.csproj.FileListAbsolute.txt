@@ -100,3 +100,11 @@ C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\Electrica
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Release\Views\TicketViews\TicketCV.baml
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Release\Views\TicketViews\TicketEV.baml
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Release\Views\TicketViews\TicketOV.baml
+C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Release\Views\Tickets\TicketStatsView.g.cs
+C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Release\Views\TicketViews\TicketCV.g.cs
+C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Release\Views\TicketViews\TicketEV.g.cs
+C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Release\Views\TicketViews\TicketOV.g.cs
+C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Release\Views\Tickets\TicketStatsView.baml
+C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Release\Views\TicketViews\TicketCV.baml
+C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Release\Views\TicketViews\TicketEV.baml
+C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\ElectricalDashboard\obj\Release\Views\TicketViews\TicketOV.baml

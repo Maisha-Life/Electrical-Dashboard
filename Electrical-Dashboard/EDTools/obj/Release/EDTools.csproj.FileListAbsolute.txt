@@ -62,3 +62,5 @@ C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\o
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Release\Views\Popups\ToolTicket.baml
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Release\Views\PopupView.baml
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Release\Views\SubViews\ToolStatsControl.baml
+C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Release\Views\SubViews\ToolStatsControl.g.cs
+C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Release\Views\SubViews\ToolStatsControl.baml

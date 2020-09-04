@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EDRules.ViewModels
+namespace EDRules.ViewModels.ModelsVM
 {
     public class vmRule : vmBase
     {

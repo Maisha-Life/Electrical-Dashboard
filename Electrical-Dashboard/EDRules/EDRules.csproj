@@ -131,6 +131,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Resources\NewFolder1\RulesCustomResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -173,6 +177,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\MainView\mood.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MainView\editRule.png" />
+    <Resource Include="Resources\Images\MainView\removeRule.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
