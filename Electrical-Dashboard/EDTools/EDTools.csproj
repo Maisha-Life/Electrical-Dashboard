@@ -68,8 +68,11 @@
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Popups\ToolTicket.xaml.cs">
-      <DependentUpon>ToolTicket.xaml</DependentUpon>
+    <Compile Include="Views\Popups\ToolTicketEV.xaml.cs">
+      <DependentUpon>ToolTicketEV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\ToolTicketCV.xaml.cs">
+      <DependentUpon>ToolTicketCV.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PopupView.xaml.cs">
       <DependentUpon>PopupView.xaml</DependentUpon>
@@ -126,7 +129,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Popups\ToolTicket.xaml">
+    <Page Include="Views\Popups\ToolTicketEV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Popups\ToolTicketCV.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

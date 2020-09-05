@@ -23,12 +23,18 @@
             </DockPanel>
             <customControls:SearchControl/>
 
-            <Button DockPanel.Dock="Right" Command="{Binding TicketCreateCommand}">
+            <Button DockPanel.Dock="Right" Command="{Binding CreateRuleTicketCommand}">
                 <WrapPanel>
                     <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/createTicket.png" Height="32" Margin="0,0,5,0"/>
                     <TextBlock Text="Create Ticket" VerticalAlignment="Center" FontSize="17" Margin="5,0" Foreground="Black" FontWeight="Thin"/>
                 </WrapPanel>
             </Button>
+            <Button DockPanel.Dock="Right" Command="{Binding CreateRuleCommand}" Margin="0,0,15,0">
+                <WrapPanel>
+                    <Image Source="/EDRules;component/Resources/Images/MainView/createRule.png" Height="32" Margin="0,0,5,0"/>
+                    <TextBlock Text="Create Rule" VerticalAlignment="Center" FontSize="17" Margin="5,0" Foreground="Black" FontWeight="Thin"/>
+                </WrapPanel>
+            </Button>            
         </DockPanel>
 
         <Grid Grid.Row="1">
@@ -45,8 +51,6 @@
             <Grid Grid.Column="2" Margin="15,0">
                 <Grid.RowDefinitions>
                     <RowDefinition />
-                    <RowDefinition Height="2" />
-                    <RowDefinition Height="300"/>
                 </Grid.RowDefinitions>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -97,54 +101,7 @@
                             </ItemsControl>
                         </ScrollViewer>
                     </DockPanel>
-                </Grid>
-                
-                <Rectangle Grid.Row="1" Margin="5,0,7,0" Height="2" Fill="{StaticResource DefaultBorder}"/>
-
-                <StackPanel Grid.Row="2" Margin="0,15,0,0">
-                    <WrapPanel>
-                        <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/ticketAssigned.png" Height="28" Margin="0,0,5,0"/>
-                        <TextBlock Text="Assigned Rule Tickets:" FontSize="20" FontWeight="Thin"/>
-                    </WrapPanel>
-                    <Grid>
-                        <ItemsControl ItemsSource="{Binding AssignedRuleTickets}">
-
-                        </ItemsControl>
-                        <TextBlock Margin="10,25,10,0" HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s) assigned, once you have ticket(s) assigned it will appear here -">
-                            <TextBlock.Style>
-                                <Style TargetType="{x:Type TextBlock}">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding AssignedRuleTickets.Count}" Value="0">
-                                            <Setter Property="Visibility" Value="Visible"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBlock.Style>
-                        </TextBlock>
-                    </Grid>
-                    <WrapPanel Margin="0,25,0,0">
-                        <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/ticketCreated.png" Height="28" Margin="0,0,5,0"/>
-                        <TextBlock Text="Created Rule Tickets:" FontSize="20" FontWeight="Thin"/>
-                    </WrapPanel>
-                    <Grid Margin="0,0,0,25">
-                        <ItemsControl ItemsSource="{Binding CreatedRuleTickets}">
-
-                        </ItemsControl>
-                        <TextBlock Margin="10,25,10,0" HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s) created, once you have created a ticket(s) it will appear here -">
-                            <TextBlock.Style>
-                                <Style TargetType="{x:Type TextBlock}">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding CreatedRuleTickets.Count}" Value="0">
-                                            <Setter Property="Visibility" Value="Visible"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBlock.Style>
-                        </TextBlock>
-                    </Grid>
-                </StackPanel>
+                </Grid>              
             </Grid>
         </Grid>
     </Grid>

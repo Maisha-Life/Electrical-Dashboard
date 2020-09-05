@@ -60,6 +60,7 @@ namespace EDTools.ViewModels.ModelsVM
         {
             save();
 
+            PopupHelper.SetVisibility(false);
         }
 
         private RelayCommand _CancelCommand;
@@ -94,7 +95,7 @@ namespace EDTools.ViewModels.ModelsVM
 
         public override void save()
         {
-            TicketNumber = 0001;
+            TicketNumber = EDDLL.Tickets.TicketsVM.TicketsCreated.Count + 1;
 
             ImportanceLevelProp.Save();
             ToolProp.Save();

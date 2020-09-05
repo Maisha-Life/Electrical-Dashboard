@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Release\
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Release\
 EDHarnessScan
 none
 false
 TRACE
-C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\App.xaml
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\App.xaml
 14-1422765896
 
 24-178932104
-14-409568310
+14296348110
 Views\GenerateReportView.xaml;Views\HarnessScanView.xaml;Views\HarnessSelectView.xaml;Views\Popups\HarnessCV.xaml;Views\Popups\HarnessEV.xaml;Views\Popups\HarnessRuleFix.xaml;Views\Popups\HarnessRulesFix.xaml;Views\Popups\ProgramCV.xaml;Views\Popups\ProgramEV.xaml;Views\SubViews\HarnessScan\HarnessInformationView.xaml;Views\SubViews\HarnessScan\RulesSelectedView.xaml;Views\SubViews\HarnessScan\ToolsScannedInformationView.xaml;Views\SubViews\HarnessSelect\HarnessOV.xaml;Views\SubViews\HarnessSelect\ProgramOV.xaml;
 
 False

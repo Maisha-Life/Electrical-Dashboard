@@ -42,7 +42,10 @@
                     SelectedIndex="{Binding SelectedPopupIndex}"
                     Visibility="{Binding PopupVisibility}">
             <TabItem>
-                <EDToolPopup:ToolTicket x:Name="ticketCV" Width="500" />
+                <EDToolPopup:ToolTicketCV x:Name="ticketCV" Width="500" />
+            </TabItem>
+            <TabItem>
+                <EDToolPopup:ToolTicketEV x:Name="ticketEV" Width="500" />
             </TabItem>
         </TabControl>
     </Grid>

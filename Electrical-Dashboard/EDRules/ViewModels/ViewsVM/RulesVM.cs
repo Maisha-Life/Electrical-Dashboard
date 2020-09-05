@@ -1,6 +1,8 @@
 ﻿using EDDLL.Tickets;
 using EDDLL.Utilities;
 using EDDLL.ViewModels;
+using EDRules.Utilities;
+using EDRules.ViewModels.ModelsVM;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -105,52 +107,28 @@ namespace EDRules.ViewModels
         public readonly ObservableCollection<vmRule> _RuleList = new ObservableCollection<vmRule>();
         public ICollectionView RuleList { get; set; }
 
-        private ObservableCollection<vmTicket> _AssignedRuleTickets;
-        public ObservableCollection<vmTicket> AssignedRuleTickets
-        {
-            get { return _AssignedRuleTickets ?? (_AssignedRuleTickets = new ObservableCollection<vmTicket>()); }
-            set
-            {
-                if (this._AssignedRuleTickets != value)
-                {
-                    this._AssignedRuleTickets = value;
-                    this.RaisePropertyChangedEvent("AssignedRuleTickets");
-                }
-            }
-        }
-
-        private ObservableCollection<vmTicket> _CreatedRuleTickets;
-        public ObservableCollection<vmTicket> CreatedRuleTickets
-        {
-            get { return _CreatedRuleTickets ?? (_CreatedRuleTickets = new ObservableCollection<vmTicket>()); }
-            set
-            {
-                if (this._CreatedRuleTickets != value)
-                {
-                    this._CreatedRuleTickets = value;
-                    this.RaisePropertyChangedEvent("CreatedRuleTickets");
-                }
-            }
-        }
-
         #endregion
 
         #region Commands
 
-        private RelayCommand _AddRuleCommand;
-        public ICommand AddRuleCommand
+        private RelayCommand _CreateRuleCommand;
+        public ICommand CreateRuleCommand
         {
             get
             {
-                if (_AddRuleCommand == null) _AddRuleCommand = new RelayCommand(param => addRule(), param => { return (true); });
+                if (_CreateRuleCommand == null) _CreateRuleCommand = new RelayCommand(param => createRule(), param => { return (true); });
 
-                return _AddRuleCommand;
+                return _CreateRuleCommand;
             }
         }
-        private void addRule()
+        private void createRule()
         {
+            vmRule rule = new vmRule(Models.Rule.CreateRule(), _RuleList);
 
+            PopupHelper.TabIndex(2, rule);
+            PopupHelper.SetVisibility(true);
         }
+
 
         private RelayCommand _CreateRuleTicketCommand;
         public ICommand CreateRuleTicketCommand
@@ -164,7 +142,10 @@ namespace EDRules.ViewModels
         }
         private void createRuleTicket()
         {
+            vmEDRulesTicket ticket = new vmEDRulesTicket(Ticket.createTicket("", "", Environment.UserName, DateTime.Today, DateTime.Today), true);
 
+            PopupHelper.TabIndex(0, ticket);
+            PopupHelper.SetVisibility(true);
         }
 
         #endregion

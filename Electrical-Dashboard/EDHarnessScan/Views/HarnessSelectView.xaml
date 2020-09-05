@@ -37,22 +37,65 @@
             </Grid.ColumnDefinitions>
 
             <Grid>
-                <StackPanel Margin="5,0,0,0">
-                    <TextBlock Text="Tool Info" FontSize="15" Margin="0,0,0,10"/>
+                <StackPanel Margin="2,0,0,0">
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type Image}" >
+                            <Setter Property="Height" Value="16"/>
+                            <Setter Property="Margin" Value="3,0,0,0"/>
+                        </Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Foreground" Value="Black"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <TextBlock Text=" Programs Information" FontSize="15" Margin="0,0,5,10"/>
+                    <TextBlock Margin="5,0,5,5">
+                        <Run Text="Total Programs: " FontWeight="Thin" FontSize="13"/>
+                        <Run Text="{Binding TotalCount}" FontWeight="Bold"/>
+                    </TextBlock>
+                    <TextBlock Margin="5,0,5,5">
+                        <Run Text="Total Scanned Items: " FontWeight="Thin" FontSize="13"/>
+                        <Run Text="{Binding TotalCount}" FontWeight="Bold"/>
+                    </TextBlock>
+                    <TextBlock Text=" Harnesses Information" FontSize="15" Margin="0,10,5,10"/>
+                    <TextBlock Margin="5,0,5,5">
+                        <Run Text="Total Harnesses: " FontWeight="Thin" FontSize="13"/>
+                        <Run Text="{Binding TotalCount}" FontWeight="Bold"/>
+                    </TextBlock>
+                    <TextBlock Margin="5,0,5,5">
+                        <Run Text="Completed: " FontWeight="Thin" FontSize="13"/>
+                        <Run Text="{Binding TotalCount}" FontWeight="Bold"/>
+                    </TextBlock>
+                    <TextBlock Margin="5,0,5,5">
+                        <Run Text="In Progress: " FontWeight="Thin" FontSize="13"/>
+                        <Run Text="{Binding TotalCount}" FontWeight="Bold"/>
+                    </TextBlock>
+                    <TextBlock Text=" EDS Severity" FontSize="15" Margin="0,10,5,10"/>
+                    <!--<Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Background="{StaticResource DefaultBorder}"/>-->
+                    <TextBlock Margin="5,0,5,5">
+                        <Run Text="Total Scanned Items: " FontWeight="Thin" FontSize="13"/>
+                        <Run Text="{Binding TotalCount}" FontWeight="Bold"/>
+                    </TextBlock>
+
                     <Grid>
+                        <Grid.Resources>
+                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource statText}"/>
+                            <Style TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource statProgBar}"/>
+                        </Grid.Resources>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="75"/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <StackPanel>
-                            <TextBlock Text="Total Tools:" FontWeight="Thin" FontSize="12" Margin="0,10"/>
-                            <TextBlock Text="Completed:" FontWeight="Thin" FontSize="12"/>
-                            <TextBlock Text="Developing:" FontWeight="Thin" FontSize="12" Margin="0,10"/>
+
+                        <StackPanel Margin="5,5,0,5">
+                            <TextBlock Text="Errors:"/>
+                            <TextBlock Text="Warnings:" Margin="0,1"/>
+                            <TextBlock Text="Good:"/>
                         </StackPanel>
-                        <StackPanel Grid.Column="1">
-                            <TextBlock Text="{Binding TicketsAll.Count}" FontSize="12" Margin="0,10"/>
-                            <TextBlock Text="{Binding TicketsAssigned.Count}"   FontSize="12"/>
-                            <TextBlock Text="{Binding TicketsCreated.Count}"   FontSize="12" Margin="0,10"/>
+
+                        <StackPanel Grid.Column="1" Margin="0,6">
+                            <ProgressBar Value="{Binding ErrorCount}" Background="#66E07272" Foreground="{DynamicResource ErrorColor}"/>
+                            <ProgressBar Value="{Binding WarningCount}" Background="#66E0B700" Foreground="{DynamicResource WarningColor}" Margin="0,5"/>
+                            <ProgressBar Value="{Binding GoodCount}" Background="#6678E072" Foreground="{DynamicResource GoodColor}"/>
                         </StackPanel>
                     </Grid>
                 </StackPanel>
@@ -61,68 +104,78 @@
             <Rectangle Grid.Column="1" Fill="{StaticResource DefaultBorder}" Margin="0,0,0,5"/>
 
             <StackPanel Grid.Column="2" Margin="15,0">
-                <WrapPanel>
-                    <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/ticketAssigned.png" Height="28" Margin="0,0,5,0"/>
-                    <TextBlock Text="Assigned Tickets:" FontSize="20" FontWeight="Thin"/>
-                </WrapPanel>
-                <Grid>
-                    <ItemsControl ItemsSource="{Binding TicketsAssigned}">
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
 
-                    </ItemsControl>
-                    <TextBlock Margin="10,25,10,0" HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s) assigned, once you have ticket(s) assigned it will appear here -">
-                        <TextBlock.Style>
-                            <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding TicketsAssigned.Count}" Value="0">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
-                </Grid>
-                <WrapPanel Margin="0,25,0,0">
-                    <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/ticketCreated.png" Height="28" Margin="0,0,5,0"/>
-                    <TextBlock Text="Created Tickets:" FontSize="20" FontWeight="Thin"/>
-                </WrapPanel>
-                <Grid Margin="0,0,0,25">
-                    <ItemsControl ItemsSource="{Binding TicketsCreated}">
 
-                    </ItemsControl>
-                    <TextBlock Margin="10,25,10,0" HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s) created, once you have created a ticket(s) it will appear here -">
-                        <TextBlock.Style>
-                            <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding TicketsCreated.Count}" Value="0">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
-                </Grid>
-                <WrapPanel>
-                    <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/tickets.png" Height="28" Margin="0,0,5,0"/>
-                    <TextBlock Text="Tickets:" FontSize="20" FontWeight="Thin"/>
-                </WrapPanel>
-                <Grid>
-                    <ItemsControl ItemsSource="{Binding TicketsAll}">
+                    <StackPanel Grid.Column="2" Margin="15,0">
 
-                    </ItemsControl>
-                    <TextBlock Margin="10,25,10,0" HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s), once ticket(s) have been made they will appear here -">
-                        <TextBlock.Style>
-                            <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding TicketsAll.Count}" Value="0">
+                        <WrapPanel>
+                            <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/ticketCreated.png" Height="28" Margin="0,0,5,0"/>
+                            <TextBlock Text="Programs:" FontSize="20" FontWeight="Thin"/>
+                        </WrapPanel>
+                        <Grid Margin="10,15,10,15">
+                            <ItemsControl ItemsSource="{Binding TicketsCreated}">
+
+                            </ItemsControl>
+                            <TextBlock HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no programs(s) created, once programs are made they will be listed here -">
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
                                         <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding TicketsCreated.Count}" Value="0">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                        <WrapPanel>
+                            <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/ticketCreated.png" Height="28" Margin="0,0,5,0"/>
+                            <TextBlock Text="Harnesses:" FontSize="20" FontWeight="Thin"/>
+                        </WrapPanel>
+                        <Grid Margin="10,15,10,15">
+                            <ItemsControl ItemsSource="{Binding TicketsCreated}">
+
+                            </ItemsControl>
+                            <TextBlock HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no harnesses(s) created, once harnesses are made they will be listed here -">
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding TicketsCreated.Count}" Value="0">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                        <WrapPanel>
+                            <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/ticketAssigned.png" Height="28" Margin="0,0,5,0"/>
+                            <TextBlock Text="Assigned Tickets:" FontSize="20" FontWeight="Thin"/>
+                        </WrapPanel>
+                        <Grid Margin="10,15,10,15">
+                            <ItemsControl ItemsSource="{Binding TicketsAssigned}">
+
+                            </ItemsControl>
+                            <TextBlock HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s) assigned, once you have ticket(s) assigned it will appear here -">
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding TicketsAssigned.Count}" Value="0">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                    </StackPanel>
                 </Grid>
             </StackPanel>
         </Grid>

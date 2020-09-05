@@ -102,7 +102,7 @@ namespace ElectricalDashboard.ViewModels.ModelsVM
 
         public override void save()
         {
-            TicketNumber = App.TicketsVM.TicketsAll.Count();
+            TicketNumber = EDDLL.Tickets.TicketsVM.TicketsCreated.Count + 1;
 
             ImportanceLevelProp.Save();
             ToolProp.Save();

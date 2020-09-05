@@ -92,15 +92,19 @@ namespace EDRules.Utilities
                 case 0:
                     PopupView.ticketCV.DataContext = context;
                     PopupView.overlay.Command = App.PopupVM.ClearPopup;
-                    break;
+                break;
                 case 1:
                     PopupView.ticketEV.DataContext = context;
                     PopupView.overlay.Command = App.PopupVM.ClearPopup;
-                    break;
+                break;
                 case 2:
-                    PopupView.ticketOV.DataContext = context;
+                    PopupView.ruleCV.DataContext = context;
                     PopupView.overlay.Command = App.PopupVM.ClearPopup;
-                    break;
+                break;
+                case 3:
+                    PopupView.ruleEV.DataContext = context;
+                    PopupView.overlay.Command = App.PopupVM.ClearPopup;
+                break;
             }
         }
     }

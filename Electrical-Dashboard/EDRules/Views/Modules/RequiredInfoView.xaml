@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="EDS.Views.Modules.RequiredInfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EDS.Views.Modules"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    
+    <GroupBox Header="Required Information">
+        <StackPanel Margin="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Text="Design Rule"/>
+                    <TextBox x:Name="designRuleTB" Text="{Binding DesignRule, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                    <ContentPresenter Content="{Binding ElementName=designRuleTB, Path=(Validation.Errors).CurrentItem}" Height="13" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="5,0,0,0">
+                    <TextBlock Text="Legacy ID"/>
+                    <TextBox x:Name="legacyIDTB" Text="{Binding LegacyIDDesc, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                    <ContentPresenter Content="{Binding ElementName=legacyIDTB, Path=(Validation.Errors).CurrentItem}" Height="13" />
+                </StackPanel>
+            </Grid>
+            <TextBlock Text="Rule Name"/>
+            <TextBox x:Name="ruleNameTB" Text="{Binding RuleName, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="35" TextWrapping="Wrap"/>
+            <ContentPresenter Content="{Binding ElementName=ruleNameTB, Path=(Validation.Errors).CurrentItem}" Height="13" />
+            <TextBlock Text="Rule Description"/>
+            <TextBox x:Name="ruleDescriptionTB" Text="{Binding RuleDesc, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" MinHeight="35" Height="Auto" TextWrapping="Wrap" AcceptsReturn="True"/>
+            <ContentPresenter Content="{Binding ElementName=ruleDescriptionTB, Path=(Validation.Errors).CurrentItem}" Height="13" />
+        </StackPanel>
+    </GroupBox>
+</UserControl>

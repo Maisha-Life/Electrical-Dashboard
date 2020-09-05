@@ -60,6 +60,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Utilities\PopupHelper.cs" />
+    <Compile Include="ViewModels\ModelsVM\vmEDRulesTicket.cs" />
     <Compile Include="ViewModels\ModelsVM\vmMeasurement.cs" />
     <Compile Include="ViewModels\ModelsVM\vmMethod.cs" />
     <Compile Include="ViewModels\ModelsVM\vmParameter.cs" />
@@ -69,29 +70,29 @@
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Popups\RuleTicketCV.xaml.cs">
+      <DependentUpon>RuleTicketCV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\RuleTicketEV.xaml.cs">
+      <DependentUpon>RuleTicketEV.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PopupView.xaml.cs">
       <DependentUpon>PopupView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RulesView.xaml.cs">
       <DependentUpon>RulesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Rule\RuleStatsControl.xaml.cs">
-      <DependentUpon>RuleStatsControl.xaml</DependentUpon>
+    <Compile Include="Views\Modules\RequiredInfoView.xaml.cs">
+      <DependentUpon>RequiredInfoView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Rule\Rule_Admin.xaml.cs">
-      <DependentUpon>Rule_Admin.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Rule\Rule_General.xaml.cs">
-      <DependentUpon>Rule_General.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Rule\SubViews\EditViewRule_Admin.xaml.cs">
+    <Compile Include="Views\Popups\EditViewRule_Admin.xaml.cs">
       <DependentUpon>EditViewRule_Admin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Rule\SubViews\OverviewRule_Admin.xaml.cs">
-      <DependentUpon>OverviewRule_Admin.xaml</DependentUpon>
+    <Compile Include="Views\Modules\RuleStatsControl.xaml.cs">
+      <DependentUpon>RuleStatsControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Rule\SubViews\OverviewRule_General.xaml.cs">
-      <DependentUpon>OverviewRule_General.xaml</DependentUpon>
+    <Compile Include="Views\Popups\CreateViewRule_Admin.xaml.cs">
+      <DependentUpon>CreateViewRule_Admin.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -131,11 +132,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Resources\NewFolder1\RulesCustomResources.xaml">
+    <Page Include="Resources\Styles\RulesCustomResources.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\MainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Popups\RuleTicketCV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Popups\RuleTicketEV.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -147,27 +156,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Rule\RuleStatsControl.xaml">
+    <Page Include="Views\Modules\RequiredInfoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Popups\EditViewRule_Admin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Rule\Rule_Admin.xaml">
+    <Page Include="Views\Modules\RuleStatsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Rule\Rule_General.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Rule\SubViews\EditViewRule_Admin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Rule\SubViews\OverviewRule_Admin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Rule\SubViews\OverviewRule_General.xaml">
+    <Page Include="Views\Popups\CreateViewRule_Admin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -181,6 +182,9 @@
   <ItemGroup>
     <Resource Include="Resources\Images\MainView\editRule.png" />
     <Resource Include="Resources\Images\MainView\removeRule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MainView\createRule.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

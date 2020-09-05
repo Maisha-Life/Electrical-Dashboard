@@ -93,6 +93,10 @@ namespace EDTools.Utilities
                     PopupView.ticketCV.DataContext = context;
                     PopupView.overlay.Command = App.PopupVM.ClearPopup;
                     break;
+                case 1:
+                    PopupView.ticketEV.DataContext = context;
+                    PopupView.overlay.Command = App.PopupVM.ClearPopup;
+                    break;
             }
         }
     }

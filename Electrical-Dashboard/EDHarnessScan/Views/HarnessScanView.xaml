@@ -15,11 +15,10 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <DockPanel LastChildFill="False" Margin="5" VerticalAlignment="Top" >
-            <DockPanel VerticalAlignment="Center" Width="165">
+            <DockPanel VerticalAlignment="Center" >
                 <Image Source="/EDHarnessScan;component/Resources/Images/harnessScanLarge.png" Height="32" Margin="0,0,5,0"/>
-                <TextBlock Text="Scan" VerticalAlignment="Center" FontSize="22" Margin="5,0,0,0"/>
+                <TextBlock Text="Harness Scan" VerticalAlignment="Center" FontSize="22" Margin="5,0,0,0"/>
             </DockPanel>
-            <customControls:SearchControl/>
 
             <Button DockPanel.Dock="Right" Command="{Binding TicketCreateCommand}">
                 <WrapPanel>
@@ -29,50 +28,20 @@
             </Button>
         </DockPanel>
 
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="2"/>
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-
-            <Grid>
-                <StackPanel Margin="5,0,0,0">
-                    <TextBlock Text="Tool Info" FontSize="15" Margin="0,0,0,10"/>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="75"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <StackPanel>
-                            <TextBlock Text="Total Tools:" FontWeight="Thin" FontSize="12" Margin="0,10"/>
-                            <TextBlock Text="Completed:" FontWeight="Thin" FontSize="12"/>
-                            <TextBlock Text="Developing:" FontWeight="Thin" FontSize="12" Margin="0,10"/>
-                        </StackPanel>
-                        <StackPanel Grid.Column="1">
-                            <TextBlock Text="{Binding TicketsAll.Count}" FontSize="12" Margin="0,10"/>
-                            <TextBlock Text="{Binding TicketsAssigned.Count}"   FontSize="12"/>
-                            <TextBlock Text="{Binding TicketsCreated.Count}"   FontSize="12" Margin="0,10"/>
-                        </StackPanel>
-                    </Grid>
-                </StackPanel>
-            </Grid>
-
-            <Rectangle Grid.Column="1" Fill="{StaticResource DefaultBorder}" Margin="0,0,0,5"/>
-
+        <Grid Grid.Row="1" Margin="15,50">            
             <StackPanel Grid.Column="2" Margin="15,0">
                 <WrapPanel>
                     <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/ticketAssigned.png" Height="28" Margin="0,0,5,0"/>
-                    <TextBlock Text="Assigned Tickets:" FontSize="20" FontWeight="Thin"/>
+                    <TextBlock Text="Assigned Harnesses" FontSize="20" FontWeight="Thin"/>
                 </WrapPanel>
-                <Grid>
+                <Grid Margin="10,25,10,0">
                     <ItemsControl ItemsSource="{Binding TicketsAssigned}">
 
                     </ItemsControl>
-                    <TextBlock Margin="10,25,10,0" HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s) assigned, once you have ticket(s) assigned it will appear here -">
+                    <TextBlock HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no harnesses(s) assigned, once you have harnesses(s) assigned they will appear here -">
                         <TextBlock.Style>
                             <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Setter Property="Visibility" Value="Visible"/>
                                 <Style.Triggers>
                                     <DataTrigger Binding="{Binding TicketsAssigned.Count}" Value="0">
                                         <Setter Property="Visibility" Value="Visible"/>
@@ -84,7 +53,8 @@
                 </Grid>
                 <WrapPanel Margin="0,25,0,0">
                     <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/ticketCreated.png" Height="28" Margin="0,0,5,0"/>
-                    <TextBlock Text="Created Tickets:" FontSize="20" FontWeight="Thin"/>
+                    <TextBlock Text="Scan Harness (local)" FontSize="20" FontWeight="Thin"/>
+                    <!--<TextBlock Text="- Please select a harness, this will only make it local to your machine and not publish it to the server -" FontStyle="Italic" VerticalAlignment="Center" FontSize="16" FontWeight="Thin" Margin="25,0"/>-->
                 </WrapPanel>
                 <Grid Margin="0,0,0,25">
                     <ItemsControl ItemsSource="{Binding TicketsCreated}">
@@ -102,28 +72,7 @@
                             </Style>
                         </TextBlock.Style>
                     </TextBlock>
-                </Grid>
-                <WrapPanel>
-                    <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/tickets.png" Height="28" Margin="0,0,5,0"/>
-                    <TextBlock Text="Tickets:" FontSize="20" FontWeight="Thin"/>
-                </WrapPanel>
-                <Grid>
-                    <ItemsControl ItemsSource="{Binding TicketsAll}">
-
-                    </ItemsControl>
-                    <TextBlock Margin="10,25,10,0" HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s), once ticket(s) have been made they will appear here -">
-                        <TextBlock.Style>
-                            <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding TicketsAll.Count}" Value="0">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
-                </Grid>
+                </Grid>               
             </StackPanel>
         </Grid>
     </Grid>

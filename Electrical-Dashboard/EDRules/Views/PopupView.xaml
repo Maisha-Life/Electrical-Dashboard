@@ -6,6 +6,7 @@
              
              xmlns:EDDLLPopup="clr-namespace:EDDLL.Views;assembly=EDDLL"
              xmlns:local="clr-namespace:EDRules.Views"
+             xmlns:EDRulesPopups="clr-namespace:EDRules.Views.Popups"
              
              mc:Ignorable="d" d:DesignWidth="800">
     <UserControl.Resources>
@@ -42,13 +43,16 @@
                     SelectedIndex="{Binding SelectedPopupIndex}"
                     Visibility="{Binding PopupVisibility}">
             <TabItem>
-                <StackPanel Name="ticketCV" Width="500" />
+                <EDRulesPopups:RuleTicketCV x:Name="ticketCV"/>
             </TabItem>
             <TabItem>
-                <StackPanel x:Name="ticketEV"/>
+                <EDRulesPopups:RuleTicketEV x:Name="ticketEV"/>
             </TabItem>
             <TabItem>
-                <StackPanel x:Name="ticketOV"/>
+                <EDRulesPopups:CreateViewRule_Admin x:Name="ruleCV"/>
+            </TabItem>
+            <TabItem>
+                <EDRulesPopups:EditViewRule_Admin x:Name="ruleEV"/>
             </TabItem>
         </TabControl>
     </Grid>

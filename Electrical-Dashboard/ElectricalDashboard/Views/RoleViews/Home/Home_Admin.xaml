@@ -91,11 +91,83 @@
             <Rectangle Grid.Column="1" Fill="{StaticResource DefaultBorder}" Margin="0,0,0,5"/>
 
             <Grid Grid.Column="2">
-                <StackPanel Margin="15">
-                    <ticketViews:TicketStatsView x:Name="ticketStats"/>
-                    <toolStats:ToolStatsControl x:Name="toolStats" Margin="0,15"/>
-                    <ruleStats:RuleStatsControl x:Name="ruleStats"/>
-                </StackPanel>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,5" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+                    <ScrollViewer.Resources>
+                        <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">12</sys:Double>
+                        <Style TargetType="{x:Type ScrollBar}">
+                            <Setter Property="Template" Value="{StaticResource VerticalScrollBar}" />
+                        </Style>
+                    </ScrollViewer.Resources>
+                    <StackPanel Margin="15,0">
+                        <ticketViews:TicketStatsView x:Name="ticketStats"/>
+                        <toolStats:ToolStatsControl x:Name="toolStats" Margin="0,15"/>
+                        <ruleStats:RuleStatsControl x:Name="ruleStats"/>
+                        <Grid>
+                            <StackPanel Margin="2,0,0,0">
+                                <StackPanel.Resources>
+                                    <Style TargetType="{x:Type Image}" >
+                                        <Setter Property="Height" Value="16"/>
+                                        <Setter Property="Margin" Value="3,0,0,0"/>
+                                    </Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="Foreground" Value="Black"/>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <TextBlock Text=" Programs Information" FontSize="15" Margin="0,0,5,10"/>
+                                <TextBlock Margin="5,0,5,5">
+                        <Run Text="Total Programs: " FontWeight="Thin" FontSize="13"/>
+                        <Run Text="{Binding TotalCount}" FontWeight="Bold"/>
+                                </TextBlock>
+                                <TextBlock Margin="5,0,5,5">
+                        <Run Text="Total Scanned Items: " FontWeight="Thin" FontSize="13"/>
+                        <Run Text="{Binding TotalCount}" FontWeight="Bold"/>
+                                </TextBlock>
+                                <TextBlock Text=" Harnesses Information" FontSize="15" Margin="0,10,5,10"/>
+                                <TextBlock Margin="5,0,5,5">
+                        <Run Text="Total Harnesses: " FontWeight="Thin" FontSize="13"/>
+                        <Run Text="{Binding TotalCount}" FontWeight="Bold"/>
+                                </TextBlock>
+                                <TextBlock Margin="5,0,5,5">
+                        <Run Text="Completed: " FontWeight="Thin" FontSize="13"/>
+                        <Run Text="{Binding TotalCount}" FontWeight="Bold"/>
+                                </TextBlock>
+                                <TextBlock Margin="5,0,5,5">
+                        <Run Text="In Progress: " FontWeight="Thin" FontSize="13"/>
+                        <Run Text="{Binding TotalCount}" FontWeight="Bold"/>
+                                </TextBlock>
+                                <TextBlock Text=" EDS Severity" FontSize="15" Margin="0,10,5,10"/>
+                                <!--<Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Background="{StaticResource DefaultBorder}"/>-->
+                                <TextBlock Margin="5,0,5,5">
+                        <Run Text="Total Scanned Items: " FontWeight="Thin" FontSize="13"/>
+                        <Run Text="{Binding TotalCount}" FontWeight="Bold"/>
+                                </TextBlock>
+
+                                <Grid>
+                                    <Grid.Resources>
+                                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource statText}"/>
+                                        <Style TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource statProgBar}"/>
+                                    </Grid.Resources>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="75"/>
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel Margin="5,5,0,5">
+                                        <TextBlock Text="Errors:"/>
+                                        <TextBlock Text="Warnings:" Margin="0,1"/>
+                                        <TextBlock Text="Good:"/>
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Column="1" Margin="0,6">
+                                        <ProgressBar Value="{Binding ErrorCount}" Background="#66E07272" Foreground="{DynamicResource ErrorColor}"/>
+                                        <ProgressBar Value="{Binding WarningCount}" Background="#66E0B700" Foreground="{DynamicResource WarningColor}" Margin="0,5"/>
+                                        <ProgressBar Value="{Binding GoodCount}" Background="#6678E072" Foreground="{DynamicResource GoodColor}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </ScrollViewer>
             </Grid>            
         </Grid>
     </Grid>
