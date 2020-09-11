@@ -70,6 +70,12 @@
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Modules\ParametersInfoView.xaml.cs">
+      <DependentUpon>ParametersInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modules\AutomationInfoView.xaml.cs">
+      <DependentUpon>AutomationInfoView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Popups\RuleTicketCV.xaml.cs">
       <DependentUpon>RuleTicketCV.xaml</DependentUpon>
     </Compile>
@@ -140,6 +146,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Modules\ParametersInfoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Modules\AutomationInfoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Popups\RuleTicketCV.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -185,6 +199,17 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\MainView\createRule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\RuleImages\automation.png" />
+    <Resource Include="Resources\Images\RuleImages\checkMethod.png" />
+    <Resource Include="Resources\Images\RuleImages\component.png" />
+    <Resource Include="Resources\Images\RuleImages\harness.png" />
+    <Resource Include="Resources\Images\RuleImages\measurement.png" />
+    <Resource Include="Resources\Images\RuleImages\methods.png" />
+    <Resource Include="Resources\Images\RuleImages\milestone.png" />
+    <Resource Include="Resources\Images\RuleImages\parameters.png" />
+    <Resource Include="Resources\Images\RuleImages\repairMethod.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

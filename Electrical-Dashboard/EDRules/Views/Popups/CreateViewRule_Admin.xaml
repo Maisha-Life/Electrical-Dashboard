@@ -46,10 +46,11 @@
                 <StackPanel Grid.Row="1" Margin="5">
                     <StackPanel.Resources>
                         <Style TargetType="{x:Type TextBox}">
-                            <Setter Property="Height" Value="20"/>
+                            <Setter Property="Height" Value="30"/>
                             <Setter Property="FontSize" Value="11"/>
                             <Setter Property="FontWeight" Value="Thin"/>
                             <Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
+                            <Setter Property="Padding" Value="5"/>
                         </Style>
                         <Style TargetType="{x:Type TextBlock}">
                             <Setter Property="FontSize" Value="12"/>
@@ -59,12 +60,14 @@
                         <Style TargetType="{x:Type GroupBox}">
                             <Setter Property="BorderThickness" Value="1"/>
                             <Setter Property="BorderBrush" Value="{StaticResource DefaultBorder}"/>
-                            <Setter Property="FontSize" Value="13"/>
+                            <Setter Property="FontSize" Value="14"/>
                         </Style>
                     </StackPanel.Resources>
 
                     <Modules:RequiredInfoView/>
-
+                    <Modules:AutomationInfoView/>
+                    <Modules:ParametersInfoView/>
+                    
                 </StackPanel>
             </ScrollViewer>
 
