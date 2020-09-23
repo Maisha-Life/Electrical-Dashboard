@@ -15,12 +15,12 @@ namespace EDDLL.Tickets
         //new blank
         public static Ticket createTicket() { return new Ticket(); }
         //new generic ticket
-        public static Ticket createTicket(string tool, string category, string assigner, 
+        public static Ticket createTicket(string subcategory, string category, string assigner, 
                                           DateTime dateAssigned, DateTime dateDue) => new Ticket()
                                           {
                                               TicketID = -1,
                                               TicketNumber = -1,
-                                              Tool = tool,
+                                              SubCategory = subcategory,
                                               Category = category,
                                               Assigner = assigner,
                                               DateAssigned = dateAssigned,
@@ -28,37 +28,44 @@ namespace EDDLL.Tickets
                                               Description = "testing this field"
                                           };
         //new with info
-        public static Ticket createTicket(int ticketNumber, string importanceLevel, string tool, string category, string assigner, string assignee, DateTime dateAssigned,
-                                          DateTime dateDue, string description, string status) => new Ticket()
-                                          {
-                                              TicketID = -1,
-                                              TicketNumber = ticketNumber,
-                                              ImportanceLevel = importanceLevel,
-                                              Tool = tool,
-                                              Category = category,
-                                              Assigner = assigner,
-                                              Assignee = assignee,
-                                              DateAssigned = dateAssigned,
-                                              DateDue = dateDue,
-                                              Description = description,
-                                              Status = status
-                                          };
+        public static Ticket createTicket(int ticketNumber, string status, string importanceLevel, string subcategory, string category, string assigner, string assignee, DateTime dateAssigned,
+                                          DateTime dateDue, string description)
+        {
+            return new Ticket()
+            {
+                TicketID = -1,
+                TicketNumber = ticketNumber,
+                ImportanceLevel = importanceLevel,
+                SubCategory = subcategory,
+                Category = category,
+                Assigner = assigner,
+                Assignee = assignee,
+                DateAssigned = dateAssigned,
+                DateDue = dateDue,
+                Description = description,
+                Status = status
+            };
+        }
+
         //from database
-        public static Ticket createTicket(int ticketID, int ticketNumber, string importanceLevel, string tool, string category, string assigner, string assignee, 
-                                          DateTime dateAssigned, DateTime dateDue, string description, string status) => new Ticket()
-                                          {
-                                              TicketID = ticketID,
-                                              TicketNumber = ticketNumber,
-                                              ImportanceLevel = importanceLevel,
-                                              Tool = tool,
-                                              Category = category,
-                                              Assigner = assigner,
-                                              Assignee = assignee,
-                                              DateAssigned = dateAssigned,
-                                              DateDue = dateDue,
-                                              Description = description,
-                                              Status = status
-                                          };
+        public static Ticket createTicket(int ticketID, int ticketNumber, string status, string importanceLevel, string subcategory, string category, string assigner, string assignee,
+                                          DateTime dateAssigned, DateTime dateDue, string description)
+        {
+            return new Ticket()
+            {
+                TicketID = ticketID,
+                TicketNumber = ticketNumber,
+                ImportanceLevel = importanceLevel,
+                SubCategory = subcategory,
+                Category = category,
+                Assigner = assigner,
+                Assignee = assignee,
+                DateAssigned = dateAssigned,
+                DateDue = dateDue,
+                Description = description,
+                Status = status
+            };
+        }
 
         #region Properties
 
@@ -67,7 +74,7 @@ namespace EDDLL.Tickets
         public int TicketNumber { get; set; }
         public string ImportanceLevel { get; set; }
 
-        public string Tool { get; set; }
+        public string SubCategory { get; set; }
         public string Category { get; set; }
         public string Assigner { get; set; }
         public string Assignee { get; set; }
@@ -123,7 +130,7 @@ namespace EDDLL.Tickets
 
         string ValidateTool()
         {
-            if (IsStringMissing(this.Tool))
+            if (IsStringMissing(this.SubCategory))
                 return "valid tool required";
             return null;
         }

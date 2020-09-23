@@ -1,4 +1,5 @@
-﻿<Window x:Class="EDDLL.MainWindow"
+﻿
+    <Window x:Class="EDDLL.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Views="clr-namespace:ElectricalDashboard.Views"

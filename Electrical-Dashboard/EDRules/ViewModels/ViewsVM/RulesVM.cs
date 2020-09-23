@@ -16,7 +16,10 @@ namespace EDRules.ViewModels
 {
     public class RulesVM : BaseVM
     {
-        public RulesVM() { }
+        public RulesVM() 
+        {
+            EDDLL.Data.SQL.Grab grab = new EDDLL.Data.SQL.Grab();
+        }
 
         #region Data Binds
 
@@ -142,7 +145,7 @@ namespace EDRules.ViewModels
         }
         private void createRuleTicket()
         {
-            vmEDRulesTicket ticket = new vmEDRulesTicket(Ticket.createTicket("", "", Environment.UserName, DateTime.Today, DateTime.Today), true);
+            vmEDRulesTicket ticket = new vmEDRulesTicket(Ticket.createTicket("", "", Environment.UserName, DateTime.Today, DateTime.Today));
 
             PopupHelper.TabIndex(0, ticket);
             PopupHelper.SetVisibility(true);

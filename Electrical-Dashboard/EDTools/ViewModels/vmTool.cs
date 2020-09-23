@@ -242,7 +242,7 @@ namespace EDTools.ViewModels
         }
         private void createToolSpecificTicket()
         {
-            vmEDToolsTicket ticket = new vmEDToolsTicket(Ticket.createTicket(ShortName, "", Environment.UserName, DateTime.Today, DateTime.Today), true);
+            vmEDToolsTicket ticket = new vmEDToolsTicket(Ticket.createTicket(ShortName, "", Environment.UserName, DateTime.Today, DateTime.Today));
 
             PopupHelper.TabIndex(0, ticket);
             PopupHelper.SetVisibility(true);

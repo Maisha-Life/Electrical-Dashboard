@@ -17,7 +17,7 @@ namespace EDDLL.Tickets
 
         public vmTicket() { }
         //type, if new (true) then all fields are available, if based off of a tool then (false) and some fields will be filled in by default
-        public vmTicket(Ticket ticket, bool type)
+        public vmTicket(Ticket ticket)
         {
             _ticket = ticket ?? throw new ArgumentNullException("ticket");
         }
@@ -74,38 +74,39 @@ namespace EDDLL.Tickets
             }
         }
 
-        private ThreeNOne _ToolProp;
-        public ThreeNOne ToolProp
+        private ThreeNOne _SubCategoryProp;
+        public ThreeNOne SubCategoryProp
         {
             get
             {
-                if (_ToolProp == null)
-                    _ToolProp = new ThreeNOne(_ticket.Tool);
+                if (_SubCategoryProp == null)
+                    _SubCategoryProp = new ThreeNOne(_ticket.SubCategory);
 
-                return _ToolProp;
+                return _SubCategoryProp;
             }
             set
             {
-                if (_ToolProp != value)
+                if (_SubCategoryProp != value)
                 {
-                    _ToolProp = value;
-                    _ticket.Tool = _ToolProp.Changed;
-                    this.RaisePropertyChangedEvent("ToolProp");
+                    _SubCategoryProp = value;
+                    _ticket.SubCategory = _SubCategoryProp.Changed;
+                    this.RaisePropertyChangedEvent("SubCategoryProp");
                 }
             }
         }
-        public string Tool
+        public string SubCategory
         {
-            get { return ToolProp.Changed; }
+            get { return SubCategoryProp.Changed; }
             set
             {
-              if (this._ToolProp.Changed != value)
-                    this._ToolProp.Changed = value;
+                if (this._SubCategoryProp.Changed != value)
+                    this._SubCategoryProp.Changed = value;
 
-                _ticket.Tool = value;
-                this.RaisePropertyChangedEvent("Tool");
+                _ticket.SubCategory = value;
+                this.RaisePropertyChangedEvent("SubCategory");
             }
         }
+
 
         private ThreeNOne _CategoryProp;
         public ThreeNOne CategoryProp

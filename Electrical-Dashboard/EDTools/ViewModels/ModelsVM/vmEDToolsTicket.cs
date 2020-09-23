@@ -7,7 +7,7 @@ namespace EDTools.ViewModels.ModelsVM
 {
     public class vmEDToolsTicket : vmTicket
     {
-        public vmEDToolsTicket(Ticket ticket, bool type) : base(ticket, type) { }
+        public vmEDToolsTicket(Ticket ticket) : base(ticket) { }
 
         #region Commands
 
@@ -98,7 +98,7 @@ namespace EDTools.ViewModels.ModelsVM
             TicketNumber = EDDLL.Tickets.TicketsVM.TicketsCreated.Count + 1;
 
             ImportanceLevelProp.Save();
-            ToolProp.Save();
+            SubCategoryProp.Save();
             CategoryProp.Save();
             AssignerProp.Save();
             AssigneeProp.Save();

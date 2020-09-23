@@ -13,7 +13,27 @@ namespace EDRules.ViewModels.ModelsVM
 {
     public class vmEDRulesTicket : vmTicket
     {
-        public vmEDRulesTicket(Ticket ticket, bool type) : base(ticket, type) { }
+        public readonly vmRule _rule;
+
+        public vmEDRulesTicket(Ticket ticket, int id_ticketRule, int id_rule) : base(ticket) 
+        {
+            Id_TicketRule = id_ticketRule;
+            Id_Rule = id_rule;
+        }
+
+        public vmEDRulesTicket(Ticket ticket, vmRule rule) : base(ticket) 
+        {
+            _rule = rule ?? throw new ArgumentNullException("rule");
+        }
+
+        public vmEDRulesTicket(Ticket ticket) : base(ticket) {  }
+
+        #region Properties
+
+        public int Id_TicketRule { get; set; }
+        public int Id_Rule { get; set; }
+
+        #endregion
 
         #region Commands
 
@@ -103,7 +123,7 @@ namespace EDRules.ViewModels.ModelsVM
             TicketNumber = EDDLL.Tickets.TicketsVM.TicketsCreated.Count + 1;
 
             ImportanceLevelProp.Save();
-            ToolProp.Save();
+            SubCategoryProp.Save();
             CategoryProp.Save();
             AssignerProp.Save();
             AssigneeProp.Save();

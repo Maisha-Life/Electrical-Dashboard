@@ -14,7 +14,7 @@ namespace EDRules.ViewModels.ModelsVM
 {
     public class vmRule : vmBase
     {
-        private readonly Rule _rule;
+        public readonly Rule _rule;
         private readonly ObservableCollection<vmRule> _rules;
 
         public vmRule(Rule rule, ObservableCollection<vmRule> rules)
@@ -253,6 +253,20 @@ namespace EDRules.ViewModels.ModelsVM
 
                 _rule.RuleRepairDesc = value;
                 this.RaisePropertyChangedEvent("RuleRepairDesc");
+            }
+        }
+
+        private ObservableCollection<vmMeasurement> _RuleMeasurements;
+        public ObservableCollection<vmMeasurement> RuleMeasurements
+        {
+            get { return _RuleMeasurements; }
+            set
+            {
+                if (this._RuleMeasurements != value)
+                {
+                    this._RuleMeasurements = value;
+                    this.RaisePropertyChangedEvent("RuleMeasurements");
+                }
             }
         }
 

@@ -53,6 +53,7 @@
     <Compile Include="Data\SQL\Grab.cs" />
     <Compile Include="Data\SQL\Remove.cs" />
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\Rules\Rule.cs" />
     <Compile Include="Models\User\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Ticket\Ticket.cs" />

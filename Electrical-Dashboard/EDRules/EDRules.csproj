@@ -59,10 +59,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Data\SQL.cs" />
     <Compile Include="Utilities\PopupHelper.cs" />
     <Compile Include="ViewModels\ModelsVM\vmEDRulesTicket.cs" />
     <Compile Include="ViewModels\ModelsVM\vmMeasurement.cs" />
-    <Compile Include="ViewModels\ModelsVM\vmMethod.cs" />
     <Compile Include="ViewModels\ModelsVM\vmParameter.cs" />
     <Compile Include="ViewModels\ModelsVM\vmRule.cs" />
     <Compile Include="ViewModels\ViewsVM\PopupVM.cs" />
@@ -103,7 +103,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Measurement.cs" />
-    <Compile Include="Models\Method.cs" />
     <Compile Include="Models\Parameter.cs" />
     <Compile Include="Models\Rule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

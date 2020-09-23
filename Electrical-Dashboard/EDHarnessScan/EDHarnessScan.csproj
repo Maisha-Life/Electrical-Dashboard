@@ -144,6 +144,10 @@
       <Project>{14B85F57-0BC3-42F4-B919-E7805DC45AB1}</Project>
       <Name>EDDLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EDRules\EDRules.csproj">
+      <Project>{4d900d18-a7f7-41a6-aa02-18d52e2369b4}</Project>
+      <Name>EDRules</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\GenerateReportView.xaml">

@@ -5,25 +5,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EDRules.Models
+namespace EDDLL.Models
 {
     public class Rule : BaseModel
     {
 
         public static Rule CreateRule() => new Rule()
         {
-            Id_Rule = -1,
+            Id_Rule = "-1",
 
             RuleTypeDesc = "Consideration",
 
             DesignRule = "",
             LegacyIDDesc = "",
             RuleName = "",
-            RuleDesc = ""
+            RuleDesc = "",
+
+            Id_Status = 0,
         };
-        public static Rule CreateRule(string ruleTypeDesc, string designRule, string ruleName, string ruleDesc, string ruleCheckDesc, string ruleRepairDesc) => new Rule()
+        public static Rule CreateRule(string ruleTypeDesc, string designRule, string ruleName, string ruleDesc, int id_status, string ruleCheckDesc, string ruleRepairDesc) => new Rule()
         {
-            Id_Rule = -1,
+            Id_Rule = "-1",
 
             RuleTypeDesc = ruleTypeDesc,
 
@@ -31,23 +33,12 @@ namespace EDRules.Models
             RuleName = ruleName,
             RuleDesc = ruleDesc,
 
-            RuleCheckDesc = ruleCheckDesc,
-            RuleRepairDesc = ruleRepairDesc
-        };
-        public static Rule CreateRule(int id_rule, string ruleTypeDesc, string designRule, string ruleName, string ruleDesc, string ruleCheckDesc, string ruleRepairDesc) => new Rule()
-        {
-            Id_Rule = id_rule,
-
-            RuleTypeDesc = ruleTypeDesc,
-
-            DesignRule = designRule,
-            RuleName = ruleName,
-            RuleDesc = ruleDesc,
+            Id_Status = id_status,
 
             RuleCheckDesc = ruleCheckDesc,
             RuleRepairDesc = ruleRepairDesc
         };
-        public static Rule CreateRule(int id_rule, string ruleTypeDesc, string designRule, string ruleName, string ruleDesc, string ruleCheckDesc, string ruleRepairDesc, string owner) => new Rule()
+        public static Rule CreateRule(string id_rule, string ruleTypeDesc, string designRule, string ruleName, string ruleDesc, int id_status, string ruleCheckDesc, string ruleRepairDesc, string owner) => new Rule()
         {
             Id_Rule = id_rule,
 
@@ -58,13 +49,15 @@ namespace EDRules.Models
             RuleDesc = ruleDesc,
             Owner = owner,
 
+            Id_Status = id_status,
+
             RuleCheckDesc = ruleCheckDesc,
             RuleRepairDesc = ruleRepairDesc
         };
 
         #region Properties
 
-        public int Id_Rule { get; set; }
+        public string Id_Rule { get; set; }
 
         public string RuleTypeDesc { get; set; }
 
@@ -73,6 +66,8 @@ namespace EDRules.Models
         public string RuleName { get; set; }
         public string RuleDesc { get; set; }
         public string Owner { get; set; }
+
+        public int Id_Status { get; set; }
 
         public string RuleCheckDesc { get; set; }
         public string RuleRepairDesc { get; set; }

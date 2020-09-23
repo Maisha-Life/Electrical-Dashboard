@@ -73,7 +73,7 @@ namespace ElectricalDashboard.ViewModels.ViewsVM
         }
         private void ticketCreate()
         {
-            vmTicket ticket = new vmElectricalDashboardTicket(Ticket.createTicket("","",Environment.UserName, DateTime.Today, DateTime.Today), true);
+            vmTicket ticket = new vmElectricalDashboardTicket(Ticket.createTicket("","",Environment.UserName, DateTime.Today, DateTime.Today));
 
             PopupHelper.TabIndex(0, ticket);
             PopupHelper.SetVisibility(true);
