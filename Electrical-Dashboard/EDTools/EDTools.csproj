@@ -61,7 +61,6 @@
     </Compile>
     <Compile Include="Models\Tool.cs" />
     <Compile Include="Utilities\PopupHelper.cs" />
-    <Compile Include="ViewModels\ModelsVM\vmEDToolsTicket.cs" />
     <Compile Include="ViewModels\ViewsVM\ToolsVM.cs" />
     <Compile Include="ViewModels\ViewsVM\PopupVM.cs" />
     <Compile Include="ViewModels\vmTool.cs" />

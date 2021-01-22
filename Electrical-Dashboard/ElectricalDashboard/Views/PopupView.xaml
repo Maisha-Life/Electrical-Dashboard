@@ -6,7 +6,6 @@
              
              xmlns:EDDLLPopup="clr-namespace:EDDLL.Views;assembly=EDDLL"
              xmlns:ElectricalDashboardPopup="clr-namespace:ElectricalDashboard.Views.TicketViews"
-             xmlns:local="clr-namespace:EDDLL.Views"
              
              mc:Ignorable="d" d:DesignWidth="800">
     <UserControl.Resources>
@@ -43,7 +42,7 @@
                     SelectedIndex="{Binding SelectedPopupIndex}"
                     Visibility="{Binding PopupVisibility}">
             <TabItem>
-                <ElectricalDashboardPopup:TicketCV x:Name="ticketCV" Width="500" />
+                <ElectricalDashboardPopup:TicketCVMain x:Name="ticketCV" Width="500"/>
             </TabItem>
             <TabItem>
                 <ElectricalDashboardPopup:TicketEV x:Name="ticketEV"/>

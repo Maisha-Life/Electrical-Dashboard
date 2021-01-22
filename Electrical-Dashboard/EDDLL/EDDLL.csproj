@@ -123,5 +123,24 @@
     <Resource Include="Resources\Images\TicketIcons\edit.png" />
     <Resource Include="Resources\Images\TicketIcons\removeTicket.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Circle\cancelCircle.png" />
+    <Resource Include="Resources\Images\Circle\editCircle.png" />
+    <Resource Include="Resources\Images\Circle\removeCircle.png" />
+    <Resource Include="Resources\Images\Circle\saveCircle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\thumb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\filter.png" />
+    <Resource Include="Resources\Images\sorting.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

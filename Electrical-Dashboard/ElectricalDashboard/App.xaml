@@ -8,7 +8,9 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/EDDLL;component/Resources/Styles/MVVMCustomResources.xaml"/>
                 <ResourceDictionary Source="/EDDLL;component/Resources/Styles/EDDLLCustomResources.xaml"/>
+                <ResourceDictionary Source="/EDRules;component/Resources/Styles/RulesCustomResources.xaml"/>
                 <ResourceDictionary Source="/EDTools;component/Resources/Styles/ToolsCustomResources.xaml"/>
+                <ResourceDictionary Source="/EDHarnessScan;component/Resources/Styles/HarnessScanCustomResources.xaml"/>
                 <ResourceDictionary Source="/EDDLL;component/Resources/Styles/AutoScrollListBoxDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

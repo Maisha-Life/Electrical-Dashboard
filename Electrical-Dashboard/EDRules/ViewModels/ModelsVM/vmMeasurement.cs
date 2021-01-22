@@ -4,6 +4,7 @@ using EDRules.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -73,7 +74,9 @@ namespace EDRules.ViewModels.ModelsVM
         }
         private void saveMeasurement()
         {
-            save();
+            MeasurementDescProp.Save();
+
+            saveProperties();
         }
 
         private RelayCommand _CancelMeasurementCommand;
@@ -110,10 +113,38 @@ namespace EDRules.ViewModels.ModelsVM
 
         #region Methods
 
-        public void save() { MeasurementDescProp.Save(); saveProperties(); }
-        public void cancel() { MeasurementDescProp.Cancel(); saveProperties(); }
-        public void remove() { _measurements.Remove(this);  }
-        public void revert() { MeasurementDescProp.Default(); saveProperties(); }
+        public override void save() 
+        { 
+            MeasurementDescProp.Save();            
+
+            saveProperties();
+        }
+        public void checkMeasurement()
+        {
+            if (MeasurementDescProp.ChangedBool)
+            {
+                if (this._measurement.Id_Measurement == -1)
+                    App.RulesVM.sqlAccess.addRuleMeasurement(this);
+                else
+                    App.RulesVM.sqlAccess.editRuleMeasurement(this);
+            }
+        }
+        public override void cancel() 
+        { 
+            MeasurementDescProp.Cancel();
+            
+            saveProperties();
+
+            if (this._measurement.Id_Measurement == -1)
+                _measurements.Remove(this);
+        }
+        public override void remove() 
+        {
+            App.RulesVM.sqlAccess.removeRuleMeasurement(this);
+
+            _measurements.Remove(this);  
+        }
+        public override void revert() { MeasurementDescProp.Default(); saveProperties(); }
 
         private void saveProperties() 
         {

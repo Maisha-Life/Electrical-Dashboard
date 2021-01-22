@@ -59,17 +59,44 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\HarnessCheckResult.cs" />
+    <Compile Include="Models\HarnessRule.cs" />
+    <Compile Include="Utilities\PopupHelper.cs" />
+    <Compile Include="ViewModels\MainVM.cs" />
     <Compile Include="ViewModels\ModelsVM\vmHarness.cs" />
-    <Compile Include="ViewModels\ModelsVM\vmHarnessScannedRule.cs" />
+    <Compile Include="ViewModels\ModelsVM\vmHarnessCheckResult.cs" />
+    <Compile Include="ViewModels\ModelsVM\vmHarnessRule.cs" />
     <Compile Include="ViewModels\ModelsVM\vmHarnessSelectRule.cs" />
     <Compile Include="ViewModels\ModelsVM\vmProgram.cs" />
-    <Compile Include="Views\GenerateReportView.xaml.cs">
+    <Compile Include="ViewModels\ViewsVM\GenerateReportVM.cs" />
+    <Compile Include="ViewModels\ViewsVM\HarnessScanVM.cs" />
+    <Compile Include="ViewModels\ViewsVM\HarnessSelectVM.cs" />
+    <Compile Include="ViewModels\ViewsVM\PopupVM.cs" />
+    <Compile Include="HarnessMainView.xaml.cs">
+      <DependentUpon>HarnessMainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tabs\GenerateReportView.xaml.cs">
       <DependentUpon>GenerateReportView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\HarnessScanView.xaml.cs">
+    <Compile Include="Views\Tabs\HarnessScanView.xaml.cs">
       <DependentUpon>HarnessScanView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\HarnessSelectView.xaml.cs">
+    <Compile Include="Views\HarnessScanViews\HarnessInformationView.xaml.cs">
+      <DependentUpon>HarnessInformationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HarnessScanViews\HarnessScanViewBehind.xaml.cs">
+      <DependentUpon>HarnessScanViewBehind.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HarnessScanViews\RulesInformationView.xaml.cs">
+      <DependentUpon>RulesInformationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HarnessScanViews\ToolsScanInformationView.xaml.cs">
+      <DependentUpon>ToolsScanInformationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tabs\HarnessSelectView.xaml.cs">
       <DependentUpon>HarnessSelectView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Popups\HarnessCV.xaml.cs">
@@ -89,6 +116,9 @@
     </Compile>
     <Compile Include="Views\Popups\ProgramEV.xaml.cs">
       <DependentUpon>ProgramEV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PopupView.xaml.cs">
+      <DependentUpon>PopupView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SubViews\HarnessScan\HarnessInformationView.xaml.cs">
       <DependentUpon>HarnessInformationView.xaml</DependentUpon>
@@ -150,15 +180,43 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\GenerateReportView.xaml">
+    <Page Include="Resources\Styles\HarnessScanCustomResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HarnessMainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HarnessScanView.xaml">
+    <Page Include="Views\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HarnessSelectView.xaml">
+    <Page Include="Views\Tabs\GenerateReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tabs\HarnessScanView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HarnessScanViews\HarnessInformationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HarnessScanViews\HarnessScanViewBehind.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HarnessScanViews\RulesInformationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HarnessScanViews\ToolsScanInformationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Tabs\HarnessSelectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -186,6 +244,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\PopupView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\SubViews\HarnessScan\HarnessInformationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -209,6 +271,67 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\GenerateReport\createReport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Main\harnessAdd.png" />
+    <Resource Include="Resources\Images\Main\harnessWait.png" />
+    <Resource Include="Resources\Images\Main\program.png" />
+    <Resource Include="Resources\Images\Main\programAdd.png" />
+    <Resource Include="Resources\Images\Main\programWait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Styles\warningStatus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\couponsSmall.png" />
+    <Resource Include="Resources\Images\dtSyncSmall.png" />
+    <Resource Include="Resources\Images\mciSmall.png" />
+    <Resource Include="Resources\Images\pmiSmall.png" />
+    <Resource Include="Resources\Images\renameSmall.png" />
+    <Resource Include="Resources\Images\sectionizerSmall.png" />
+    <Resource Include="Resources\Images\toolsSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\HarnessScanViews\scan2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\HarnessScanViews\scanBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\HarnessScanViews\harnessColor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\HarnessScanViews\filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\HarnessScanViews\selectAll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\HarnessScanViews\unselectAll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\HarnessScanViews\rule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\HarnessScanViews\consideration.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\HarnessScanViews\requirement.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\HarnessScanViews\mood.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\HarnessScanViews\law.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TabIcons\harnessScanIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TabIcons\harnessRepositoryIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TabIcons\reportsIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

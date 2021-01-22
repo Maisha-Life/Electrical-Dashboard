@@ -21,7 +21,7 @@ namespace ElectricalDashboard.ViewModels.ModelsVM
         {
             get
             {
-                if (_CreateCommand == null) _CreateCommand = new RelayCommand(param => createCommand(), param => { return (_ticket.IsValid); });
+                if (_CreateCommand == null) _CreateCommand = new RelayCommand(param => createCommand(), param => { return (true); });
 
                 return _CreateCommand;
             }
@@ -59,7 +59,7 @@ namespace ElectricalDashboard.ViewModels.ModelsVM
         {
             get
             {
-                if (_SaveCommand == null) _SaveCommand = new RelayCommand(param => saveCommand(), param => { return (_ticket.IsValid); });
+                if (_SaveCommand == null) _SaveCommand = new RelayCommand(param => saveCommand(), param => { return (true); });
 
                 return _SaveCommand;
             }
@@ -90,7 +90,6 @@ namespace ElectricalDashboard.ViewModels.ModelsVM
             PopupHelper.TabIndex(1, this);
             PopupHelper.SetVisibility(true);
         }
-
         public override void removeCommand()
         {
 
@@ -105,7 +104,7 @@ namespace ElectricalDashboard.ViewModels.ModelsVM
             TicketNumber = EDDLL.Tickets.TicketsVM.TicketsCreated.Count + 1;
 
             ImportanceLevelProp.Save();
-            SubCategoryProp.Save();
+            ItemProp.Save();
             CategoryProp.Save();
             AssignerProp.Save();
             AssigneeProp.Save();

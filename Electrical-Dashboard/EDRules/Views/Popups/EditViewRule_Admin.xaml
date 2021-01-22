@@ -64,7 +64,8 @@
                     </StackPanel.Resources>
 
                     <Modules:RequiredInfoView/>
-
+                    <Modules:AutomationInfoView/>
+                    <Modules:ParametersInfoView/>
                 </StackPanel>
             </ScrollViewer>
 

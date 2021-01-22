@@ -1,0 +1,135 @@
+﻿<UserControl x:Class="EDHarnessScan.Views.HarnessScanViewBehind"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             
+             xmlns:HarnessViews="clr-namespace:EDHarnessScan.Views"
+             
+             mc:Ignorable="d" 
+             d:DesignHeight="1050" d:DesignWidth="1350">
+    <UserControl.Resources>
+        <Style x:Key="overlayRectangle" TargetType="{x:Type Rectangle}">
+            <Setter Property="RadiusX" Value="5"/>
+            <Setter Property="RadiusY" Value="5"/>
+        </Style>
+        <Style TargetType="{x:Type GroupBox}">
+            <Setter Property="BorderBrush" Value="{StaticResource DefaultBorder}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Background="White">
+        <Grid DataContext="{Binding SelectedHarness}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <DockPanel LastChildFill="False" DockPanel.Dock="Left" Margin="5" VerticalAlignment="Top" Height="55">
+                    <Image Source="scanBlack.png" Height="32" Margin="0,0,5,0" VerticalAlignment="Top"/>
+                    <TextBlock Text="Harness Scan" VerticalAlignment="Top" FontSize="22" Foreground="Black"/>
+                </DockPanel>
+
+                <HarnessViews:HarnessInformationView Grid.Row="1"/>
+                <HarnessViews:ToolsScanInformationView Margin="0,15,0,0" Grid.Row="2"/>
+            </Grid>
+
+            <Rectangle Grid.Column="1" Fill="{StaticResource DefaultBorder}" Margin="0,55,0,5"/>
+
+            <HarnessViews:RulesInformationView  Grid.Column="2" x:Name="rulesList"/>
+        </Grid>
+
+        <Button Style="{StaticResource customButtonWithContent}" 
+                    Command="{Binding SelectNewHarnessCommand}" 
+                    Height="32" Margin="5"
+                    VerticalAlignment="top" HorizontalAlignment="right"
+                    ToolTip="Cancel current harness scan and start a new one.">
+            <Border Background="White" CornerRadius="5">
+                <TextBlock Text="Restart" VerticalAlignment="Center" FontSize="17" Margin="5,0" Foreground="DarkGray" FontWeight="Thin"/>
+            </Border>
+        </Button>
+
+        <Grid Grid.RowSpan="2" Margin="-3">
+            <Rectangle Fill="{StaticResource DefaultBorder}" Opacity=".5">
+                <Rectangle.Resources>
+                    <Style TargetType="{x:Type Rectangle}">
+                        <Setter Property="Visibility" Value="Hidden"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding gridDisplayBool}" Value="false">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Rectangle.Resources>
+            </Rectangle>
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Margin="25" Height="230" Width="700">
+                <Grid.Resources>
+                    <Style TargetType="{x:Type Grid}">
+                        <Setter Property="Visibility" Value="Hidden"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding harnessSelectedBool}" Value="false">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource customButtonWithContent}"/>
+                </Grid.Resources>
+
+                <Grid x:Name="confirmGrid" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="25" Grid.RowSpan="2" DataContext="{Binding SelectedHarness}">
+                    <Grid.Resources>
+                        <Style TargetType="{x:Type Grid}">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding startScanPromptBool}" Value="true">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Rectangle Fill="White" Opacity="1" Grid.RowSpan="2" />
+                    <StackPanel Margin="15">
+                        <TextBlock Text="Please verify the selected rules that you would like to check for with the given harness. " 
+                                           FontWeight="Thin"  FontSize="15" TextWrapping="Wrap"/>
+                        <TextBlock FontWeight="Thin"  FontSize="14" TextWrapping="Wrap">
+                                    <LineBreak/>
+                                    <Run Text="· Select"/>
+                                <Run Text="all" FontWeight="Normal"/>
+                                <Run Text="if all rules need to be run on this harness"/>
+                                    <LineBreak/>
+                                    <Run Text="· Select"/>
+                                <Run Text="specific" FontWeight="Normal"/>
+                                <Run Text="rules if there are only a few needed"/>
+                                    <LineBreak/>
+                        </TextBlock>
+                    </StackPanel>
+                    <DockPanel Grid.Row="1"  Margin="10,0,10,10" LastChildFill="False">
+                        <Button ToolTip="continue..." Command="{Binding StartScanCommand}" DockPanel.Dock="Left">
+                            <WrapPanel>
+                                <TextBlock Text="Continue" VerticalAlignment="Center" Margin="5,0" FontWeight="Thin" FontSize="15"/>
+                            </WrapPanel>
+                        </Button>
+                        <Button ToolTip="cancel..." Command="{Binding CancelScanPromptCommand}" DockPanel.Dock="Right">
+                            <WrapPanel>
+                                <TextBlock Text="Cancel" VerticalAlignment="Center" Margin="5,0" FontWeight="Thin" FontSize="15" Foreground="Red"/>
+                            </WrapPanel>
+                        </Button>
+                    </DockPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

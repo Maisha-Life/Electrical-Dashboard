@@ -87,25 +87,6 @@ namespace EDRules.Utilities
         {
             ((PopupVM)PopupView.DataContext).SelectedPopupIndex = tabIndex;
 
-            switch (tabIndex)
-            {
-                case 0:
-                    PopupView.ticketCV.DataContext = context;
-                    PopupView.overlay.Command = App.PopupVM.ClearPopup;
-                break;
-                case 1:
-                    PopupView.ticketEV.DataContext = context;
-                    PopupView.overlay.Command = App.PopupVM.ClearPopup;
-                break;
-                case 2:
-                    PopupView.ruleCV.DataContext = context;
-                    PopupView.overlay.Command = App.PopupVM.ClearPopup;
-                break;
-                case 3:
-                    PopupView.ruleEV.DataContext = context;
-                    PopupView.overlay.Command = App.PopupVM.ClearPopup;
-                break;
-            }
         }
     }
 }

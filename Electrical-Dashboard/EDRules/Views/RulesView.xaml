@@ -23,12 +23,6 @@
             </DockPanel>
             <customControls:SearchControl/>
 
-            <Button DockPanel.Dock="Right" Command="{Binding CreateRuleTicketCommand}">
-                <WrapPanel>
-                    <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/createTicket.png" Height="32" Margin="0,0,5,0"/>
-                    <TextBlock Text="Create Ticket" VerticalAlignment="Center" FontSize="17" Margin="5,0" Foreground="Black" FontWeight="Thin"/>
-                </WrapPanel>
-            </Button>
             <Button DockPanel.Dock="Right" Command="{Binding CreateRuleCommand}" Margin="0,0,15,0">
                 <WrapPanel>
                     <Image Source="/EDRules;component/Resources/Images/MainView/createRule.png" Height="32" Margin="0,0,5,0"/>
@@ -39,8 +33,8 @@
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="2"/>
+                <ColumnDefinition Width="0"/>
+                <ColumnDefinition Width="0"/>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
@@ -69,22 +63,19 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="37"/>
                             <ColumnDefinition Width="125"/>
-                            <ColumnDefinition Width="75"/>
                             <ColumnDefinition Width="175"/>
                             <ColumnDefinition />
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="130"/>
+                            <ColumnDefinition Width="160"/>
+                            <ColumnDefinition Width="160"/>
                             <ColumnDefinition Width="125"/>
                         </Grid.ColumnDefinitions>
 
                         <Image Source="/EDRules;component/Resources/Images/MainView/mood.png" Margin="3" ToolTip="Current State"/>
                         <TextBlock Text=" Design Rule" Grid.Column="1"/>
-                        <TextBlock Text=" Legacy ID" Grid.Column="2"/>
-                        <TextBlock Text=" Rule Name" Grid.Column="3"/>
-                        <TextBlock Text=" Requirements" Grid.Column="4"/>
-                        <TextBlock Text=" Method" Grid.Column="5"/>
-                        <TextBlock Text=" Status" Grid.Column="6"/>
-                        <TextBlock Text=" Options" Margin="10,0" Grid.Column="7"/>
+                        <TextBlock Text=" Rule Name" Grid.Column="2"/>
+                        <TextBlock Text=" Check Method" Grid.Column="4"/>
+                        <TextBlock Text=" Repair Method" Grid.Column="5"/>
+                        <TextBlock Text=" Options" Margin="10,0" Grid.Column="6"/>
                     </Grid>
                     <DockPanel Grid.Row="1">
                         <Rectangle Margin="5,6,7,2" DockPanel.Dock="Top" Height="2" Fill="{StaticResource DefaultBorder}"/>
@@ -97,8 +88,7 @@
                                     <Setter Property="Template" Value="{StaticResource VerticalScrollBar}" />
                                 </Style>
                             </ScrollViewer.Resources>
-                            <ItemsControl ItemsSource="{Binding ruleList}" AlternationCount="2">
-                            </ItemsControl>
+                            <ItemsControl ItemsSource="{Binding RuleList}" AlternationCount="2" ItemTemplate="{StaticResource ruleListItem}"/>
                         </ScrollViewer>
                     </DockPanel>
                 </Grid>              

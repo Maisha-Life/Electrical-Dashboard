@@ -2,7 +2,6 @@
 using EDDLL.Utilities;
 using EDDLL.ViewModels;
 using EDTools.Utilities;
-using EDTools.ViewModels.ModelsVM;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -191,23 +190,6 @@ namespace EDTools.ViewModels
             TabIndex = 0;
         }
 
-        private RelayCommand _TicketCreateCommand;
-        public ICommand TicketCreateCommand
-        {
-            get
-            {
-                if (_TicketCreateCommand == null) _TicketCreateCommand = new RelayCommand(param => ticketCreate(), param => { return (true); });
-
-                return _TicketCreateCommand;
-            }
-        }
-        private void ticketCreate()
-        {
-            vmEDToolsTicket ticket = new vmEDToolsTicket(Ticket.createTicket("", "", Environment.UserName, DateTime.Today, DateTime.Today));
-
-            PopupHelper.TabIndex(0, ticket);
-            PopupHelper.SetVisibility(true);
-        }
         #endregion
     }
 }

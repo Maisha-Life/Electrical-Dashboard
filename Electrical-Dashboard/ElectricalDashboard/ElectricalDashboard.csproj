@@ -79,6 +79,9 @@
     <Compile Include="Views\TicketViews\TicketCV.xaml.cs">
       <DependentUpon>TicketCV.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TicketViews\TicketCVMain.xaml.cs">
+      <DependentUpon>TicketCVMain.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TicketViews\TicketEV.xaml.cs">
       <DependentUpon>TicketEV.xaml</DependentUpon>
     </Compile>
@@ -160,6 +163,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\TicketViews\TicketCVMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\TicketViews\TicketEV.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -239,7 +246,26 @@
     <Resource Include="Resources\Images\TicketIcons\ticketLarge.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Models\" />
     <Folder Include="Resources\Styles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TicketIcons\icon_tool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TicketIcons\icon_rule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TicketIcons\icon_program.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TicketIcons\icon_harness.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TicketIcons\icon_harnessCheck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TicketIcons\icon_other.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

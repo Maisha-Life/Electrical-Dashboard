@@ -1,0 +1,485 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    
+                    xmlns:Converters="clr-namespace:EDDLL.Views._Converters;assembly=EDDLL"
+                    xmlns:ViewModels="clr-namespace:EDHarnessScan.ViewModels.ModelsVM">
+
+    <DataTemplate x:Key="harnessCreatedItem" DataType="{x:Type ViewModels:vmHarness}">
+        <Grid Height="26" Margin="0,2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="85"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="75"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="60"/>
+            </Grid.ColumnDefinitions>
+            <Grid VerticalAlignment="Center" Margin="3,0,0,0" >
+                <TextBlock Text="{Binding ProgramPrefix}" Style="{StaticResource savedTextBlock}"/>
+                <TextBox IsEnabled="False" x:Name="ppDescTB" Text="{Binding ProgramPrefix, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource changedTextBox}"/>
+            </Grid>
+            <Grid VerticalAlignment="Center" Margin="3,0,0,0" Grid.Column="1">
+                <TextBlock Text="{Binding HarnessBaseProp.Saved}" Style="{StaticResource savedTextBlock}"/>
+                <TextBox x:Name="harnessNameDescTB" Text="{Binding HarnessBase, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource changedTextBox}"/>
+            </Grid>
+            <Grid VerticalAlignment="Center" Margin="3,0,0,0" Grid.Column="2">
+                <TextBlock Text="{Binding HarnessSuffixProp.Saved}" Style="{StaticResource savedTextBlock}"/>
+                <TextBox x:Name="ameDescTB" Text="{Binding HarnessSuffix, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource changedTextBox}"/>
+            </Grid>
+            <Grid VerticalAlignment="Center" Margin="3,0,0,0" Grid.Column="3">
+                <TextBlock Text="{Binding OwnerProp.Saved}" Style="{StaticResource savedTextBlock}"/>
+                <TextBox x:Name="ownerDescTB" Text="{Binding Owner, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource changedTextBox}"/>
+            </Grid>
+            <Grid VerticalAlignment="Center" Grid.Column="4">
+                <WrapPanel>
+                    <WrapPanel.Resources>
+                        <Style TargetType="{x:Type WrapPanel}">
+                            <Setter Property="Visibility" Value="Visible"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding EditBool}" Value="True">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </WrapPanel.Resources>
+                    <ToggleButton IsChecked="{Binding EditBool}" Style="{StaticResource customToggleButtonWithContent}" 
+                          VerticalAlignment="Center" DockPanel.Dock="Left" ToolTip="Edit Constraint">
+                        <Image Source="/EDDLL;component/Resources/Images/Circle/editCircle.png" Height="14"/>
+                    </ToggleButton>
+                    <Button Command="{Binding RemoveHarnessCommand}" ToolTip="Remove Constraint">
+                        <Image Source="/EDDLL;component/Resources/Images/Circle/removeCircle.png" Height="14"/>
+                    </Button>
+                </WrapPanel>
+                <WrapPanel >
+                    <WrapPanel.Resources>
+                        <Style TargetType="{x:Type WrapPanel}">
+                            <Setter Property="Visibility" Value="Visible"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding EditBool}" Value="False">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </WrapPanel.Resources>
+                    <Button Command="{Binding CancelAddHarnessCommand}" ToolTip="Cancel Harness">
+                        <Image Source="/EDDLL;component/Resources/Images/Circle/cancelCircle.png" Height="15"/>
+                    </Button>
+                    <Button Command="{Binding SaveHarnessCommand}" ToolTip="Save Harness">
+                        <Image Source="/EDDLL;component/Resources/Images/Circle/saveCircle.png" Height="15"/>
+                    </Button>
+                </WrapPanel>
+            </Grid>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="programItem" DataType="{x:Type ViewModels:vmProgram}">
+        <DataTemplate.Resources>
+            <Storyboard x:Key="mouseEnter">
+                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid" >
+                    <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#5078E072"/>
+                </ColorAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="mouseLeave">
+                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid" FillBehavior="Stop"/>
+            </Storyboard>
+        </DataTemplate.Resources>
+
+        <Border x:Name="grid" Height="35" Margin="1">
+            <Grid Height="25" Margin="2" VerticalAlignment="Center">
+                <Grid.Resources>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource customButtonWithContent}">
+                        <Setter Property="Height" Value="32"/>
+                    </Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="FontSize" Value="11"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="Foreground" Value="Black"/>
+                        <Setter Property="FontWeight" Value="Thin"/>
+                        <Setter Property="Margin" Value="5,0,0,0"/>
+                        <Setter Property="TextWrapping" Value="Wrap"/>
+                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                    </Style>
+                    <Style TargetType="{x:Type TextBox}">
+                        <Setter Property="FontSize" Value="11"/>
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="35"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Image Source="warningStatus.png" />
+                <TextBlock Text="{Binding ProgramDesc}" FontWeight="Normal" FontSize="12" Grid.Column="1" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding HarnessList.Count}"  FontSize="12" Grid.Column="2" Foreground="Black"/>
+                <TextBlock Text="0"  FontSize="12" Grid.Column="3" Foreground="{StaticResource GoodColor}"/>
+                <TextBlock Text="0" FontSize="12" Grid.Column="4" Foreground="{StaticResource WarningColor}"/>
+                <TextBlock Text="0" FontSize="12" Grid.Column="5" Foreground="{StaticResource ErrorColor}"/>
+                <TextBlock Text="jmill592" FontSize="12" Grid.Column="6" />
+
+                <WrapPanel Grid.Column="7" HorizontalAlignment="Right" Margin="20,0">
+                    <Button Style="{StaticResource customButtonWithContent}" Command="{Binding EditProgramCommand}" ToolTip="Edit Program" Margin="5,2">
+                        <Image Source="/EDDLL;component/Resources/Images/Circle/editCircle.png"/>
+                    </Button>
+                    <Button Style="{StaticResource customButtonWithContent}" Command="{Binding RemoveProgramCommand}" ToolTip="Remove Program" Margin="5,2">
+                        <Image Source="/EDDLL;component/Resources/Images/remove.png"/>
+                    </Button>
+                </WrapPanel>
+            </Grid>
+        </Border>
+
+        <DataTemplate.Triggers>
+            <EventTrigger RoutedEvent="Mouse.MouseLeave" SourceName="grid">
+                <BeginStoryboard x:Name="mouseLeave_BeginStoryboard" Storyboard="{StaticResource mouseLeave}"/>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Mouse.MouseEnter" SourceName="grid">
+                <BeginStoryboard Storyboard="{StaticResource mouseEnter}"/>
+            </EventTrigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                <Setter Property="Background" Value="#1978E072" TargetName="grid"/>
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                <Setter Property="Background" Value="white" TargetName="grid"/>
+            </Trigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+    
+    <Style x:Key="toolButton" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border BorderBrush="{StaticResource DefaultBorder}" BorderThickness="1" CornerRadius="5">
+                        <Grid>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value=".7"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Opacity" Value="1"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <DataTemplate x:Key="harnessItem" DataType="{x:Type ViewModels:vmHarness}">
+        <DataTemplate.Resources>
+            <Storyboard x:Key="mouseEnter">
+                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid" >
+                    <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#5078E072"/>
+                </ColorAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="mouseLeave">
+                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid" FillBehavior="Stop"/>
+            </Storyboard>
+        </DataTemplate.Resources>
+
+        <Border x:Name="grid" Height="35" Margin="1">
+            <Grid Height="25" Margin="2" VerticalAlignment="Center">
+                <Grid.Resources>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="FontSize" Value="11"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="Foreground" Value="Black"/>
+                        <Setter Property="FontWeight" Value="Thin"/>
+                        <Setter Property="Margin" Value="5,0,0,0"/>
+                        <Setter Property="TextWrapping" Value="Wrap"/>
+                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                    </Style>
+                    <Style TargetType="{x:Type TextBox}">
+                        <Setter Property="FontSize" Value="11"/>
+                    </Style>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource customButtonWithContent}">
+                        <Setter Property="Margin" Value="5,0"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}" Value="True">
+                                <Setter Property="Foreground" Value="{StaticResource GoodColor}"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}" Value="False">
+                                <Setter Property="Foreground" Value="{StaticResource ErrorColor}"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="35"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Image Height="25" Source="warningStatus.png" ></Image>
+                <TextBlock Foreground="Black" FontWeight="Normal" FontSize="12" Grid.Column="1" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis">
+                    <Run Text="NZ6T"/>
+                    <Run Text="{Binding HarnessBaseProp.Saved}"/>
+                    <Run Text="-"/>
+                    <Run Text="{Binding HarnessSuffixProp.Saved}"/>
+                </TextBlock>
+                <TextBlock Text="{Binding RevisionProp.Saved}" Foreground="Black" FontWeight="Normal" FontSize="10" Grid.Column="2"/>
+                <WrapPanel Grid.Column="3">
+                    <WrapPanel.Resources>
+                        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource toolButton}">
+                            <Setter Property="Margin" Value="3,0"/>
+                            <Setter Property="Width" Value="25"/>
+                        </Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#ff78E072" Direction="0" ShadowDepth=".5" BlurRadius="12"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Effect">
+                                        <Setter.Value>
+                                            <DropShadowEffect Color="#ffE07272" Direction="0" ShadowDepth=".5" BlurRadius="12"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </WrapPanel.Resources>
+                    <Button IsEnabled="{Binding ToolsScanBool}">
+                        <Image Source="/EDHarnessScan;component/Resources/Images/toolsSmall.png"/>
+                    </Button>
+                    <Button IsEnabled="{Binding PMIBool}">
+                        <Image Source="/EDHarnessScan;component/Resources/Images/pmiSmall.png"/>
+                    </Button>
+                    <Button IsEnabled="{Binding DTSyncBool}">
+                        <Image Source="/EDHarnessScan;component/Resources/Images/dtSyncSmall.png"/>
+                    </Button>
+                    <Button IsEnabled="{Binding FFA2Bool}">
+                        <Image Source="/EDHarnessScan;component/Resources/Images/mciSmall.png"/>
+                    </Button>
+                    <Button IsEnabled="{Binding RenamingBool}">
+                        <Image Source="/EDHarnessScan;component/Resources/Images/renameSmall.png"/>
+                    </Button>
+                    <Button IsEnabled="{Binding HarnessCheckBool}">
+                        <Image Source="/EDHarnessScan;component/Resources/Images/couponsSmall.png"/>
+                    </Button>
+                </WrapPanel>                
+                <TextBlock Text="{Binding OwnerProp.Saved}" Grid.Column="4" FontSize="12"/>
+                <TextBlock Text="{Binding OwnerProp.Saved}" Grid.Column="5" FontSize="12"/>
+                <TextBlock Text="10-20-2020" Grid.Column="6" FontSize="12"/>
+
+                <WrapPanel Grid.Column="10" HorizontalAlignment="Right" Margin="20,0">
+                    <Button Style="{StaticResource customButtonWithContent}" Command="{Binding SelectHarness}" ToolTip="Select Program" Margin="5,2" Content="GO"/>
+                    <Button Style="{StaticResource customButtonWithContent}" Command="{Binding EditHarnessCommand}" ToolTip="Edit Program" Margin="5,2">
+                        <Image Source="/EDDLL;component/Resources/Images/Circle/editCircle.png"/>
+                    </Button>
+                    <Button Style="{StaticResource customButtonWithContent}" Command="{Binding RemoveHarnessCommand}" ToolTip="Remove Program" Margin="5,2">
+                        <Image Source="/EDDLL;component/Resources/Images/remove.png"/>
+                    </Button> 
+                </WrapPanel>
+            </Grid>
+        </Border>
+        <DataTemplate.Triggers>
+            <EventTrigger RoutedEvent="Mouse.MouseLeave" SourceName="grid">
+                <BeginStoryboard x:Name="mouseLeave_BeginStoryboard" Storyboard="{StaticResource mouseLeave}"/>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Mouse.MouseEnter" SourceName="grid">
+                <BeginStoryboard Storyboard="{StaticResource mouseEnter}"/>
+            </EventTrigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                <Setter Property="Background" Value="#1978E072" TargetName="grid"/>
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                <Setter Property="Background" Value="white" TargetName="grid"/>
+            </Trigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <DataTemplate x:Key="harnessCheckResult" DataType="{x:Type ViewModels:vmHarnessCheckResult}">
+        <DataTemplate.Resources>
+            <Storyboard x:Key="mouseEnter">
+                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid" >
+                    <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#5078E072"/>
+                </ColorAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="mouseLeave">
+                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid" FillBehavior="Stop"/>
+            </Storyboard>
+        </DataTemplate.Resources>
+        <Grid x:Name="grid" Margin="15,3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="37"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Image Height="25" Source="warningStatus.png" />
+            <TextBox Text="{Binding Component}" Grid.Column="1" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding Description}" Grid.Column="2" VerticalAlignment="Center" Margin="5,0"/>
+            <TextBox Text="{Binding Assigned}" Grid.Column="3" VerticalAlignment="Center"/>
+
+            <WrapPanel Grid.Column="4" HorizontalAlignment="Right" Height="25">
+                <Button Style="{StaticResource customButtonWithContent}" Command="{Binding EditHarnessCommand}" ToolTip="Edit Program" Margin="5,2">
+                    <Image Source="/EDDLL;component/Resources/Images/Circle/editCircle.png"/>
+                </Button>
+                <Button Style="{StaticResource customButtonWithContent}" Command="{Binding RemoveHarnessCommand}" ToolTip="Remove Program" Margin="5,2">
+                    <Image Source="/EDDLL;component/Resources/Images/remove.png"/>
+                </Button>
+            </WrapPanel>
+        </Grid>
+        <DataTemplate.Triggers>
+            <EventTrigger RoutedEvent="Mouse.MouseLeave" SourceName="grid">
+                <BeginStoryboard x:Name="mouseLeave_BeginStoryboard" Storyboard="{StaticResource mouseLeave}"/>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Mouse.MouseEnter" SourceName="grid">
+                <BeginStoryboard Storyboard="{StaticResource mouseEnter}"/>
+            </EventTrigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                <Setter Property="Background" Value="#1978E072" TargetName="grid"/>
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                <Setter Property="Background" Value="white" TargetName="grid"/>
+            </Trigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <DataTemplate x:Key="harnessRuleItem" DataType="{x:Type ViewModels:vmHarnessRule}">
+        <DataTemplate.Resources>
+            <Storyboard x:Key="mouseEnter">
+                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid" >
+                    <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#5078E072"/>
+                </ColorAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="mouseLeave">
+                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid" FillBehavior="Stop"/>
+            </Storyboard>
+        </DataTemplate.Resources>
+
+        <ToggleButton x:Name="toggleButton" Style="{StaticResource customToggleButtonWithContentNoOpacity}">
+            <Border x:Name="grid"  Margin="0,0,0,4">
+                <Border.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="Background" Value="WhiteSmoke"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding SelectedRuleBool}" Value="False">
+                                <Setter Property="Background" Value="{StaticResource LightWarningColor}"/>
+                                <Setter Property="IsEnabled" Value="false"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Resources>
+                <StackPanel VerticalAlignment="Bottom">
+                    <Grid DataContext="{Binding HarnessRule}" Height="auto" Margin="2" VerticalAlignment="Center">
+                        <Grid.Resources>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource customButtonWithContent}">
+                                <Setter Property="Height" Value="32"/>
+                            </Style>
+                            <Style TargetType="{x:Type TextBlock}" />
+                            <Style TargetType="{x:Type TextBox}">
+                                <Setter Property="FontSize" Value="11"/>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="37"/>
+                            <ColumnDefinition Width="125"/>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="255"/>
+                            <ColumnDefinition Width="250"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Height="25" Source="warningStatus.png" >
+                         
+                        </Image>
+                        <TextBlock Grid.Column="1" Text="{Binding DesignRule}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="2" Text="Rule" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="3" Text="{Binding RuleName}" TextTrimming="CharacterEllipsis" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="5" TextWrapping="Wrap" Margin="0,0,5,0">
+                            <TextBlock.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Text" Value="{Binding RuleCheckDescProp.Saved}"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding RuleCheckDescProp.Saved}" Value="">
+                                            <Setter Property="Text" Value="- no check method defined -"/>
+                                            <Setter Property="VerticalAlignment" Value="Center"/>
+                                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                                            <Setter Property="FontSize" Value="10"/>
+                                            <Setter Property="Foreground" Value="{StaticResource ErrorColor}"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Resources>
+                        </TextBlock>
+                        <TextBlock Grid.Column="6" TextWrapping="Wrap">
+                            <TextBlock.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Text" Value="{Binding RuleRepairDescProp.Saved}"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding RuleRepairDescProp.Saved}" Value="">
+                                            <Setter Property="Text" Value="- no repair method defined -"/>
+                                            <Setter Property="VerticalAlignment" Value="Center"/>
+                                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                                            <Setter Property="FontSize" Value="10"/>
+                                            <Setter Property="Foreground" Value="{StaticResource ErrorColor}"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Resources>
+                        </TextBlock>
+                    </Grid>
+                    <ScrollViewer x:Name="scrollViewer" VerticalScrollBarVisibility="Auto" Visibility="Collapsed" Margin="0,0,0,2">
+                        <StackPanel>
+                            <Grid  Margin="15,3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="37"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="1" Text=" Component"/>
+                                <TextBlock Grid.Column="2" Text=" Description"/>
+                                <TextBlock Grid.Column="3" Text=" Assigned"/>
+                                <TextBlock Grid.Column="5" Text=" Options"/>
+                            </Grid>
+                            <ItemsControl  DockPanel.Dock="Bottom" Margin="5"
+                                       ItemsSource="{Binding HarnessRuleChecks}"
+                                       ItemTemplate="{StaticResource harnessCheckResult}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+                            <Button Command="{Binding AddHarnessRuleCheckCommand}">
+                                <TextBlock Text="- add rule check -" HorizontalAlignment="Center" FontWeight="Normal" Foreground="DarkGreen" Margin="0,0,0,10"/>
+                            </Button>
+                        </StackPanel>
+                    </ScrollViewer>
+                </StackPanel>
+            </Border>
+        </ToggleButton>
+
+        <DataTemplate.Triggers>
+            <Trigger Property="IsChecked" Value="True" SourceName="toggleButton">
+                <Setter Property="Visibility" Value="Visible" TargetName="scrollViewer"/>
+            </Trigger>
+            <EventTrigger RoutedEvent="Mouse.MouseLeave" SourceName="grid">
+                <BeginStoryboard x:Name="mouseLeave_BeginStoryboard" Storyboard="{StaticResource mouseLeave}"/>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Mouse.MouseEnter" SourceName="grid">
+                <BeginStoryboard Storyboard="{StaticResource mouseEnter}"/>
+            </EventTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+  
+</ResourceDictionary>

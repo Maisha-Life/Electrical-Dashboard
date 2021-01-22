@@ -15,12 +15,14 @@ namespace EDDLL.Tickets
         //new blank
         public static Ticket createTicket() { return new Ticket(); }
         //new generic ticket
-        public static Ticket createTicket(string subcategory, string category, string assigner, 
+        public static Ticket createTicket(string item, string category, string assigner,
                                           DateTime dateAssigned, DateTime dateDue) => new Ticket()
                                           {
-                                              TicketID = -1,
+                                              Id_Ticket = -1,
                                               TicketNumber = -1,
-                                              SubCategory = subcategory,
+                                              Id_Item = -1,
+                                              TicketType = "",
+                                              Item = item,
                                               Category = category,
                                               Assigner = assigner,
                                               DateAssigned = dateAssigned,
@@ -28,40 +30,46 @@ namespace EDDLL.Tickets
                                               Description = "testing this field"
                                           };
         //new with info
-        public static Ticket createTicket(int ticketNumber, string status, string importanceLevel, string subcategory, string category, string assigner, string assignee, DateTime dateAssigned,
-                                          DateTime dateDue, string description)
+        public static Ticket createTicket(int itemID, string ticketType, int ticketNumber, string status, string importanceLevel, string item, string category, string assigner, string assignee, DateTime dateAssigned,
+                                          DateTime dateDue, string title, string description)
         {
             return new Ticket()
             {
-                TicketID = -1,
+                Id_Ticket = -1,
                 TicketNumber = ticketNumber,
+                Id_Item = itemID,
+                TicketType = ticketType,
                 ImportanceLevel = importanceLevel,
-                SubCategory = subcategory,
+                Item = item,
                 Category = category,
                 Assigner = assigner,
                 Assignee = assignee,
                 DateAssigned = dateAssigned,
                 DateDue = dateDue,
+                Title = title,
                 Description = description,
                 Status = status
             };
         }
 
         //from database
-        public static Ticket createTicket(int ticketID, int ticketNumber, string status, string importanceLevel, string subcategory, string category, string assigner, string assignee,
-                                          DateTime dateAssigned, DateTime dateDue, string description)
+        public static Ticket createTicket(int ticketID, int itemID, string ticketType, int ticketNumber, string status, string importanceLevel, string item, string category, string assigner, string assignee,
+                                          DateTime dateAssigned, DateTime dateDue, string title, string description)
         {
             return new Ticket()
             {
-                TicketID = ticketID,
+                Id_Ticket = ticketID,
                 TicketNumber = ticketNumber,
+                Id_Item = itemID,
+                TicketType = ticketType,
                 ImportanceLevel = importanceLevel,
-                SubCategory = subcategory,
+                Item = item,
                 Category = category,
                 Assigner = assigner,
                 Assignee = assignee,
                 DateAssigned = dateAssigned,
                 DateDue = dateDue,
+                Title = title,
                 Description = description,
                 Status = status
             };
@@ -69,19 +77,23 @@ namespace EDDLL.Tickets
 
         #region Properties
 
-        public int TicketID { get; set; }
+        public int Id_Ticket { get; set; }
+        public int Id_Item { get; set; }
+
+        public string TicketType { get; set; }
 
         public int TicketNumber { get; set; }
         public string ImportanceLevel { get; set; }
 
-        public string SubCategory { get; set; }
         public string Category { get; set; }
+        public string Item { get; set; }
         public string Assigner { get; set; }
         public string Assignee { get; set; }
-        
+
         public DateTime DateAssigned { get; set; }
         public DateTime DateDue { get; set; }
-        
+
+        public string Title { get; set; }
         public string Description { get; set; }
         public string Status { get; set; }
 
@@ -114,7 +126,7 @@ namespace EDDLL.Tickets
                 error = this.ValidateTool();
             else if (propertyName == "Category")
                 error = this.ValidateCategory();
-            else if (propertyName == "Assigner") 
+            else if (propertyName == "Assigner")
                 error = this.ValidateAssigner();
             else if (propertyName == "Assignee")
                 error = this.ValidateAssignee();
@@ -130,7 +142,7 @@ namespace EDDLL.Tickets
 
         string ValidateTool()
         {
-            if (IsStringMissing(this.SubCategory))
+            if (IsStringMissing(this.Item))
                 return "valid tool required";
             return null;
         }

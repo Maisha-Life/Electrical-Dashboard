@@ -4,6 +4,9 @@
              xmlns:local="clr-namespace:EDHarnessScan"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source="/EDDLL;component/Resources/Styles/MVVMCustomResources.xaml"/>
+        <ResourceDictionary Source="/EDDLL;component/Resources/Styles/EDDLLCustomResources.xaml"/>
+        <ResourceDictionary Source="/EDHarnessScan;component/Resources/Styles/HarnessScanCustomResources.xaml"/>
+        <ResourceDictionary Source="/EDDLL;component/Resources/Styles/AutoScrollListBoxDictionary.xaml"/>
     </Application.Resources>
 </Application>

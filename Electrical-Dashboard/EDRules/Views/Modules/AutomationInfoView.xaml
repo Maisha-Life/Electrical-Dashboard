@@ -22,7 +22,18 @@
                         </WrapPanel>
                     </GroupBox.Header>
                     <StackPanel >
-                        <TextBlock Text="- please add measurements -" HorizontalAlignment="Center" FontWeight="Thin" Margin="0,15"/>
+                        <ItemsControl  DockPanel.Dock="Bottom" Margin="5"
+                                       ItemsSource="{Binding RuleMeasurements}" 
+                                       ItemTemplate="{StaticResource measurementItem}" >
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                        <Button Command="{Binding AddMeasurementCommand}">
+                            <TextBlock Text="- please add measurements -" HorizontalAlignment="Center" FontWeight="Normal" Foreground="DarkGreen" Margin="0,15"/>
+                        </Button>
                     </StackPanel>
                 </GroupBox>
                 <GroupBox Grid.Column="1" Margin="10,0,0,0">
@@ -38,13 +49,13 @@
                             <Image Source="/EDRules;component/Resources/Images/RuleImages/checkMethod.png" Width="15" Margin="0,0,5,0" RenderOptions.EdgeMode="Aliased"/>
                             <TextBlock Text="Check Method" FontSize="13" FontWeight="Thin"/>
                         </WrapPanel>
-                        <TextBox x:Name="checkMethodTB" Text="{Binding LegacyIDDesc, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="50"/>
+                        <TextBox x:Name="checkMethodTB" Text="{Binding RuleCheckDesc, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="50"/>
                         <ContentPresenter Content="{Binding ElementName=checkMethodTB, Path=(Validation.Errors).CurrentItem}" Height="13" />
                         <WrapPanel>
                             <Image Source="/EDRules;component/Resources/Images/RuleImages/repairMethod.png" Width="15" Margin="0,0,5,0" RenderOptions.EdgeMode="Aliased"/>
                             <TextBlock Text="Repair Method" FontSize="13" FontWeight="Thin"/>
                         </WrapPanel>
-                        <TextBox x:Name="repairMethodTB" Text="{Binding LegacyIDDesc, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="50"/>
+                        <TextBox x:Name="repairMethodTB" Text="{Binding RuleRepairDesc, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="50"/>
                         <ContentPresenter Content="{Binding ElementName=repairMethodTB, Path=(Validation.Errors).CurrentItem}" Height="13" />
                     </StackPanel>
                 </GroupBox>

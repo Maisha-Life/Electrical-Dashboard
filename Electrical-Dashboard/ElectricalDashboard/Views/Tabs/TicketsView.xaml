@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+
              xmlns:local="clr-namespace:ElectricalDashboard.Views.Tabs"
              xmlns:customControls="clr-namespace:EDDLL.Views;assembly=EDDLL"
              xmlns:ticketViews="clr-namespace:ElectricalDashboard.Views.Tickets"
@@ -14,7 +15,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="5">
         <Grid.RowDefinitions>
-            <RowDefinition Height="55"/>
+            <RowDefinition Height="65"/>
             <RowDefinition />
         </Grid.RowDefinitions>
         <DockPanel LastChildFill="False" Margin="5" VerticalAlignment="Top" >
@@ -22,9 +23,13 @@
                 <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/ticketLarge.png" Height="32" Margin="0,0,5,0"/>
                 <TextBlock Text="Tickets" VerticalAlignment="Center" FontSize="22" Margin="5,0,0,0"/>
             </DockPanel>
-
-            <customControls:SearchControl/>
-
+            <StackPanel>
+                <customControls:SearchControl/>
+                <WrapPanel Height="25" Margin="26,0,0,0">
+                    <Image Source="/EDDLL;component/Resources/Images/filter.png" />
+                    <Image Source="/EDDLL;component/Resources/Images/sorting.png" />
+                </WrapPanel>
+            </StackPanel>
             <Button DockPanel.Dock="Right" Command="{Binding TicketCreateCommand}">
                 <WrapPanel>
                     <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/createTicket.png" Height="32" Margin="0,0,5,0"/>
@@ -44,71 +49,74 @@
 
             <Rectangle Grid.Column="1" Fill="{StaticResource DefaultBorder}" Margin="0,0,0,5"/>
 
-            <StackPanel Grid.Column="2" Margin="15,0">
-                <WrapPanel>
-                    <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/ticketAssigned.png" Height="28" Margin="0,0,5,0"/>
-                    <TextBlock Text="Assigned Tickets:" FontSize="20" FontWeight="Thin"/>
-                </WrapPanel>
-                <Grid Margin="10,15,10,15">
-                    <ItemsControl ItemsSource="{Binding TicketsAssigned}" ItemTemplate="{StaticResource ticketListItem}">
-                        
-                    </ItemsControl>
-                    <TextBlock HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s) assigned, once you have ticket(s) assigned it will appear here -">
-                        <TextBlock.Style>
+            <Grid Grid.Column="2" Margin="15,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.Resources>
                             <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding TicketsAssigned.Count}" Value="0">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
+                                <Setter Property="FontSize" Value="15"/>
+                                <Setter Property="FontWeight" Value="Thin"/>
+                                <Setter Property="Foreground" Value="{StaticResource DefaultBorder}"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
                             </Style>
-                        </TextBlock.Style>                        
-                    </TextBlock>
-                </Grid>
-                <WrapPanel>
-                    <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/ticketCreated.png" Height="28" Margin="0,0,5,0"/>
-                    <TextBlock Text="Created Tickets:" FontSize="20" FontWeight="Thin"/>
-                </WrapPanel>
-                <Grid Margin="10,15,10,15">
-                    <ItemsControl ItemsSource="{Binding Path=(staticCreatedTickets:TicketsVM.TicketsCreated)}" ItemTemplate="{StaticResource ticketListItem}">
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="35"/>
+                            <ColumnDefinition Width="65"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="125"/>
+                        </Grid.ColumnDefinitions>
 
-                    </ItemsControl>
-                    <TextBlock HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s) created, once you have created a ticket(s) it will appear here -">
-                        <TextBlock.Style>
-                            <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding Path=(staticCreatedTickets:TicketsVM.TicketsCreated).Count}" Value="0">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
+                        <Image Source="/EDRules;component/Resources/Images/MainView/mood.png" Margin="3" ToolTip="Current State"/>
+                        <TextBlock Text=" Ticket #" Grid.Column="1"/>
+                        <TextBlock Text=" Type" Grid.Column="2"/>
+                        <TextBlock Text=" Category" Grid.Column="3"/>
+                        <TextBlock Text=" Item Name" Grid.Column="4"/>
+                        <TextBlock Text=" Assignee" Grid.Column="5"/>
+                        <TextBlock Text=" Assigner" Grid.Column="6"/>
+                        <TextBlock Text=" Title" Margin="10,0" Grid.Column="7"/>
+                        <TextBlock Text=" Options" Margin="10,0" Grid.Column="8"/>
+                    </Grid>
+                    <DockPanel Grid.Row="1">
+                        <Rectangle Margin="5,6,7,2" DockPanel.Dock="Top" Height="2" Fill="{StaticResource DefaultBorder}"/>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="5" Grid.Row="2" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+                            <ScrollViewer.Resources>
+                                <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">12</sys:Double>
+                                <Style TargetType="{x:Type ScrollBar}">
+                                    <Setter Property="Template" Value="{StaticResource VerticalScrollBar}" />
+                                </Style>
+                            </ScrollViewer.Resources>
+                            <Grid >
+                                <ItemsControl ItemsSource="{Binding TicketsAll}" ItemTemplate="{StaticResource ticketListItem}"/>
+                                <TextBlock Margin="10,55,10,15" HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s), once ticket(s) have been made they will appear here -">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding TicketsAll.Count}" Value="0">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
+                        </ScrollViewer>
+                    </DockPanel>
                 </Grid>
-                <WrapPanel>
-                    <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/tickets.png" Height="28" Margin="0,0,5,0"/>
-                    <TextBlock Text="Tickets:" FontSize="20" FontWeight="Thin"/>
-                </WrapPanel>
-                <Grid Margin="10,15,10,15">
-                    <ItemsControl ItemsSource="{Binding TicketsAll}" ItemTemplate="{StaticResource ticketListItem}">
-
-                    </ItemsControl>
-                    <TextBlock HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s), once ticket(s) have been made they will appear here -">
-                        <TextBlock.Style>
-                            <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding TicketsAll.Count}" Value="0">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
-                </Grid>
-            </StackPanel>
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>

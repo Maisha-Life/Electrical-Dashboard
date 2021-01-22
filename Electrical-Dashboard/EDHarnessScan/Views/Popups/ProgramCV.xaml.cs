@@ -23,6 +23,8 @@ namespace EDHarnessScan.Views.Popups
         public ProgramCV()
         {
             InitializeComponent();
+
+            assigneeCB.ItemsSource = EDDLL.Tickets.TicketsVM.UserList;            
         }
     }
 }

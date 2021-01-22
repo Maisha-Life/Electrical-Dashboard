@@ -1,0 +1,218 @@
+﻿<UserControl x:Class="ElectricalDashboard.Views.TicketViews.TicketCVMain"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ElectricalDashboard.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+    <Border BorderThickness="2" BorderBrush="{StaticResource DefaultBorder}" >
+        <Grid  Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <DockPanel LastChildFill="False">
+                <WrapPanel VerticalAlignment="Center">
+                    <Image  Height="22" Margin="0,0,5,0">
+                        <Image.Resources>
+                            <Style TargetType="{x:Type Image}">
+                                <Setter Property="Source" Value="/EDDLL;component/Resources/Images/TicketIcons/assignTicket.png"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TicketType}" Value="Tool">
+                                        <Setter Property="Source" Value="/ElectricalDashboard;component/Resources/Images/TicketIcons/icon_tool.png"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding TicketType}" Value="Rule">
+                                        <Setter Property="Source" Value="/ElectricalDashboard;component/Resources/Images/TicketIcons/icon_rule.png"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding TicketType}" Value="Other">
+                                        <Setter Property="Source" Value="/ElectricalDashboard;component/Resources/Images/TicketIcons/icon_other.png"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding TicketType}" Value="Program">
+                                        <Setter Property="Source" Value="/ElectricalDashboard;component/Resources/Images/TicketIcons/icon_program.png"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding TicketType}" Value="Harness">
+                                        <Setter Property="Source" Value="/ElectricalDashboard;component/Resources/Images/TicketIcons/icon_harness.png"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding TicketType}" Value="HarnessCheck">
+                                        <Setter Property="Source" Value="/ElectricalDashboard;component/Resources/Images/TicketIcons/icon_harnessCheck.png"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Resources>
+                    </Image>
+                    <TextBlock VerticalAlignment="Center" FontSize="17" Margin="0,0,20,0" Foreground="Black" FontWeight="Thin">
+                        <TextBlock.Resources>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Text" Value="Select Ticket Type to Create"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TicketType}" Value="Tool">
+                                        <Setter Property="Text" Value="Create Tool Ticket"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding TicketType}" Value="Rule">
+                                        <Setter Property="Text" Value="Create Rule Ticket"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding TicketType}" Value="Other">
+                                        <Setter Property="Text" Value="Create Other Ticket"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding TicketType}" Value="Program">
+                                        <Setter Property="Text" Value="Create Program Ticket"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding TicketType}" Value="Harness">
+                                        <Setter Property="Text" Value="Create Harness Ticket"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding TicketType}" Value="HarnessCheck">
+                                        <Setter Property="Text" Value="Create Harness Check Ticket"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Resources>
+                    </TextBlock>
+                </WrapPanel>
+                <Button DockPanel.Dock="Right" Command="{Binding CancelCreateCommand}">
+                    <Image Source="/EDDLL;component/Resources/Images/close.png" />
+                </Button>
+            </DockPanel>
+
+            <Grid Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.Resources>
+                    <Style TargetType="{x:Type Grid}">
+                        <Setter Property="Visibility" Value="Visible"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding TypeSelectBool}" Value="True">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource customButtonWithContent}">
+                        <Setter Property="Margin" Value="0,5"/>
+                    </Style>
+                    <Style TargetType="{x:Type Image}">
+                        <Setter Property="Width" Value="23"/>
+                        <Setter Property="Height" Value="23"/>
+                    </Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin" Value="5,0,0,0"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="FontSize" Value="15"/>
+                        <Setter Property="FontWeight" Value="Thin"/>
+                        <Setter Property="Width" Value="100"/>
+                    </Style>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Please select a ticket type" Grid.ColumnSpan="2" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="-30,0,0,0">
+                    
+                </TextBlock>
+                
+                <StackPanel Grid.Row="1">
+                    <Button Command="{Binding SelectTicketTypeCommand}" CommandParameter="Tool">
+                        <WrapPanel>
+                            <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/icon_tool.png"/>
+                            <TextBlock Text="Tool" Margin="5,0,0,0"/>
+                        </WrapPanel>
+                    </Button>
+                    <Button Command="{Binding SelectTicketTypeCommand}" CommandParameter="Rule">
+                        <WrapPanel>
+                            <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/icon_rule.png"/>
+                            <TextBlock Text="Rule" Margin="5,0,0,0"/>
+                        </WrapPanel>
+                    </Button>
+                    <Button Command="{Binding SelectTicketTypeCommand}" CommandParameter="Other">
+                        <WrapPanel>
+                            <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/icon_other.png"/>
+                            <TextBlock Text="Other" Margin="5,0,0,0"/>
+                        </WrapPanel>
+                    </Button>
+                </StackPanel >
+                <StackPanel Grid.Row="1" Grid.Column="1">
+                    <Button Command="{Binding SelectTicketTypeCommand}" CommandParameter="Program">
+                        <WrapPanel>
+                            <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/icon_program.png"/>
+                            <TextBlock Text="Program" Margin="5,0,0,0"/>
+                        </WrapPanel>
+                    </Button>
+                    <Button Command="{Binding SelectTicketTypeCommand}" CommandParameter="Harness">
+                        <WrapPanel>
+                            <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/icon_harness.png"/>
+                            <TextBlock Text="Harness" Margin="5,0,0,0"/>
+                        </WrapPanel>
+                    </Button>
+                    <Button Command="{Binding SelectTicketTypeCommand}" CommandParameter="HarnessCheck">
+                        <WrapPanel>
+                            <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/icon_harnessCheck.png"/>
+                            <TextBlock Text="Harness Check" Margin="5,0,0,0"/>
+                        </WrapPanel>
+                    </Button>
+                </StackPanel>                                      
+            </Grid>
+            
+            <Grid Grid.Row="1" VerticalAlignment="Bottom">
+                <Grid.Resources>
+                    <Style TargetType="{x:Type Grid}">
+                        <Setter Property="Visibility" Value="Hidden"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding TypeSelectBool}" Value="True">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <GroupBox Header="Required Information" Grid.Row="0">
+                    <StackPanel Margin="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel>
+                                <TextBlock Text="Category"/>
+                                <ComboBox x:Name="categoryCB" Text="{Binding Category, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}">
+                                    <ComboBoxItem Content="Add"/>
+                                    <ComboBoxItem Content="Edit"/>
+                                    <ComboBoxItem Content="Remove"/>
+                                </ComboBox>
+                                <ContentPresenter Content="{Binding ElementName=categoryCB, Path=(Validation.Errors).CurrentItem}" Height="13" />
+                                <TextBlock Text="Title"/>
+                                <TextBox x:Name="titleCB" Text="{Binding Category, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="25" VerticalContentAlignment="Center"/>
+                                <ContentPresenter Content="{Binding ElementName=titleCB, Path=(Validation.Errors).CurrentItem}" Height="13" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Margin="5,0,0,0">
+                                <TextBlock Text="Selected Item"/>
+                                <ComboBox x:Name="priorityCB" Text="{Binding ImportanceLevel, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding CategorySelectedBool}"/>
+                                <ContentPresenter Content="{Binding ElementName=priorityCB, Path=(Validation.Errors).CurrentItem}" Height="13" />
+                                <TextBlock Text="Assignee"/>
+                                <ComboBox x:Name="assigneeCB" Text="{Binding Assignee, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                                <ContentPresenter Content="{Binding ElementName=assigneeCB, Path=(Validation.Errors).CurrentItem}" Height="13" />
+                            </StackPanel>
+                        </Grid>
+                        <WrapPanel>
+                            <TextBlock Text="Ticket Description"/>
+                            <TextBlock Text="&#9;(please add any extra information related to the ticket)" FontStyle="Italic"/>
+                        </WrapPanel>
+                        <TextBox x:Name="descriptionTB" Text="{Binding Description, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" MinHeight="150"/>
+                        <ContentPresenter Content="{Binding ElementName=descriptionTB, Path=(Validation.Errors).CurrentItem}" Height="13" />
+                    </StackPanel>
+                </GroupBox>
+
+                <DockPanel Grid.Row="2" LastChildFill="False" >
+                    <Button Content="Re-select" Command="{Binding RevertTicketCommand}" DockPanel.Dock="Left" Margin="5,0"/>
+                    <Button Content="Cancel" Command="{Binding CancelCreateCommand}" DockPanel.Dock="Right" Margin="5,0"/>
+                    <Button Content="Create" Command="{Binding CreateCommand}" DockPanel.Dock="Right" Margin="5,0"/>
+                </DockPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

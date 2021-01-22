@@ -1,0 +1,143 @@
+﻿<UserControl x:Class="EDHarnessScan.Views.ToolsScanInformationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EDHarnessScan.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource customToggleButtonLarge}">
+                <Setter Property="IsEnabled" Value="{Binding toolsMethodBool}"/>
+            </Style>
+            <Style TargetType="{x:Type Grid}">
+                <Setter Property="IsEnabled" Value="false"/>
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding harnessScanSelectionReadyBool}" Value="false">
+                        <Setter Property="IsEnabled" Value="True"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Resources>
+        <StackPanel Margin="2,5,0,0">
+            <WrapPanel Margin="0,0,5,10">
+                <Image Height="20" Margin="0,0,5,0">
+                    
+                </Image>
+                <TextBlock Text="Tools Scan Information" FontSize="16" FontWeight="Normal"/>
+            </WrapPanel>
+
+            <GroupBox Grid.Column="1" Header="Tool Scan Options" FontSize="14" BorderThickness="1" Margin="3,3,5,3">
+                <GroupBox.Resources>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="FontWeight" Value="Normal"/>
+                        <Setter Property="Foreground" Value="Black"/>
+                    </Style>
+                </GroupBox.Resources>
+                
+                <DockPanel Margin="5" LastChildFill="False">
+                    <TextBlock DockPanel.Dock="Top" FontWeight="Thin" TextWrapping="Wrap">
+                                        <Run Text="Selecting the" />
+                                        <Run Text="MANUAL" FontWeight="Normal"/>
+                                        <Run Text="option will allow you to manually select what tools have been run."/>
+                    </TextBlock>
+                    <WrapPanel DockPanel.Dock="Top" Margin="0,10,0,10">
+                        <ToggleButton  Width="50" Height="20" IsChecked="{Binding toolsMethodBool}" Style="{StaticResource customToggleButtonLarge}"/>
+                        <TextBlock Text="MANUAL Select" Margin="10,0"/>
+                    </WrapPanel>
+                    <DockPanel LastChildFill="False" DockPanel.Dock="Top" >
+                        <Image Source="/Resources/Images/Rulez/errorStatus.png" Height="16" Margin="0,3,2,3"/>
+                        <TextBlock Text="The user will be responsible if this option is selected" FontWeight="Thin" FontSize="10" TextWrapping="Wrap"/>
+                    </DockPanel>
+
+                    <Button ToolTip="Run an automatic tool scan" Command="{Binding AutoToolScanCommand}" DockPanel.Dock="Bottom" Margin="0,10,0,0">
+                        <WrapPanel>
+                            <Image Source="/EDS;component/Resources/Images/runcmd.png" Height="20"/>
+                            <TextBlock Text="Run Tool Scan" VerticalAlignment="Center" Margin="5,0" FontWeight="Thin" FontSize="12"/>
+                        </WrapPanel>
+                    </Button>
+                </DockPanel>
+            </GroupBox>
+            
+            <StackPanel Margin="2,10,0,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel  HorizontalAlignment="Left">
+                        <StackPanel.Resources>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="FontSize" Value="18"/>
+                                <Setter Property="Width" Value="75"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="FontWeight" Value="Thin"/>
+                            </Style>
+                            <Style TargetType="{x:Type Image}">
+                                <Setter Property="Height" Value="16"/>
+                                <Setter Property="Margin" Value="2"/>
+                                <Setter Property="RenderOptions.EdgeMode" Value="Aliased"/>
+                                <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        <ToggleButton Width="50" Height="20" IsChecked="{Binding PMIBool}"/>
+                        <ToggleButton Width="50" Height="20" IsChecked="{Binding DTSyncBool}" Margin="0,5"/>
+                        <ToggleButton Width="50" Height="20" IsChecked="{Binding FFA2Bool}"/>
+                        <ToggleButton Width="50" Height="20" IsChecked="{Binding RenamingBool}" Margin="0,5"/>
+                        <ToggleButton Width="50" Height="20" IsChecked="{Binding CouponBool}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Margin="15,0">
+                        <StackPanel.Resources>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="FontSize" Value="13"/>
+                                <Setter Property="FontWeight" Value="Thin"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="Height" Value="20"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                            </Style>
+                            <Style TargetType="{x:Type WrapPanel}">
+                                <Setter Property="Height" Value="20"/>
+                            </Style>
+                            <Style TargetType="{x:Type Image}">
+                                <Setter Property="Height" Value="20"/>
+                                <Setter Property="Margin" Value="0,0,10,0"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        <TextBlock Text="PMI"/>
+                        <TextBlock Text="DT Sync" Margin="0,5"/>
+                        <TextBlock Text="FFA2"/>
+                        <TextBlock Text="Rename" Margin="0,5"/>
+                        <TextBlock Text="Coupon"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" HorizontalAlignment="Left" Margin="15,0,0,0">
+                        <StackPanel.Resources>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource customButtonWithContent}">
+                                <Setter Property="Height" Value="20"/>
+                                <Setter Property="RenderOptions.EdgeMode" Value="Aliased"/>
+                                <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        <Button>
+                            <Image Source="/EDS;component/Resources/Images/runcmd.png" />
+                        </Button>
+                        <Button Margin="0,5">
+                            <Image Source="/EDS;component/Resources/Images/runcmd.png" />
+                        </Button>
+                        <Button >
+                            <Image Source="/EDS;component/Resources/Images/runcmd.png" />
+                        </Button>
+                        <Button Margin="0,5">
+                            <Image Source="/EDS;component/Resources/Images/runcmd.png" />
+                        </Button>
+                        <Button >
+                            <Image Source="/EDS;component/Resources/Images/runcmd.png" />
+                        </Button>
+                    </StackPanel>
+                </Grid>                
+            </StackPanel>
+        </StackPanel>
+    </Grid>  
+</UserControl>

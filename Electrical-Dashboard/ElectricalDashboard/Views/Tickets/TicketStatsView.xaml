@@ -24,7 +24,7 @@
                     <TextBlock Text="{Binding TicketsAll.Count}" FontSize="12" Margin="0,10"/>
                     <TextBlock Text="{Binding TicketsAssigned.Count}"   FontSize="12"/>
                     <TextBlock Text="{Binding TicketsCreated.Count}"   FontSize="12" Margin="0,10"/>
-                    <TextBlock Text="{Binding TicketsCompleteCount}"  FontSize="12"/>
+                    <TextBlock Text="0"  FontSize="12"/>
                 </StackPanel>
             </Grid>
         </StackPanel>

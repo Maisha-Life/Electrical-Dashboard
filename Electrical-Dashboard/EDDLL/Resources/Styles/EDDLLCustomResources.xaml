@@ -37,34 +37,26 @@
                 </Grid.Resources>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="35"/>
-                    <ColumnDefinition Width="50"/>
-                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition Width="65"/>
                     <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="80"/>
                     <ColumnDefinition />
-                    <ColumnDefinition Width="50"/>
-                    <ColumnDefinition Width="50"/>
-                    <ColumnDefinition Width="120"/>
-                    <ColumnDefinition Width="130"/>
                     <ColumnDefinition Width="125"/>
                 </Grid.ColumnDefinitions>
 
                 <Image Height="25" Source="/EDDLL;component/Resources/Images/Status/goodStatus.png">
                 </Image>
-                <TextBlock Grid.Column="1" Text="{Binding TicketNumber}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>
-                <TextBlock Grid.Column="2" Text="{Binding ToolProp.Saved}" FontSize="12" />
-                <TextBlock Grid.Column="3" Text="{Binding CategoryProp.Saved}" />
-                <TextBlock Grid.Column="4" Text="{Binding DescriptionProp.Saved}" MaxHeight="55" TextTrimming="CharacterEllipsis">
-                    <TextBlock.ToolTip>
-                        <ToolTip MaxWidth="350" >
-                            <TextBlock TextWrapping="Wrap" Text="{Binding DescriptionProp.Saved}" Margin="5"/>
-                        </ToolTip>
-                    </TextBlock.ToolTip>
-                </TextBlock>
+                <TextBlock Grid.Column="1" Text="00002" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="2" Text="Harness Check" FontSize="12" />
+                <TextBlock Grid.Column="3" Text="Category" />
+                <TextBlock Grid.Column="4" Text="Item" />          
                 <TextBlock Grid.Column="5" Text="{Binding Assigner}" />
                 <TextBlock Grid.Column="6" Text="{Binding Assignee}" />
-                <TextBlock Grid.Column="7" Text="{Binding DateAssignedProp.Saved,StringFormat=d}" />
-                <TextBlock Grid.Column="8" Text="{Binding DateDueProp.Saved,StringFormat=d}" />
-                <WrapPanel Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5,0">
+                <TextBlock Grid.Column="7" Text="Title" />
+                <WrapPanel Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5,0">
                     <WrapPanel.Resources>
                         <Style TargetType="{x:Type Button}" BasedOn="{StaticResource customButtonWithContent}">
                             <Setter Property="Height" Value="32"/>
@@ -95,5 +87,56 @@
             </Trigger>
         </DataTemplate.Triggers>
     </DataTemplate>
+   
+    <Style x:Key="changedComboBox" TargetType="{x:Type ComboBox}">
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontSize" Value="11"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Margin" Value="3"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="IsEditable" Value="True" />
+        <Setter Property="IsReadOnly" Value="True" />
+        <Setter Property="DisplayMemberPath" Value="Description"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding EditBool}" Value="False">
+                <Setter Property="Visibility" Value="Collapsed"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding EditBool}" Value="True">
+                <Setter Property="Visibility" Value="Visible"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
 
+    <Style x:Key="savedTextBlock" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="3"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding EditBool}" Value="True">
+                <Setter Property="Visibility" Value="Hidden"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding EditBool}" Value="False">
+                <Setter Property="Visibility" Value="Visible"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="changedTextBox" TargetType="{x:Type TextBox}">
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="3"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors).CurrentItem}"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding EditBool}" Value="False">
+                <Setter Property="Visibility" Value="Hidden"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding EditBool}" Value="True">
+                <Setter Property="Visibility" Value="Visible"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+    
 </ResourceDictionary>

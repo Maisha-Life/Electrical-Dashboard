@@ -10,11 +10,11 @@ none
 false
 TRACE
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDRules\App.xaml
-101222822269
+10457779383
 
-24189018259
+28-411988112
 14296348110
-Resources\NewFolder1\RulesCustomResources.xaml;Views\MainView.xaml;Views\PopupView.xaml;Views\RulesView.xaml;Views\Rule\Modules\RequiredInfoView.xaml;Views\Rule\Popups\EditViewRule_Admin.xaml;Views\Rule\RuleStatsControl.xaml;Views\Rule\Rule_Admin.xaml;Views\Rule\Rule_General.xaml;Views\Rule\Popups\CreateViewRule_Admin.xaml;
+Resources\Styles\RulesCustomResources.xaml;Views\MainView.xaml;Views\Modules\ParametersInfoView.xaml;Views\Modules\AutomationInfoView.xaml;Views\PopupView.xaml;Views\RulesView.xaml;Views\Modules\RequiredInfoView.xaml;Views\Popups\EditViewRule_Admin.xaml;Views\Modules\RuleStatsControl.xaml;Views\Popups\CreateViewRule_Admin.xaml;
 
-True
+False
 

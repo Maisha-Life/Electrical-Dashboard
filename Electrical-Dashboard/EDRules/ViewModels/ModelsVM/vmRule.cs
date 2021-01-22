@@ -25,6 +25,20 @@ namespace EDRules.ViewModels.ModelsVM
 
         #region Data Binds
 
+        private int _ruleStatus;
+        public int ruleStatus
+        {
+            get { return _ruleStatus; }
+            set
+            {
+                if (this._ruleStatus != value)
+                {
+                    this._ruleStatus = value;
+                    this.RaisePropertyChangedEvent("ruleStatus");
+                }
+            }
+        }
+
         private ThreeNOne _DesignRuleProp;
         public ThreeNOne DesignRuleProp
         {
@@ -259,7 +273,7 @@ namespace EDRules.ViewModels.ModelsVM
         private ObservableCollection<vmMeasurement> _RuleMeasurements;
         public ObservableCollection<vmMeasurement> RuleMeasurements
         {
-            get { return _RuleMeasurements; }
+            get { return _RuleMeasurements ?? (_RuleMeasurements = new ObservableCollection<vmMeasurement>()); }
             set
             {
                 if (this._RuleMeasurements != value)
@@ -270,10 +284,10 @@ namespace EDRules.ViewModels.ModelsVM
             }
         }
 
-        private ObservableCollection<vmParameter> _SpecificHarnessComponentParameters;
-        public ObservableCollection<vmParameter> SpecificHarnessComponentParameters
+        private ObservableCollection<vmRuleComponent> _SpecificHarnessComponentParameters;
+        public ObservableCollection<vmRuleComponent> SpecificHarnessComponentParameters
         {
-            get { return _SpecificHarnessComponentParameters; }
+            get { return _SpecificHarnessComponentParameters ?? (_SpecificHarnessComponentParameters = new ObservableCollection<vmRuleComponent>()); }
             set
             {
                 if (this._SpecificHarnessComponentParameters != value)
@@ -284,30 +298,30 @@ namespace EDRules.ViewModels.ModelsVM
             }
         }
 
-        private ObservableCollection<vmParameter> _HarnessParameters;
-        public ObservableCollection<vmParameter> HarnessParameters
+        private ObservableCollection<vmRuleMilestone> _MilestoneParameters;
+        public ObservableCollection<vmRuleMilestone> MilestoneParameters
         {
-            get { return _HarnessParameters; }
-            set
-            {
-                if (this._HarnessParameters != value)
-                {
-                    this._HarnessParameters = value;
-                    this.RaisePropertyChangedEvent("HarnessParameters");
-                }
-            }
-        }
-
-        private ObservableCollection<vmParameter> _MilestoneParameters;
-        public ObservableCollection<vmParameter> MilestoneParameters
-        {
-            get { return _MilestoneParameters; }
+            get { return _MilestoneParameters ?? (_MilestoneParameters = new ObservableCollection<vmRuleMilestone>()); }
             set
             {
                 if (this._MilestoneParameters != value)
                 {
                     this._MilestoneParameters = value;
                     this.RaisePropertyChangedEvent("MilestoneParameters");
+                }
+            }
+        }
+        
+        private ObservableCollection<vmRuleCPSC> _HarnessParameters;
+        public ObservableCollection<vmRuleCPSC> HarnessParameters
+        {
+            get { return _HarnessParameters ?? (_HarnessParameters = new ObservableCollection<vmRuleCPSC>()); }
+            set
+            {
+                if (this._HarnessParameters != value)
+                {
+                    this._HarnessParameters = value;
+                    this.RaisePropertyChangedEvent("HarnessParameters");
                 }
             }
         }
@@ -321,7 +335,7 @@ namespace EDRules.ViewModels.ModelsVM
         {
             get
             {
-                if (_CreateRuleCommand == null) _CreateRuleCommand = new RelayCommand(param => createRule(), param => { return (true); });
+                if (_CreateRuleCommand == null) _CreateRuleCommand = new RelayCommand(param => createRule(), param => { return (_rule.IsValid); });
 
                 return _CreateRuleCommand;
             }
@@ -329,8 +343,6 @@ namespace EDRules.ViewModels.ModelsVM
         private void createRule()
         {
             save();
-
-            _rules.Add(this);
 
             PopupHelper.SetVisibility(false);
         }
@@ -364,6 +376,7 @@ namespace EDRules.ViewModels.ModelsVM
         private void saveRule()
         {
             save();
+
             PopupHelper.SetVisibility(false);
         }
 
@@ -379,52 +392,178 @@ namespace EDRules.ViewModels.ModelsVM
         }
         private void cancelRule()
         {
+            cancel();
+
             PopupHelper.SetVisibility(false);
         }
 
-        private RelayCommand _EditCommand;
-        public ICommand EditCommand
+        private RelayCommand _EditRuleCommand;
+        public ICommand EditRuleCommand
         {
             get
             {
-                if (_EditCommand == null) _EditCommand = new RelayCommand(param => editCommand(), param => { return (true); });
+                if (_EditRuleCommand == null) _EditRuleCommand = new RelayCommand(param => editRule(), param => { return (true); });
 
-                return _EditCommand;
+                return _EditRuleCommand;
             }
         }
-        public void editCommand() 
+        public void editRule() 
         {
             PopupHelper.TabIndex(3, this);
             PopupHelper.SetVisibility(true);
         }
 
-        private RelayCommand _RemoveCommand;
-        public ICommand RemoveCommand
+        private RelayCommand _RemoveRuleCommand;
+        public ICommand RemoveRuleCommand
         {
             get
             {
-                if (_RemoveCommand == null) _RemoveCommand = new RelayCommand(param => removeCommand(), param => { return (true); });
+                if (_RemoveRuleCommand == null) _RemoveRuleCommand = new RelayCommand(param => removeRule(), param => { return (true); });
 
-                return _RemoveCommand;
+                return _RemoveRuleCommand;
             }
         }
-        public void removeCommand() 
-        {
-            _rules.Remove(this);
+        public void removeRule() 
+        {          
+            remove();
+
             this.Dispose();
+        }
+
+        private RelayCommand _AddMeasurementCommand;
+        public ICommand AddMeasurementCommand
+        {
+            get
+            {
+                if (_AddMeasurementCommand == null) _AddMeasurementCommand = new RelayCommand(param => addMeasurement(), param => { return (true); });
+
+                return _AddMeasurementCommand;
+            }
+        }
+        private void addMeasurement()
+        {
+            vmMeasurement measurement = new vmMeasurement(Measurement.CreateMeasurement(_rule.Id_Rule, "new measurement..."), RuleMeasurements);
+            measurement.EditBool = true;
+
+            RuleMeasurements.Add(measurement);
         }
 
         #endregion
 
         #region Methods
 
-        public void save() { }
-        public void cancel() { }
-        public void remove() { }
-        public void revert() { }
+        public override void save() 
+        {
+            DesignRuleProp.Save();
+            LegacyIDDescProp.Save();
+            RuleNameProp.Save();
+            RuleDescProp.Save();
+            OwnerProp.Save();
+            RuleCheckDescProp.Save();
+            RuleRepairDescProp.Save();
 
-        private void saveProperties() { }
+            saveProperties();
 
+            if (DesignRuleProp.ChangedBool || LegacyIDDescProp.ChangedBool || RuleNameProp.ChangedBool || RuleDescProp.ChangedBool ||
+                OwnerProp.ChangedBool || RuleCheckDescProp.ChangedBool || RuleRepairDescProp.ChangedBool)
+            {
+                if (this._rule.Id_Rule == -1)
+                {
+                    App.RulesVM.sqlAccess.addRule(this);
+                    App.RulesVM.sqlAccess.addLegacyID(this);
+                }
+                else
+                {
+                    App.RulesVM.sqlAccess.editRule(this);
+                    App.RulesVM.sqlAccess.editLegacyID(this);
+                }
+
+                App.RulesVM.countStatus();
+            }
+
+            foreach (vmMeasurement measurement in RuleMeasurements)
+                measurement.checkMeasurement();
+            foreach (vmParameter parameter in SpecificHarnessComponentParameters)
+                parameter.save();
+            foreach (vmParameter parameter in MilestoneParameters)
+                parameter.save();
+            foreach (vmParameter parameter in HarnessParameters)
+                parameter.save();
+        }
+        public override void cancel() 
+        {
+            DesignRuleProp.Cancel();
+            LegacyIDDescProp.Cancel();
+            RuleNameProp.Cancel();
+            RuleDescProp.Cancel();
+            OwnerProp.Cancel();
+            RuleCheckDescProp.Cancel();
+            RuleRepairDescProp.Cancel();
+
+            saveProperties();
+
+            foreach (vmMeasurement measurement in RuleMeasurements)
+                measurement.cancel();
+            foreach (vmParameter parameter in SpecificHarnessComponentParameters)
+                parameter.cancel();
+            foreach (vmParameter parameter in MilestoneParameters)
+                parameter.cancel();
+            foreach (vmParameter parameter in HarnessParameters)
+                parameter.cancel();
+        }
+        public override void remove() 
+        {
+            App.RulesVM.sqlAccess.removeRule(this);
+
+            _rules.Remove(this);
+
+            App.RulesVM.countStatus();
+        }
+        public override void revert() 
+        {
+            DesignRuleProp.Default();
+            LegacyIDDescProp.Default();
+            RuleNameProp.Default();
+            RuleDescProp.Default();
+            OwnerProp.Default();
+            RuleCheckDescProp.Default();
+            RuleRepairDescProp.Default();
+
+            saveProperties();
+
+            foreach (vmMeasurement measurement in RuleMeasurements)
+                measurement.revert();
+            foreach (vmParameter parameter in SpecificHarnessComponentParameters)
+                parameter.revert();
+            foreach (vmParameter parameter in MilestoneParameters)
+                parameter.revert();
+            foreach (vmParameter parameter in HarnessParameters)
+                parameter.revert();
+        }
+
+        public void saveProperties() 
+        {
+            DesignRule = DesignRuleProp.Saved;
+            LegacyIDDesc = LegacyIDDescProp.Saved;
+            RuleName = RuleNameProp.Saved;
+            RuleDesc = RuleDescProp.Saved;
+            Owner = OwnerProp.Saved;
+            RuleCheckDesc = RuleCheckDescProp.Saved;
+            RuleRepairDesc = RuleRepairDescProp.Saved;
+
+            EditBool = false;
+
+            checkStatus();
+        }
+        public void checkStatus()
+        {
+            if ((String.IsNullOrEmpty(RuleCheckDesc) || RuleCheckDesc.Trim() == String.Empty) && (String.IsNullOrEmpty(RuleRepairDesc) || RuleRepairDesc.Trim() == String.Empty))
+                ruleStatus = 2;
+            else if ((String.IsNullOrEmpty(RuleCheckDesc) || RuleCheckDesc.Trim() == String.Empty) || (String.IsNullOrEmpty(RuleRepairDesc) || RuleRepairDesc.Trim() == String.Empty))
+                ruleStatus = 1;
+            else
+                ruleStatus = 0;
+        }
         #endregion
     }
 }

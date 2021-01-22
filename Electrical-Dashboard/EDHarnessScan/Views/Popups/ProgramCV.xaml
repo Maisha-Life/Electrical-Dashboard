@@ -5,8 +5,94 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EDHarnessScan.Views.Popups"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+             MinHeight="450" MinWidth="450">
+    <Border BorderThickness="2" BorderBrush="{StaticResource DefaultBorder}" >
+        <Grid  Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition />
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <DockPanel LastChildFill="False">
+                <Image Source="/EDHarnessScan;component/Resources/Images/Main/program.png" Height="22" Margin="0,0,5,0"/>
+                <TextBlock Text="Create Program " VerticalAlignment="Center" FontSize="17" Margin="0,0,20,0" Foreground="Black" FontWeight="Thin"/>
+                <Button DockPanel.Dock="Right" Command="{Binding CancelCreateCommand}">
+                    <Image Source="/EDDLL;component/Resources/Images/close.png" />
+                </Button>
+            </DockPanel>
+
+            <StackPanel  Grid.Row="1">
+            <GroupBox Header="Required Information">
+                <StackPanel Margin="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Text="Owner"/>
+                            <ComboBox x:Name="assigneeCB" Text="{Binding Owner, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ContentPresenter Content="{Binding ElementName=assigneeCB, Path=(Validation.Errors).CurrentItem}" Height="13" />
+                            <TextBlock Text="Program Prefix"/>
+                                <TextBox x:Name="prefixTB" Text="{Binding ProgramPrefix, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                                <ContentPresenter Content="{Binding ElementName=Program, Path=(Validation.Errors).CurrentItem}" Height="13"/>
+                        </StackPanel>
+                            <StackPanel Grid.Column="1" Margin="5,0,0,0">
+                                <TextBlock Text="Program Name"/>
+                                <TextBox x:Name="toolCB" Text="{Binding ProgramDesc, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                                <ContentPresenter Content="{Binding ElementName=toolCB, Path=(Validation.Errors).CurrentItem}" Height="13"/>
+                                <TextBlock Text="Date Due"/>
+                            <DatePicker x:Name="dateDueDP" 
+                                        DisplayDateStart="2020-8-31"
+                                        SelectedDate="{Binding DateDue, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ContentPresenter Content="{Binding ElementName=dateDueDP, Path=(Validation.Errors).CurrentItem}" Height="13" />
+                        </StackPanel>
+                    </Grid>                   
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Grid.Row="1">
+                    <GroupBox.Header>
+                        <WrapPanel>
+                            <Image Source="/EDHarnessScan;component/Resources/Images/Main/harnessAdd.png" Width="15" Margin="0,0,5,0"/>
+                            <TextBlock Text="Harness Information" FontSize="13" FontWeight="Normal"/>
+                        </WrapPanel>
+                    </GroupBox.Header>
+                    <StackPanel Margin="0,0,0,15">
+                        <Grid Margin="10,4,4,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="85"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="75"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="60"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Prefix"/>
+                            <TextBlock Text="Harness Name"  Grid.Column="1"/>
+                            <TextBlock Text="Suffix" Grid.Column="2"/>
+                            <TextBlock Text="Owner" Grid.Column="3"/>
+                            <TextBlock Text="Options" Grid.Column="4"/>
+                        </Grid>
+                        <ItemsControl  DockPanel.Dock="Bottom" Margin="5"
+                                       ItemsSource="{Binding HarnessList}"
+                                       ItemTemplate="{StaticResource harnessCreatedItem}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                        <Button Command="{Binding AddHarnessCommand}">
+                            <TextBlock Text="- please add harnesses -" HorizontalAlignment="Center" FontWeight="Normal" Foreground="DarkGreen" Margin="0,15"/>
+                        </Button>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+            <DockPanel Grid.Row="2" LastChildFill="False" >
+                <Button Content="Cancel" Command="{Binding CancelProgramCreateCommand}" DockPanel.Dock="Right" Margin="5,0"/>
+                <Button Content="Create" Command="{Binding CreateProgramCommand}" DockPanel.Dock="Right" Margin="5,0"/>
+            </DockPanel>
+        </Grid>
+    </Border>
 </UserControl>

@@ -15,8 +15,8 @@
                 <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid" FillBehavior="Stop"/>
             </Storyboard>
         </DataTemplate.Resources>
-        <DockPanel x:Name="grid" Margin="1" Background="White" LastChildFill="False">
-            <Grid Height="auto" Margin="2" DockPanel.Dock="Top">
+        <DockPanel x:Name="grid" Background="White" LastChildFill="False">
+            <Grid Height="auto" Margin="0,2" DockPanel.Dock="Top">
                 <Grid.Resources>
                     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource customButtonWithContent}">
                         <Setter Property="Height" Value="32"/>
@@ -35,154 +35,65 @@
                     </Style>
                 </Grid.Resources>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="35"/>
+                    <ColumnDefinition Width="37"/>
                     <ColumnDefinition Width="125"/>
-                    <ColumnDefinition Width="75"/>
                     <ColumnDefinition Width="175"/>
                     <ColumnDefinition />
-                    <ColumnDefinition Width="120"/>
-                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition Width="160"/>
                     <ColumnDefinition Width="125"/>
                 </Grid.ColumnDefinitions>
 
                 <Image Height="25" >
                     <Image.Resources>
                         <Style TargetType="{x:Type Image}">
-                            <Setter Property="Source" Value="/Resources/Images/Rulez/goodStatus.png"/>
+                            <Setter Property="Source" Value="/EDDLL;component/Resources/Images/Status/goodStatus.png"/>
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding Id_Status}" Value="1">
-                                    <Setter Property="Source" Value="/Resources/Images/Rulez/warningStatus.png"/>
+                                <DataTrigger Binding="{Binding ruleStatus}" Value="1">
+                                    <Setter Property="Source" Value="/EDDLL;component/Resources/Images/Status/warningStatus.png"/>
                                 </DataTrigger>
-                                <DataTrigger Binding="{Binding Id_Status}" Value="2">
-                                    <Setter Property="Source" Value="/Resources/Images/Rulez/errorStatus.png"/>
+                                <DataTrigger Binding="{Binding ruleStatus}" Value="2">
+                                    <Setter Property="Source" Value="/EDDLL;component/Resources/Images/Status/errorStatus.png"/>
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>
                     </Image.Resources>
                 </Image>
                 <TextBlock Grid.Column="1" Text="{Binding DesignRuleProp.Saved}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>
-                <TextBlock Grid.Column="2" Text="{Binding LegacyIDDescProp.Saved}" FontSize="12" />
-                <TextBlock Grid.Column="3" Text="{Binding RuleNameProp.Saved}" />
-                <TextBlock Grid.Column="4" Text="{Binding RuleDescProp.Saved}" MaxHeight="55" TextTrimming="CharacterEllipsis">
-                    <TextBlock.ToolTip>
-                        <ToolTip MaxWidth="350" >
-                            <TextBlock TextWrapping="Wrap" Text="{Binding RuleDescProp.Saved}" Margin="5"/>
-                        </ToolTip>
-                    </TextBlock.ToolTip>
+                <TextBlock Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding RuleNameProp.Saved}" />               
+                <TextBlock Grid.Column="4">
+                    <TextBlock.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Text" Value="{Binding RuleCheckDescProp.Saved}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding RuleCheckDescProp.Saved}" Value="">
+                                    <Setter Property="Text" Value="- no check method defined -"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    <Setter Property="FontSize" Value="10"/>
+                                    <Setter Property="Foreground" Value="{StaticResource ErrorColor}"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Resources>
                 </TextBlock>
-
-                <StackPanel Grid.Column="5" VerticalAlignment="Center" Margin="10,3" >
-                    <WrapPanel Orientation="Horizontal" Margin="0,0,0,5">
-                        <WrapPanel.Resources>
-                            <Style TargetType="{x:Type Image}">
-                                <Setter Property="Height" Value="16"/>
-                                <Setter Property="Source" Value="/EDS;component/Resources/Images/Rulez/manualCheck.png"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding CheckTypeDescProp.Saved}" Value="Automated">
-                                        <Setter Property="Source" Value="/EDS;component/Resources/Images/Rulez/automaticCheck.png"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                            <Style TargetType="{x:Type WrapPanel}">
-                                <Setter Property="ToolTip" Value="Manual Check"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding CheckTypeDescProp.Saved}" Value="Automated">
-                                        <Setter Property="ToolTip" Value="Automatic Check"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </WrapPanel.Resources>
-                        <Image HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="18">
-                            <Image.Resources>
-                                <Style TargetType="{x:Type Image}">
-                                    <Setter Property="Height" Value="28"/>
-                                    <Setter Property="Source" Value="/EDS;component/Resources/Images/Rulez/goodStatus.png"/>
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding CheckBoolProp.Saved}" Value="False">
-                                            <Setter Property="Source" Value="/EDS;component/Resources/Images/Rulez/errorStatus.png"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Image.Resources>
-                        </Image>
-                        <Image VerticalAlignment="Center" Margin="5,0,0,0"/>
-                        <TextBlock Text="CHECK" FontWeight="Normal"/>
-                    </WrapPanel >
-                    <WrapPanel Margin="0,3,0,0">
-                        <WrapPanel.Resources>
-                            <Style TargetType="{x:Type Image}">
-                                <Setter Property="Height" Value="16"/>
-                                <Setter Property="Source" Value="/EDS;component/Resources/Images/Rulez/manualFix.png"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding RepairTypeDescProp.Saved}" Value="Automated">
-                                        <Setter Property="Source" Value="/EDS;component/Resources/Images/Rulez/automaticFix.png"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                            <Style TargetType="{x:Type WrapPanel}">
-                                <Setter Property="ToolTip" Value="Manual Repair"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding RepairTypeDescProp.Saved}" Value="Automated">
-                                        <Setter Property="ToolTip" Value="Automatic Repair"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </WrapPanel.Resources>
-                        <Image HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="18">
-                            <Image.Resources>
-                                <Style TargetType="{x:Type Image}">
-                                    <Setter Property="Source" Value="/EDS;component/Resources/Images/Rulez/goodStatus.png"/>
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding RepairBoolProp.Saved}" Value="False">
-                                            <Setter Property="Source" Value="/EDS;component/Resources/Images/Rulez/errorStatus.png"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Image.Resources>
-                        </Image>
-                        <Image VerticalAlignment="Center" Margin="5,0,0,0"/>
-                        <TextBlock Text="REPAIR" FontWeight="Normal"/>
-                    </WrapPanel>
-                </StackPanel>
-
-                <StackPanel Grid.Column="6" VerticalAlignment="Center" Margin="10,3">
-                    <WrapPanel Orientation="Horizontal" Margin="0,0,0,5">
-                        <Image HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="18">
-                            <Image.Resources>
-                                <Style TargetType="{x:Type Image}">
-                                    <Setter Property="Source" Value="/EDS;component/Resources/Images/Rulez/goodStatus.png"/>
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding ConstraintBoolProp.Saved}" Value="False">
-                                            <Setter Property="Source" Value="/EDS;component/Resources/Images/Rulez/errorStatus.png"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Image.Resources>
-                        </Image>
-                        <Image Source="/EDS;component/Resources/Images/Header/laws.png" Height="16" Margin="5,0,0,0"/>
-                        <TextBlock Text="CONSTRAINT" FontWeight="Normal"/>
-                    </WrapPanel >
-                    <Button Margin="-6,0,0,0" Style="{StaticResource customButtonWithContent}" Command="{Binding RaiseBaseQuestionCommand}" ToolTip="Mark for question">
-                        <WrapPanel >
-                            <Image HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="18">
-                                <Image.Resources>
-                                    <Style TargetType="{x:Type Image}">
-                                        <Setter Property="Height" Value="28"/>
-                                        <Setter Property="Source" Value="/EDS;component/Resources/Images/Rulez/errorStatus.png"/>
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding QuestionBool}" Value="false">
-                                                <Setter Property="Source" Value="/EDS;component/Resources/Images/Rulez/goodStatus.png"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Image.Resources>
-                            </Image>
-                            <Image Source="/EDS;component/Resources/Images/Header/decision.png" Height="16" Margin="5,0,0,0" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
-                            <TextBlock Text="QUESTIONS" FontWeight="Normal"/>
-                        </WrapPanel >
-                    </Button>
-                </StackPanel>
-
+                <TextBlock Grid.Column="5" >
+                    <TextBlock.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Text" Value="{Binding RuleRepairDescProp.Saved}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding RuleRepairDescProp.Saved}" Value="">
+                                    <Setter Property="Text" Value="- no repair method defined -"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    <Setter Property="FontSize" Value="10"/>
+                                    <Setter Property="Foreground" Value="{StaticResource ErrorColor}"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Resources>
+                </TextBlock>
+               
                 <WrapPanel Grid.Column="7" VerticalAlignment="Center" Margin="25,0">
                     <WrapPanel.Resources>
                         <Style TargetType="{x:Type Button}" BasedOn="{StaticResource customButtonWithContent}">
@@ -191,10 +102,10 @@
                         </Style>
                     </WrapPanel.Resources>
                     <Button Command="{Binding EditRuleCommand}" ToolTip="Edit Rule">
-                        <Image Source="/EDS;component/Resources/Images/Rulez/editRule.png" />
+                        <Image Source="/EDDLL;component/Resources/Images/edit.png" />
                     </Button>
                     <Button Command="{Binding RemoveRuleCommand}" ToolTip="Remove Rule">
-                        <Image Source="/EDS;component/Resources/Images/Rulez/removeRule.png" />
+                        <Image Source="/EDDLL;component/Resources/Images/remove.png" />
                     </Button>
                 </WrapPanel>
             </Grid>
@@ -213,5 +124,76 @@
                 <Setter Property="Background" Value="white" TargetName="grid"/>
             </Trigger>
         </DataTemplate.Triggers>
+    </DataTemplate>    
+
+    <DataTemplate x:Key="measurementItem" DataType="{x:Type ViewModels:vmMeasurement}">
+        <Grid Height="26" Margin="0,2">
+            <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="60"/>
+                </Grid.ColumnDefinitions>
+            <Grid VerticalAlignment="Center" Margin="3,0,0,0">
+                <TextBlock Text="{Binding MeasurementDescProp.Saved}" Style="{StaticResource savedTextBlock}"/>
+                <TextBox x:Name="constructDescTB" Text="{Binding MeasurementDesc, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource changedTextBox}"/>
+            </Grid>
+            <Grid VerticalAlignment="Center" Grid.Column="1">
+                <WrapPanel>
+                    <WrapPanel.Resources>
+                        <Style TargetType="{x:Type WrapPanel}">
+                            <Setter Property="Visibility" Value="Visible"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding EditBool}" Value="True">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </WrapPanel.Resources>
+                    <ToggleButton IsChecked="{Binding EditBool}" Style="{StaticResource customToggleButtonWithContent}" 
+                          VerticalAlignment="Center" DockPanel.Dock="Left" ToolTip="Edit Constraint">
+                        <Image Source="/EDDLL;component/Resources/Images/Circle/editCircle.png" Height="14"/>
+                    </ToggleButton>
+                    <Button Command="{Binding RemoveMeasurementCommand}" ToolTip="Remove Constraint">
+                        <Image Source="/EDDLL;component/Resources/Images/Circle/removeCircle.png" Height="14"/>
+                    </Button>
+                </WrapPanel>
+                <WrapPanel >
+                    <WrapPanel.Resources>
+                        <Style TargetType="{x:Type WrapPanel}">
+                            <Setter Property="Visibility" Value="Visible"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding EditBool}" Value="False">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </WrapPanel.Resources>
+                    <Button Command="{Binding CancelMeasurementCommand}" ToolTip="Cancel Constraint">
+                        <Image Source="/EDDLL;component/Resources/Images/Circle/cancelCircle.png" Height="15"/>
+                    </Button>
+                    <Button Command="{Binding SaveMeasurementCommand}" ToolTip="Save Constraint">
+                        <Image Source="/EDDLL;component/Resources/Images/Circle/saveCircle.png" Height="15"/>
+                    </Button>
+                </WrapPanel>
+            </Grid>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="harnessComponentTagSelect" DataType="{x:Type ViewModels:vmParameter}">
+        <DockPanel Height="15" LastChildFill="False">
+            <ToggleButton IsChecked="{Binding SelectedBool}" Style="{StaticResource completeToggleButton}" Height="10" Width="10"/>
+            <TextBlock Width="75" FontSize="10" Margin="4,0,0,0" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" Text="{Binding Description}"/>
+        </DockPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="milestoneTagSelect" DataType="{x:Type ViewModels:vmParameter}">
+        <DockPanel Height="15" LastChildFill="False">
+            <ToggleButton IsChecked="{Binding SelectedBool}" Style="{StaticResource completeToggleButton}" Height="10" Width="10"/>
+            <TextBlock Width="50" FontSize="10" Margin="4,0,0,0" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" Text="{Binding Description}"/>
+        </DockPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="harnessTagSelect" DataType="{x:Type ViewModels:vmParameter}">
+        <DockPanel Height="15" LastChildFill="False">
+            <ToggleButton IsChecked="{Binding SelectedBool}" Style="{StaticResource completeToggleButton}" Height="10" Width="10"/>
+            <TextBlock Width="150" FontSize="10" Margin="4,0,0,0" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" Text="{Binding Description}"/>
+        </DockPanel>
     </DataTemplate>
 </ResourceDictionary>

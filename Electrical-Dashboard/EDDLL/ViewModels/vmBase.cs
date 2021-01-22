@@ -37,10 +37,10 @@ namespace EDDLL.ViewModels
 
         #region Methods     
 
-        public virtual void Save() { }
-        public virtual void Cancel() { }
-        public virtual void Remove() { }
-        public virtual void Revert() { }
+        public virtual void save() { }
+        public virtual void cancel() { }
+        public virtual void remove() { }
+        public virtual void revert() { }
 
         #endregion
 

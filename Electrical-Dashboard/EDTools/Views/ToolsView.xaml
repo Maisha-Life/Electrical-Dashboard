@@ -21,16 +21,9 @@
                 <Image Source="/EDTools;component/Resources/Images/toolLarge.png" Height="32" Margin="0,0,5,0"/>
                 <TextBlock Text="Tools" VerticalAlignment="Center" FontSize="22" Margin="5,0,0,0"/>
             </DockPanel>
-            
+
             <customControls:SearchControl/>
 
-            <Button DockPanel.Dock="Right" Command="{Binding TicketCreateCommand}">
-                <WrapPanel>
-                    <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/createTicket.png" Height="32" Margin="0,0,5,0"/>
-                    <TextBlock Text="Create Ticket" VerticalAlignment="Center" FontSize="17" Margin="5,0" Foreground="Black" FontWeight="Thin"/>
-                </WrapPanel>
-            </Button>
-            
             <WrapPanel DockPanel.Dock="Right" VerticalAlignment="Center" Margin="25,0">
                 <Button Height="32" ToolTip="Show tools as list" Command="{Binding ListViewCommand}">
                     <Image Source="/EDTools;component/Resources/Images/listView.png" />

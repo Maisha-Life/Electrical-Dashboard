@@ -1,0 +1,263 @@
+﻿<UserControl x:Class="EDHarnessScan.Views.RulesInformationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EDHarnessScan.Views"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:customControls="clr-namespace:EDDLL.Views;assembly=EDDLL"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="1100">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <DockPanel Margin="1,5,5,5" LastChildFill="False" VerticalAlignment="Top">
+            <WrapPanel Margin="0,4,0,0">
+                <customControls:SearchControl/>
+
+                <Image Source="filter.png" Height="24" Margin="20,0,0,0" />
+                <TextBlock Text="Filter" VerticalAlignment="Center" FontSize="17" Margin="0,0,5,0" Foreground="Black" FontWeight="Thin"/>
+                <ComboBox Height="20" Width="150" IsReadOnly="True" IsEditable="True" IsEnabled="False"
+                          SelectedItem="{Binding selectedFilter, UpdateSourceTrigger=PropertyChanged}"
+                          ItemsSource="{Binding filtersList}" SelectedIndex="{Binding selectedFilterIndex, UpdateSourceTrigger=PropertyChanged}"/>
+            </WrapPanel>            
+        </DockPanel>
+            
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>
+            <!--<DockPanel Margin="5" LastChildFill="False">
+                <StackPanel DockPanel.Dock="Top">
+                <WrapPanel Margin="0,0,5,10">
+                    <Image Source="/Resources/Images/Rulez/law.png" Height="18" Margin="0,0,5,0"/>
+                    <TextBlock Text="Rules Selected Information" FontSize="16" FontWeight="Normal"/>
+                </WrapPanel>
+                    
+                <TextBlock FontWeight="Thin" FontSize="14" TextWrapping="Wrap" Margin="0,0,0,15">
+                                <Run Text="Select what"/>
+                                <Run Text="filters" FontWeight="Normal"/>
+                                <Run Text="to apply to the rules list and then select or unselect the rules that you would like to apply to the harness scan."/>
+                    </TextBlock>
+                    <DockPanel LastChildFill="False" >
+                        <Image Source="/Resources/Images/Rulez/errorStatus.png" Height="16" Margin="0,0,5,25"/>
+                        <TextBlock Text="If a rule is unselected and is required, an exception will have to be recieved in order to sign off on a scan" FontWeight="Thin" FontSize="9" TextWrapping="Wrap"/>
+                    </DockPanel>
+
+                    <WrapPanel>
+                        <Image Source="/EDS;component/Resources/Images/Header/filter.png" Height="24" />
+                        <TextBlock Text="Filters" VerticalAlignment="Center" FontSize="17" Margin="5,0,0,0" Foreground="Black" FontWeight="Thin"/>
+                    </WrapPanel>
+                    <StackPanel Margin="10,15">
+                        <RadioButton>
+                            <TextBlock Text="Requirement" FontSize="14" FontWeight="Thin" Margin="5,0"/>
+                        </RadioButton>
+                        <RadioButton Margin="0,15">
+                            <TextBlock Text="Rule" FontSize="14" FontWeight="Thin" Margin="5,0"/>
+                        </RadioButton>
+                        <RadioButton>
+                            <TextBlock Text="Consideration" FontSize="14" FontWeight="Thin" Margin="5,0"/>
+                        </RadioButton>
+                    </StackPanel>
+                    <WrapPanel>
+                        <Image Source="/EDS;component/Resources/Images/Header/sorting.png" Height="24" />
+                        <TextBlock Text="Sorting" VerticalAlignment="Center" FontSize="17" Margin="5,0,0,0" Foreground="Black" FontWeight="Thin"/>
+                    </WrapPanel>
+                    <StackPanel Margin="10,15">
+                        <StackPanel.Resources>
+                            <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource completeToggleButton}">
+                                <Setter Property="Width" Value="15"/>
+                                <Setter Property="Height" Value="15"/>
+                                <Setter Property="Margin" Value="0,0,10,0"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        <WrapPanel>
+                            <ToggleButton />
+                            <TextBlock Text="Design Rule" FontSize="14" FontWeight="Thin"/>
+                        </WrapPanel>
+                        <WrapPanel Margin="0,15">
+                            <ToggleButton />
+                            <TextBlock  Text="Type" FontSize="14" FontWeight="Thin"/>
+                        </WrapPanel>
+                        <WrapPanel >
+                            <ToggleButton />
+                            <TextBlock  Text="Check Type" FontSize="14" FontWeight="Thin"/>
+                        </WrapPanel>
+                        <WrapPanel Margin="0,15">
+                            <ToggleButton />
+                            <TextBlock  Text="Repair Type" FontSize="14" FontWeight="Thin"/>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <ToggleButton />
+                            <TextBlock Text="Harnesses" FontSize="14" FontWeight="Thin"/>
+                        </WrapPanel>
+                        <WrapPanel Margin="0,15">
+                            <ToggleButton />
+                            <TextBlock Text="Parameters" FontSize="14" FontWeight="Thin"/>
+                        </WrapPanel>
+                    </StackPanel>
+                </StackPanel>
+                <DockPanel LastChildFill="False" DockPanel.Dock="Right" >
+                    <Button Content="Cancel" Command="{Binding CancelProgramCommand}" ToolTip="Cancel Scan" DockPanel.Dock="Right" Margin="5,0" Opacity=".7" FontSize="14"/>
+                    <Button Content="Scan" Command="{Binding AddProgramCommand}" ToolTip="Run Scan" DockPanel.Dock="Right" Margin="5,0" FontSize="14" Foreground="{StaticResource ErrorColor}"/>
+                </DockPanel>
+            </DockPanel>
+
+            <Rectangle Grid.Column="1" Fill="{StaticResource DefaultBorder}" Margin="0,3" RadiusX="0"/>-->
+
+            <Grid Grid.Column="2" x:Name="rulesList">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.Resources>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter Property="FontWeight" Value="Thin"/>
+                            <Setter Property="Foreground" Value="{StaticResource DefaultBorder}"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="37"/>
+                        <ColumnDefinition Width="125"/>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="255"/>
+                        <ColumnDefinition Width="250"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="mood.png" Margin="3" ToolTip="Current State"/>
+                    <TextBlock Grid.Column="1" Text=" Design Rule"/>
+                    <TextBlock Grid.Column="2" Text=" Type"/>
+                    <TextBlock Grid.Column="3" Text=" Rule Name"/>
+                    <TextBlock Grid.Column="4" Text=" Description"/>
+                    <TextBlock Grid.Column="5" Text="Check"/>
+                    <TextBlock Grid.Column="6" Text="Repair"/>
+                </Grid>
+                <DockPanel Grid.Row="2">
+                    <Rectangle Margin="5,6,7,2" DockPanel.Dock="Top" Height="2" Fill="{StaticResource DefaultBorder}" RadiusX="0"/>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="5" 
+                                  Grid.Row="2" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+                        <ScrollViewer.Resources>
+                            <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">12</sys:Double>
+                            <Style TargetType="{x:Type ScrollBar}">
+                                <Setter Property="Template" Value="{StaticResource VerticalScrollBar}" />
+                            </Style>
+                        </ScrollViewer.Resources>
+                        <ItemsControl ItemsSource="{Binding HarnessRules}" ItemTemplate="{StaticResource harnessRuleItem}" AlternationCount="2"/>
+                    </ScrollViewer>
+                </DockPanel>
+            </Grid>
+        </Grid>
+        
+        <Grid Grid.RowSpan="2">
+            <Grid.Resources>
+                <Style TargetType="{x:Type Grid}">
+                    <Setter Property="Visibility" Value="Hidden"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding harnessScanSelectionReadyBool}" Value="false">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Resources>          
+            <Rectangle Opacity=".7" RadiusX="5" RadiusY="5" Margin="2,0,0,0">
+                <Rectangle.Resources>
+                    <Style TargetType="{x:Type Rectangle}">
+                        <Setter Property="Fill" Value="#FF8D8D8D"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding toolsScanCompleteTerniary}" Value="0">
+                                <Setter Property="Fill" Value="{StaticResource WarningColor}"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Rectangle.Resources>
+            </Rectangle>
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="450">
+                <Grid.Resources>
+                    <Style TargetType="{x:Type Grid}">
+                        <Setter Property="Visibility" Value="Visible"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding toolsScanCompleteTerniary}" Value="0">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource customButtonWithContent}"/>
+                </Grid.Resources>
+                <Rectangle Fill="White" Opacity=".8" Grid.RowSpan="2" />
+                <StackPanel Margin="15">
+                    <WrapPanel Margin="0,0,0,10">
+                        <Image Source="law.png" Height="25"/>
+                        <TextBlock Text=" Tool Scan Not Complete! " FontWeight="Normal"  FontSize="15" TextWrapping="Wrap"/>
+                    </WrapPanel>                    
+
+                    <TextBlock Text="Tool Scan required to be complete in order to start the harness scan. " 
+                                           FontWeight="Thin"  FontSize="15" TextWrapping="Wrap"/>
+                    
+                    <TextBlock FontWeight="Thin"  FontSize="14" TextWrapping="Wrap">
+                                    <LineBreak/>
+                                    <Run Text="· Run"/>
+                                <Run Text="SCAN" FontWeight="Normal"/>
+                                <Run Text="if the tools have been run inside the given harness, otherwise run the required tools."/>
+                                    <LineBreak/>
+                                    <Run Text="· Run"/>
+                                <Run Text="MANUAL" FontWeight="Normal"/>
+                                <Run Text="if the tools have been run and you would like to select the tools your self"/>
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Margin="25" Grid.RowSpan="2">
+                <Grid.Resources>
+                    <Style TargetType="{x:Type Grid}">
+                        <Setter Property="Visibility" Value="Hidden"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding toolsScanCompleteTerniary}" Value="0">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding harnessScanSelectionReadyBool}" Value="true">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource customButtonWithContent}"/>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Rectangle Fill="White" Opacity=".8" Grid.RowSpan="2" />
+                <StackPanel Margin="15">
+                    <TextBlock Text="Select what rules you would like to run on this harness. " 
+                                           FontWeight="Thin"  FontSize="15" TextWrapping="Wrap"/>
+                    <TextBlock FontWeight="Thin"  FontSize="14" TextWrapping="Wrap">
+                                    <LineBreak/>
+                                    <Run Text="· Select"/>
+                                <Run Text="all" FontWeight="Normal"/>
+                                <Run Text="if all rules need to be run on this harness"/>
+                                    <LineBreak/>
+                                    <Run Text="· Select"/>
+                                <Run Text="specific" FontWeight="Normal"/>
+                                <Run Text="rules if there are only a few needed"/>
+                                    <LineBreak/>
+                    </TextBlock>
+                </StackPanel>
+                <WrapPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,0,0,10">
+                    <Button ToolTip="continue..." Command="{Binding ContinueRuleSelectionCommand}">
+                        <WrapPanel>
+                            <Image Source="law.png" Height="25"/>
+                            <TextBlock Text="Continue" VerticalAlignment="Center" Margin="5,0" FontWeight="Thin" FontSize="15"/>
+                        </WrapPanel>
+                    </Button>
+                </WrapPanel>
+            </Grid>     
+    </Grid>
+</UserControl>

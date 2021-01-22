@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Xml.Linq;
 using System.Collections.ObjectModel;
+using System.Windows.Controls;
 
 namespace EDDLL.Tickets
 {
@@ -15,7 +16,11 @@ namespace EDDLL.Tickets
     {
         public readonly Ticket _ticket;
 
-        public vmTicket() { }
+        public vmTicket()
+        {
+            TypeSelectBool = false;
+            CategorySelectedBool = false;
+        }
         //type, if new (true) then all fields are available, if based off of a tool then (false) and some fields will be filled in by default
         public vmTicket(Ticket ticket)
         {
@@ -23,6 +28,26 @@ namespace EDDLL.Tickets
         }
 
         #region Data Binds
+
+        #region Model
+
+        private int _Id_Item;
+        public int Id_Item
+        {
+            get
+            {
+                if (_Id_Item == null)
+                    _Id_Item = _ticket.Id_Item;
+
+                return _Id_Item;
+            }
+            set
+            {
+                _Id_Item = value;
+                _ticket.Id_Item = _Id_Item;
+                this.RaisePropertyChangedEvent("Id_Item");
+            }
+        }
 
         private int _TicketNumber;
         public int TicketNumber
@@ -38,6 +63,24 @@ namespace EDDLL.Tickets
                 _TicketNumber = value;
                 _ticket.TicketNumber = _TicketNumber;
                 this.RaisePropertyChangedEvent("TicketNumber");
+            }
+        }
+
+        private string _TicketType;
+        public string TicketType
+        {
+            get
+            {
+                if (_TicketType == null)
+                    _TicketType = _ticket.TicketType;
+
+                return _TicketType;
+            }
+            set
+            {
+                _TicketType = value;
+                _ticket.TicketType = _TicketType;
+                this.RaisePropertyChangedEvent("TicketType");
             }
         }
 
@@ -74,39 +117,38 @@ namespace EDDLL.Tickets
             }
         }
 
-        private ThreeNOne _SubCategoryProp;
-        public ThreeNOne SubCategoryProp
+        private ThreeNOne _ItemProp;
+        public ThreeNOne ItemProp
         {
             get
             {
-                if (_SubCategoryProp == null)
-                    _SubCategoryProp = new ThreeNOne(_ticket.SubCategory);
+                if (_ItemProp == null)
+                    _ItemProp = new ThreeNOne(_ticket.Item);
 
-                return _SubCategoryProp;
+                return _ItemProp;
             }
             set
             {
-                if (_SubCategoryProp != value)
+                if (_ItemProp != value)
                 {
-                    _SubCategoryProp = value;
-                    _ticket.SubCategory = _SubCategoryProp.Changed;
-                    this.RaisePropertyChangedEvent("SubCategoryProp");
+                    _ItemProp = value;
+                    _ticket.Item = _ItemProp.Changed;
+                    this.RaisePropertyChangedEvent("ItemProp");
                 }
             }
         }
-        public string SubCategory
+        public string Item
         {
-            get { return SubCategoryProp.Changed; }
+            get { return ItemProp.Changed; }
             set
             {
-                if (this._SubCategoryProp.Changed != value)
-                    this._SubCategoryProp.Changed = value;
+                if (this._ItemProp.Changed != value)
+                    this._ItemProp.Changed = value;
 
-                _ticket.SubCategory = value;
-                this.RaisePropertyChangedEvent("SubCategory");
+                _ticket.Item = value;
+                this.RaisePropertyChangedEvent("Item");
             }
         }
-
 
         private ThreeNOne _CategoryProp;
         public ThreeNOne CategoryProp
@@ -273,6 +315,39 @@ namespace EDDLL.Tickets
             }
         }
 
+        private ThreeNOne _TitleProp;
+        public ThreeNOne TitleProp
+        {
+            get
+            {
+                if (_TitleProp == null)
+                    _TitleProp = new ThreeNOne(_ticket.Title);
+
+                return _TitleProp;
+            }
+            set
+            {
+                if (_TitleProp != value)
+                {
+                    _TitleProp = value;
+                    _ticket.Title = _TitleProp.Changed;
+                    this.RaisePropertyChangedEvent("TitleProp");
+                }
+            }
+        }
+        public string Title
+        {
+            get { return TitleProp.Changed; }
+            set
+            {
+                if (this._TitleProp.Changed != value)
+                    this._TitleProp.Changed = value;
+
+                _ticket.Title = value;
+                this.RaisePropertyChangedEvent("Title");
+            }
+        }
+
         private ThreeNOne _DescriptionProp;
         public ThreeNOne DescriptionProp
         {
@@ -339,6 +414,40 @@ namespace EDDLL.Tickets
             }
         }
 
+        #endregion
+
+        #region Views
+
+        private bool _TypeSelectBool;
+        public bool TypeSelectBool
+        {
+            get { return _TypeSelectBool; }
+            set
+            {
+                if (this._TypeSelectBool != value)
+                {
+                    this._TypeSelectBool = value;
+                    this.RaisePropertyChangedEvent("TypeSelectBool");
+                }
+            }
+        }
+
+        private bool _CategorySelectedBool;
+        public bool CategorySelectedBool
+        {
+            get { return _CategorySelectedBool; }
+            set
+            {
+                if (this._CategorySelectedBool != value)
+                {
+                    this._CategorySelectedBool = value;
+                    this.RaisePropertyChangedEvent("CategorySelectedBool");
+                }
+            }
+        }
+
+        #endregion
+
         private ObservableCollection<string> _TicketNotes;
         public ObservableCollection<string> TicketNotes
         {
@@ -381,17 +490,44 @@ namespace EDDLL.Tickets
         }
         public virtual void removeCommand() { }
 
+        public ICommand SelectTicketTypeCommand { get { return new RelayCommand<string>(selectTicketType); } }
+        private void selectTicketType(string ticketType)
+        {
+            TicketType = ticketType;
+
+            TypeSelectBool = true;
+        }
+
+        private RelayCommand _RevertTicketCommand;
+        public ICommand RevertTicketCommand
+        {
+            get
+            {
+                if (_RevertTicketCommand == null) _RevertTicketCommand = new RelayCommand(param => revertTicket(), param => { return (true); });
+
+                return _RevertTicketCommand;
+            }
+        }
+        private void revertTicket()
+        {
+            cancel();
+
+            Id_Item = -1;
+            TicketType = "";
+            
+            TypeSelectBool = false;
+            CategorySelectedBool = false;
+        }
+
         #endregion
 
         #region Methods
 
-        public virtual void save() { }
-        public void cancel() { }
-        public void remove() { }
-        public void revert() { }
-
-        private void saveProperties() { }
-
+        public virtual void saveProperties() { }
+        public void cancel() 
+        {
+                
+        }
         #endregion
     }
 }

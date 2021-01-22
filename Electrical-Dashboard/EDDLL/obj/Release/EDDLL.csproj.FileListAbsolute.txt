@@ -15,7 +15,6 @@ C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDD
 C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\EDDLL.csprojAssemblyReference.cache
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\bin\Release\EDDLL.dll
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\bin\Release\EDDLL.pdb
-C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\EDDLL.csprojAssemblyReference.cache
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\Resources\Styles\AutoScrollListBoxDictionary.baml
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\Views\_CustomControls\SearchControl.g.cs
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDDLL\obj\Release\GeneratedInternalTypeHelper.g.cs

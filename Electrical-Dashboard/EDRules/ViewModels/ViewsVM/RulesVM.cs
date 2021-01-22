@@ -1,6 +1,7 @@
 ﻿using EDDLL.Tickets;
 using EDDLL.Utilities;
 using EDDLL.ViewModels;
+using EDRules.Data;
 using EDRules.Utilities;
 using EDRules.ViewModels.ModelsVM;
 using System;
@@ -10,15 +11,26 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace EDRules.ViewModels
 {
     public class RulesVM : BaseVM
     {
+        public SQL sqlAccess;
+
         public RulesVM() 
         {
-            EDDLL.Data.SQL.Grab grab = new EDDLL.Data.SQL.Grab();
+            sqlAccess = new SQL();
+
+            sqlAccess.grabRulesInfo();
+
+            _RuleList = sqlAccess.rulesList;
+
+            countStatus();
+
+            initializeRulesCollection();
         }
 
         #region Data Binds
@@ -110,6 +122,43 @@ namespace EDRules.ViewModels
         public readonly ObservableCollection<vmRule> _RuleList = new ObservableCollection<vmRule>();
         public ICollectionView RuleList { get; set; }
 
+        private string _SearchString = "";
+        public string SearchString
+        {
+            get { return _SearchString; }
+            set
+            {
+                if (this._SearchString != value)
+                {
+                    this._SearchString = value;
+                    RuleList.Refresh();
+                    this.RaisePropertyChangedEvent("SearchString");
+                }
+            }
+        }
+
+        #endregion
+
+        #region Search
+
+        public void initializeRulesCollection()
+        {
+            RuleList = CollectionViewSource.GetDefaultView(_RuleList);
+            RuleList.Filter = new Predicate<object>(SearchFilter);
+            RuleList.SortDescriptions.Add(new SortDescription("DesignRule", ListSortDirection.Ascending));
+        }
+        public bool SearchFilter(object o)
+        {
+            vmRule item = o as vmRule;
+
+            string itemString = item.DesignRule;
+
+            if (itemString != null && itemString.IndexOf(_SearchString, StringComparison.OrdinalIgnoreCase) >= 0)
+                return true;
+
+            return false;
+        }
+
         #endregion
 
         #region Commands
@@ -126,29 +175,41 @@ namespace EDRules.ViewModels
         }
         private void createRule()
         {
+
             vmRule rule = new vmRule(Models.Rule.CreateRule(), _RuleList);
+
+            App.RulesVM.sqlAccess.populateRuleParameters(rule);
 
             PopupHelper.TabIndex(2, rule);
             PopupHelper.SetVisibility(true);
         }
 
+        #endregion
 
-        private RelayCommand _CreateRuleTicketCommand;
-        public ICommand CreateRuleTicketCommand
+        #region Methods
+
+        public void countStatus()
         {
-            get
+            TotalRuleCount = 0;
+
+            TotalGoodCount = 0;
+            TotalWarningCount = 0;
+            TotalErrorCount = 0;
+
+            TotalQuestionCount = 0;
+            TotalAnswerCount = 0;
+
+            foreach (vmRule ruleBase in _RuleList)
             {
-                if (_CreateRuleTicketCommand == null) _CreateRuleTicketCommand = new RelayCommand(param => createRuleTicket(), param => { return (true); });
+                if (ruleBase.ruleStatus == 0)
+                    TotalGoodCount++;
+                else if (ruleBase.ruleStatus == 1)
+                    TotalWarningCount++;
+                else if (ruleBase.ruleStatus == 2)
+                    TotalErrorCount++;
 
-                return _CreateRuleTicketCommand;
+                TotalRuleCount++;
             }
-        }
-        private void createRuleTicket()
-        {
-            vmEDRulesTicket ticket = new vmEDRulesTicket(Ticket.createTicket("", "", Environment.UserName, DateTime.Today, DateTime.Today));
-
-            PopupHelper.TabIndex(0, ticket);
-            PopupHelper.SetVisibility(true);
         }
 
         #endregion

@@ -36,9 +36,9 @@ C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\b
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\bin\Release\EDTools.pdb
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\bin\Release\EDDLL.dll
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\bin\Release\EDDLL.pdb
-C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Release\EDTools.csprojAssemblyReference.cache
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Release\Views\MainView.g.cs
-C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Release\Views\Popups\ToolTicket.g.cs
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Release\Views\Popups\ToolTicketEV.g.cs
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Release\Views\Popups\ToolTicketCV.g.cs
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Release\Views\PopupView.g.cs
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Release\Views\SubViews\ToolStatsControl.g.cs
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Release\Views\SubViews\Tools_GridView.g.cs
@@ -51,7 +51,8 @@ C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\o
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Release\App.baml
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Release\Resources\Styles\ToolsCustomResources.baml
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Release\Views\MainView.baml
-C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Release\Views\Popups\ToolTicket.baml
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Release\Views\Popups\ToolTicketEV.baml
+C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Release\Views\Popups\ToolTicketCV.baml
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Release\Views\PopupView.baml
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Release\Views\SubViews\ToolStatsControl.baml
 C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDTools\obj\Release\Views\SubViews\Tools_GridView.baml

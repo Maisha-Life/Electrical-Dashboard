@@ -7,11 +7,13 @@
              xmlns:ToolsViews="clr-namespace:EDTools.Views;assembly=EDTools"
              xmlns:RuleViews="clr-namespace:EDRules.Views;assembly=EDRules"
              xmlns:HarnessViews="clr-namespace:EDHarnessScan.Views;assembly=EDHarnessScan"
+             xmlns:HarnessViewModel="clr-namespace:EDHarnessScan.ViewModels;assembly=EDHarnessScan"
                           
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ElectricalDashboard.Views"
              mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance HarnessViewModel:MainVM, IsDesignTimeCreatable=True}"
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <BitmapImage x:Key="homeIcon" UriSource="/Resources\Images\TabIcons\homeIcon.png"/>
@@ -47,14 +49,72 @@
             <TabItem Header="Rules" Tag="{StaticResource rulesIcon}">
                 <RuleViews:MainView/>
             </TabItem>
-            <TabItem Header="Harness Scan" Tag="{StaticResource harnessScanIcon}">
-                <HarnessViews:HarnessScanView/>
-            </TabItem>
-            <TabItem Header="Harness Repository" Tag="{StaticResource harnessRepositoryIcon}">
-                <HarnessViews:HarnessSelectView/>
-            </TabItem>
-            <TabItem Header="Reports" Tag="{StaticResource reportsIcon}">
-                <HarnessViews:GenerateReportView/>
+            <TabItem Header="Harnesses" Tag="{StaticResource harnessScanIcon}">
+                <TabItem.Resources>
+                    <Style TargetType="{x:Type TabItem}">
+                        <Setter Property="FocusVisualStyle" Value="{StaticResource TabItemFocusVisual}"/>
+                        <Setter Property="Foreground" Value="Black"/>
+                        <Setter Property="Padding" Value="6,1,6,1"/>
+                        <Setter Property="BorderBrush" Value="{StaticResource TabControlNormalBorderBrush}"/>
+                        <Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type TabItem}">
+                                    <StackPanel x:Name="mainStack">
+                                        <DockPanel x:Name="grid" HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="150" Background="{StaticResource DefaultBorder}">
+                                            <Image x:Name="image" Margin="5" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" Source="{Binding Tag, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Grid.Row="1" Text="{TemplateBinding Header}" FontSize="12" FontWeight="Thin"/>
+                                        </DockPanel>
+                                        <StackPanel x:Name="contentGrid" Visibility="Collapsed" >
+                                            <StackPanel.Resources>
+                                                <Style TargetType="Button" BasedOn="{StaticResource customButtonWithContent}">
+                                                    <Setter Property="Margin" Value="-2"/>
+                                                    <d:Style.Datacontext>
+                                                        <x:Type Type="Button"/>
+                                                    </d:Style.Datacontext>
+                                                </Style>
+                                            </StackPanel.Resources>
+                                            <Button Command="{Binding SelectTabIndex}" CommandParameter="0" >
+                                                <DockPanel HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="150" Background="Gray">
+                                                    <Image Margin="20,0,5,0" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/ElectricalDashboard;component/Resources/Images/TabIcons/harnessRepositoryIcon.png"/>
+                                                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Text="Harnesses" FontSize="12" FontWeight="Thin"/>
+                                                </DockPanel>
+                                            </Button>
+                                            <Button Command="{Binding SelectTabIndex}" CommandParameter="1">
+                                                <DockPanel HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="150" Background="Gray">
+                                                    <Image Margin="20,0,5,0" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/ElectricalDashboard;component/Resources/Images/TabIcons/harnessScanIcon.png"/>
+                                                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Text="Scans" FontSize="12" FontWeight="Thin"/>
+                                                </DockPanel>
+                                            </Button>
+                                            <Button Command="{Binding SelectTabIndex}" CommandParameter="2">
+                                                <DockPanel HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="150" Background="Gray">
+                                                    <Image Margin="20,0,5,0" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/ElectricalDashboard;component/Resources/Images/TabIcons/reportsIcon.png"/>
+                                                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Text="Reports" FontSize="12" FontWeight="Thin"/>
+                                                </DockPanel>
+                                            </Button>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" TargetName="grid" Value="Gray"/>
+                                        </Trigger>
+                                        <Trigger Property="Selector.IsSelected" Value="True">
+                                            <Setter Property="Opacity" Value=".7"/>
+                                            <Setter Property="Background" TargetName="grid" Value="{StaticResource DefaultBackground}"/>
+                                            <Setter Property="Margin" TargetName="image" Value="4,4,6,6"/>
+                                            <Setter Property="Visibility" TargetName="contentGrid" Value="Visible"/>
+                                            <Setter Property="Background" TargetName="contentGrid" Value="White"/>
+                                        </Trigger>
+                                        <Trigger Property="TabStripPlacement" Value="Left"/>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TabItem.Resources>
+                <HarnessViews:HarnessMainView/>
             </TabItem>
             <TabItem Header="Tickets" Tag="{StaticResource ticketsIcon}">
                 <ElectricalDashboardViews:TicketsView/>

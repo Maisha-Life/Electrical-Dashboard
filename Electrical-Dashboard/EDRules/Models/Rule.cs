@@ -9,7 +9,6 @@ namespace EDRules.Models
 {
     public class Rule : BaseModel
     {
-
         public static Rule CreateRule() => new Rule()
         {
             Id_Rule = -1,

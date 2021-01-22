@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:EDRules"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source="/EDDLL;component/Resources/Styles/MVVMCustomResources.xaml"/>
+        <ResourceDictionary Source="/EDRules;component/Resources/Styles/RulesCustomResources.xaml"/>
+        <ResourceDictionary Source="/EDDLL;component/Resources/Styles/AutoScrollListBoxDictionary.xaml"/>
     </Application.Resources>
 </Application>

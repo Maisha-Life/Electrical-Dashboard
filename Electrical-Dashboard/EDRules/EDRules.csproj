@@ -60,11 +60,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Data\SQL.cs" />
+    <Compile Include="Models\CPSC.cs" />
+    <Compile Include="Models\Component.cs" />
     <Compile Include="Utilities\PopupHelper.cs" />
-    <Compile Include="ViewModels\ModelsVM\vmEDRulesTicket.cs" />
     <Compile Include="ViewModels\ModelsVM\vmMeasurement.cs" />
     <Compile Include="ViewModels\ModelsVM\vmParameter.cs" />
     <Compile Include="ViewModels\ModelsVM\vmRule.cs" />
+    <Compile Include="ViewModels\ModelsVM\vmRuleCPSC.cs" />
+    <Compile Include="ViewModels\ModelsVM\vmRuleComponent.cs" />
+    <Compile Include="ViewModels\ModelsVM\vmRuleMilestone.cs" />
     <Compile Include="ViewModels\ViewsVM\PopupVM.cs" />
     <Compile Include="ViewModels\ViewsVM\RulesVM.cs" />
     <Compile Include="Views\MainView.xaml.cs">
@@ -75,12 +79,6 @@
     </Compile>
     <Compile Include="Views\Modules\AutomationInfoView.xaml.cs">
       <DependentUpon>AutomationInfoView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Popups\RuleTicketCV.xaml.cs">
-      <DependentUpon>RuleTicketCV.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Popups\RuleTicketEV.xaml.cs">
-      <DependentUpon>RuleTicketEV.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PopupView.xaml.cs">
       <DependentUpon>PopupView.xaml</DependentUpon>
@@ -103,7 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Measurement.cs" />
-    <Compile Include="Models\Parameter.cs" />
+    <Compile Include="Models\Milestone.cs" />
     <Compile Include="Models\Rule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -150,14 +148,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Modules\AutomationInfoView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Popups\RuleTicketCV.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Popups\RuleTicketEV.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

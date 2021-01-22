@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="EDHarnessScan.Views.HarnessScanView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EDHarnessScan.Views"
+             
+             xmlns:customControls="clr-namespace:EDDLL.Views;assembly=EDDLL"
+             
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <DockPanel LastChildFill="False" Margin="5" VerticalAlignment="Top" >
+            <DockPanel VerticalAlignment="Center" >
+                <Image Source="/EDHarnessScan;component/Resources/Images/harnessScanLarge.png" Height="32" Margin="0,0,5,0"/>
+                <TextBlock Text="Harness Scan" VerticalAlignment="Center" FontSize="22" Margin="5,0,0,0"/>
+            </DockPanel>
+        </DockPanel>
+
+        <Grid Grid.Row="1" Margin="15,50">            
+            <StackPanel Grid.Column="2" Margin="15,0">
+                <WrapPanel>
+                    <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/ticketAssigned.png" Height="28" Margin="0,0,5,0"/>
+                    <TextBlock Text="Assigned Harnesses" FontSize="20" FontWeight="Thin"/>
+                </WrapPanel>
+                <Grid Margin="10,25,10,0">
+                    <ItemsControl ItemsSource="{Binding HarnessesList}" ItemTemplate="{StaticResource harnessItem}">
+
+                    </ItemsControl>
+                    <TextBlock HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no harnesses(s) assigned, once you have harnesses(s) assigned they will appear here -">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding HarnessesList.Count}" Value="0">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+                <WrapPanel Margin="0,25,0,0">
+                    <Image Source="/ElectricalDashboard;component/Resources/Images/TicketIcons/ticketCreated.png" Height="28" Margin="0,0,5,0"/>
+                    <TextBlock Text="Scan Harness (local)" FontSize="20" FontWeight="Thin"/>
+                    <!--<TextBlock Text="- Please select a harness, this will only make it local to your machine and not publish it to the server -" FontStyle="Italic" VerticalAlignment="Center" FontSize="16" FontWeight="Thin" Margin="25,0"/>-->
+                </WrapPanel>
+                <Grid Margin="0,0,0,25">
+                    <ItemsControl ItemsSource="{Binding TicketsCreated}">
+
+                    </ItemsControl>
+                    <TextBlock Margin="10,25,10,0" HorizontalAlignment="Center" FontSize="12" Foreground="{StaticResource WarningColor}" Text="- no ticket(s) created, once you have created a ticket(s) it will appear here -">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TicketsCreated.Count}" Value="0">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>               
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>
+
