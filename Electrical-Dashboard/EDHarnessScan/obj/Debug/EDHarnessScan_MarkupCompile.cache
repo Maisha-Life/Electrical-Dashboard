@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\
+C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\obj\Debug\
 EDHarnessScan
 none
 false
 DEBUG;TRACE
-C:\Users\HP\Documents\GitHub\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\App.xaml
+C:\Users\jmill592\Documents\Github\Electrical-Dashboard\Electrical-Dashboard\EDHarnessScan\App.xaml
 221425394157
 
-401278224854
-151655855423
+41435865487
+15177039737
 Resources\Styles\HarnessScanCustomResources.xaml;HarnessMainView.xaml;Views\MainView.xaml;Views\Tabs\GenerateReportView.xaml;Views\Tabs\HarnessScanView.xaml;Views\HarnessScanViews\HarnessInformationView.xaml;Views\HarnessScanViews\HarnessScanViewBehind.xaml;Views\HarnessScanViews\RulesInformationView.xaml;Views\HarnessScanViews\ToolsScanInformationView.xaml;Views\Tabs\HarnessSelectView.xaml;Views\Popups\HarnessCV.xaml;Views\Popups\HarnessEV.xaml;Views\Popups\HarnessRuleFix.xaml;Views\Popups\HarnessRulesFix.xaml;Views\Popups\ProgramCV.xaml;Views\Popups\ProgramEV.xaml;Views\PopupView.xaml;Views\SubViews\HarnessScan\HarnessInformationView.xaml;Views\SubViews\HarnessScan\RulesSelectedView.xaml;Views\SubViews\HarnessScan\ToolsScannedInformationView.xaml;Views\SubViews\HarnessSelect\HarnessOV.xaml;Views\SubViews\HarnessSelect\ProgramOV.xaml;
 
-False
+True
 
